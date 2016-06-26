@@ -4,7 +4,7 @@
 ![home]
 
 ## Navbar Dropdown
-![Navbar Dropdown]
+![navbar-dropdown]
 
 ## New User
 ![new-user]
