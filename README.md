@@ -11,11 +11,11 @@ Genius is a web application inspired by Genius that will be built using Ruby on 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
 - [ ] A production README, replacing this README
-- [ ] Tracks with lyrics
+- [ ] Songs with Lyrics
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Annotations on lyrics
+- [ ] Annotations on Lyrics
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
@@ -23,7 +23,7 @@ Genius is a web application inspired by Genius that will be built using Ruby on 
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Upvotes on comments
+- [ ] Upvotes on Annotations and Comments
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
