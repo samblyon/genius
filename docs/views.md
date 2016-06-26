@@ -31,4 +31,4 @@
 [header-logged-in]: ./wireframes/header_logged_in.png
 [songs-index]: ./wireframes/songs_index.png
 [song]: ./wireframes/song.png
-[song-annotation]: ./wireframes/notebook_form.png
+[song-annotation]: ./wireframes/song_annotation_mode.png
