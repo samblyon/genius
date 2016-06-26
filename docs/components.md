@@ -7,26 +7,45 @@ associated routes, so the nesting of your bolded components must
 _**exactly**_ match the nesting of your routes.)
 
 * **App**
-  * NotebooksIndex
-    * Search
-    * NotebookIndexItem
-    * NotebookForm
-  * **NotesIndex**
-    * NoteForm
-    * NoteIndexItem
-    * **NoteDetail**
-      * NoteTags
-      * NoteEditArea
-
+  * Header
+    * HeaderSearch
+    * HeaderAuth
+  * Navbar
+  * **SignUp**
+  * **SignIn**
+  * **Home**
+    * About
+    * SongDisplay
+      * SongDisplayItem
+  * **SongsIndexScroll**
+    * SongsIndexItem
+  * **Song**
+    * SongSplash
+    * LyricsDisplay
+      * Lyrics
+      * CommentIndexScroll
+        * CommentForm
+        * CommentIndexItem
+    * **SongInfo**
+      * SongInfoStats
+      * SongAbout
+        * SongAboutCommentsIndex
+        * SongInfoCredits
+        * AlbumSongIndex
+    * **Annotation**
+      * AnnotationAttribution
+      * AnnotationContent
+      * AnnotationUpvoteForm
+      * CommentIndexScroll
+        * CommentForm
+        * CommentIndexItem
+  * Footer
 
 ## Routes
 
 * **component:** `App` **path:** `/`
-  * **component:** `NotesIndex` **path:** index
-  * **component:** `NotesIndex` **path:** `notebooks/:notebookId`
-    * **component:** `NoteDetail` **path:** `notes/:noteId`
-  * **component:** `NotesIndex` **path:** none
-    * **component:** `NoteDetail` **path:** `notes/:noteId`
-
-For Routes that have no `notebookId`, `NotesIndex` will render all
-notes.
+  * **component:** `Home` **path:** index
+  * **component:** `SongsIndexScroll` **path:** `songs`
+  * **component:** `Song` **path:** `songs/:songId`
+    * **component:** `SongInfo` **path:** index
+    * **component:** `Annotation` **path:** `:annotationId`
