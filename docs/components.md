@@ -10,6 +10,7 @@ _**exactly**_ match the nesting of your routes.)
   * Header
     * HeaderSearch
     * HeaderAuth
+    * HeaderUserProfile
   * Navbar
   * **SignUp**
   * **SignIn**
