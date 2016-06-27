@@ -2,10 +2,6 @@
 
 **Bolded** components are associated with routes.
 
-(:exclamation: Remember, the bolded components are created by their
-associated routes, so the nesting of your bolded components must
-_**exactly**_ match the nesting of your routes.)
-
 * **App**
   * Header
     * HeaderSearch
@@ -20,12 +16,14 @@ _**exactly**_ match the nesting of your routes.)
       * SongDisplayItem
   * **SongsIndexScroll**
     * SongsIndexItem
+  * **SongForm**
   * **Song**
     * SongSplash
     * LyricsDisplay
       * Lyrics
       * CommentIndexScroll
         * CommentForm
+        * CommentEditForm
         * CommentIndexItem
     * **SongInfo**
       * SongInfoStats
@@ -39,6 +37,7 @@ _**exactly**_ match the nesting of your routes.)
       * AnnotationUpvoteForm
       * CommentIndexScroll
         * CommentForm
+        * CommentEditForm
         * CommentIndexItem
   * Footer
 
@@ -47,6 +46,7 @@ _**exactly**_ match the nesting of your routes.)
 * **component:** `App` **path:** `/`
   * **component:** `Home` **path:** index
   * **component:** `SongsIndexScroll` **path:** `songs`
+  * **component:** `SongForm` **path:** `songs/new`
   * **component:** `Song` **path:** `songs/:songId`
     * **component:** `SongInfo` **path:** index
     * **component:** `Annotation` **path:** `:annotationId`
