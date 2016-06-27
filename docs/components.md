@@ -25,6 +25,7 @@
         * CommentForm
         * CommentEditForm
         * CommentIndexItem
+          * CommentUpvoteForm
     * **SongInfo**
       * SongInfoStats
       * SongAbout
@@ -39,6 +40,7 @@
         * CommentForm
         * CommentEditForm
         * CommentIndexItem
+          * CommentUpvoteForm
   * Footer
 
 ## Routes

@@ -87,6 +87,12 @@ store listeners are listed at the end.
   0. `receiveAnnotation` is set as the callback.
 
 
+* `toggleAnnotationUpvote`
+  0. invoked from `AnnotationUpvoteForm` button `onClick`
+  0. `PATCH api/annotations/:id/upvote` is called.
+  0. `receiveAnnotation` is set as the callback.
+  
+
 * `destroyAnnotation(id)`
   0. invoked from `AnnotationEditForm` `onSubmit`
   0. `DELETE /api/annotations/:id` is called.
@@ -113,6 +119,18 @@ store listeners are listed at the end.
 * `createComment`
   0. invoked from `CommentForm` `onSubmit`
   0. `POST /api/comments` is called.
+  0. `receiveComment` is set as the callback.
+
+
+* `updateComment`
+  0. invoked from `CommentForm` `onSubmit`
+  0. `PATCH /api/comments/:id` is called.
+  0. `receiveComment` is set as the callback.
+
+
+* `toggleCommentUpvote`
+  0. invoked from `CommentUpvoteForm` vote button `onClick`
+  0. `PATCH /api/comments/:id/upVote` is called.
   0. `receiveComment` is set as the callback.
 
 
