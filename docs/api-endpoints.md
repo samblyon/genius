@@ -8,10 +8,12 @@
 
 ### Users
 
+- `GET /users/new`
 - `POST /users`
 
 ### Session
 
+- `GET /session/new`
 - `POST /session`
 - `DELETE /session`
 

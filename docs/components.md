@@ -4,7 +4,6 @@
 
 * **App**
   * Header
-    * HeaderSearch
     * HeaderAuth
     * HeaderUserProfile
   * Navbar
@@ -14,14 +13,14 @@
     * About
     * SongDisplay
       * SongDisplayItem
-  * **SongsIndexScroll**
+  * **SongsIndex**
     * SongsIndexItem
   * **SongForm**
   * **Song**
     * SongSplash
     * LyricsDisplay
       * Lyrics
-      * CommentIndexScroll
+      * CommentIndex
         * CommentForm
         * CommentEditForm
         * CommentIndexItem
@@ -29,14 +28,12 @@
     * **SongInfo**
       * SongInfoStats
       * SongAbout
-        * SongAboutCommentsIndex
-        * SongInfoCredits
-        * AlbumSongIndex
+    * AnnotationSuggestion
     * **Annotation**
       * AnnotationAttribution
       * AnnotationContent
       * AnnotationUpvoteForm
-      * CommentIndexScroll
+      * CommentIndex
         * CommentForm
         * CommentEditForm
         * CommentIndexItem

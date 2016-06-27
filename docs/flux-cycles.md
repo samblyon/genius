@@ -15,22 +15,10 @@ store listeners are listed at the end.
   0. `receiveSongs` is set as the callback.
 
 
-* `fetchNextTopSongs`
-  0. invoked from `SongsDisplay` `onScroll`
-  0. `GET /api/songs` is called with query params.
-  0. `receiveNextSongs` is set as the callback.
-
-
 * `fetchAlphabeticalSongs`
   0. invoked from `SongsIndexScroll` `didMount`
   0. `GET /api/songs` is called.
   0. `receiveSongs` is set as the callback.
-
-
-* `fetchNextAlphabeticalSongs`
-  0. invoked from `SongsIndexScroll` `onScroll`
-  0. `GET /api/songs` is called.
-  0. `receiveNextSongs` is set as the callback.
 
 
 * `fetchSingleSong(id)`
@@ -53,12 +41,8 @@ store listeners are listed at the end.
 
 * `receiveSingleSong(song)`
   0. invoked from an API callback.
-  0. `Song` store replaces `_songs[id]` and emits change.
+  0. `Song` store updates `_songs[id]` and emits change.
 
-
-* `receiveNextSongs(songs)`
-  0. invoked from an API callback.
-  0. `Song` store appends received songs to `_songs` and emits change.
 
 ### Song Store Listeners
 * `SongsDisplay` listens to the `Song` Store
@@ -91,7 +75,7 @@ store listeners are listed at the end.
   0. invoked from `AnnotationUpvoteForm` button `onClick`
   0. `PATCH api/annotations/:id/upvote` is called.
   0. `receiveAnnotation` is set as the callback.
-  
+
 
 * `destroyAnnotation(id)`
   0. invoked from `AnnotationEditForm` `onSubmit`

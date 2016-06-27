@@ -1,8 +1,7 @@
-# Phase 4: Start Styling
+# Phase 7: Styling II
 
-* Style Guide
-* reset.css
-* application.scss 
+* annotations.scss
+* comments.scss
 
 ## Rails
 ### Models

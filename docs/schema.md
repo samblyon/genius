@@ -5,21 +5,15 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 artist      | string    | not null
-title       | string    | not null
+title       | string    | not null, indexed
 lyrics      | text      | not null
-primary_genre | integer | not null, foreign key (references genres), indexed
-youtube_url    | string   |
-soundcloud_url | string   |
-featuring      | string   |
-produced_by    | string   |
-written_by     | string   |
-release_date   | date     |
-
-## genres
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-genre       | string    | not null
+primary_genre  | string | not null
+youtube_url    | string |
+soundcloud_url | string |
+featuring      | string |
+produced_by    | string |
+written_by     | string |
+release_date   | date   |
 
 
 ## annotations
