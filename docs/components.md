@@ -2,31 +2,50 @@
 
 **Bolded** components are associated with routes.
 
-(:exclamation: Remember, the bolded components are created by their
-associated routes, so the nesting of your bolded components must
-_**exactly**_ match the nesting of your routes.)
-
 * **App**
-  * NotebooksIndex
-    * Search
-    * NotebookIndexItem
-    * NotebookForm
-  * **NotesIndex**
-    * NoteForm
-    * NoteIndexItem
-    * **NoteDetail**
-      * NoteTags
-      * NoteEditArea
-
+  * Header
+    * HeaderAuth
+    * HeaderUserProfile
+  * Navbar
+  * **SignUp**
+  * **SignIn**
+  * **Home**
+    * About
+    * SongDisplay
+      * SongDisplayItem
+  * **SongsIndex**
+    * SongsIndexItem
+  * **SongForm**
+  * **Song**
+    * SongSplash
+    * LyricsDisplay
+      * Lyrics
+      * CommentIndex
+        * CommentForm
+        * CommentEditForm
+        * CommentIndexItem
+          * CommentUpvoteForm
+    * **SongInfo**
+      * SongInfoStats
+      * SongAbout
+    * AnnotationSuggestion
+    * **Annotation**
+      * AnnotationAttribution
+      * AnnotationContent
+      * AnnotationUpvoteForm
+      * CommentIndex
+        * CommentForm
+        * CommentEditForm
+        * CommentIndexItem
+          * CommentUpvoteForm
+  * Footer
 
 ## Routes
 
 * **component:** `App` **path:** `/`
-  * **component:** `NotesIndex` **path:** index
-  * **component:** `NotesIndex` **path:** `notebooks/:notebookId`
-    * **component:** `NoteDetail` **path:** `notes/:noteId`
-  * **component:** `NotesIndex` **path:** none
-    * **component:** `NoteDetail` **path:** `notes/:noteId`
-
-For Routes that have no `notebookId`, `NotesIndex` will render all
-notes.
+  * **component:** `Home` **path:** index
+  * **component:** `SongsIndexScroll` **path:** `songs`
+  * **component:** `SongForm` **path:** `songs/new`
+  * **component:** `Song` **path:** `songs/:songId`
+    * **component:** `SongInfo` **path:** index
+    * **component:** `Annotation` **path:** `:annotationId`

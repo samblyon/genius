@@ -6,48 +6,54 @@
 
 - `GET /` - loads React web app
 
+## JSON API
+
 ### Users
 
-- `GET /users/new`
 - `POST /users`
-- `PATCH /users`
 
 ### Session
 
-- `GET /session/new`
+- `GET /session`
 - `POST /session`
 - `DELETE /session`
 
-## JSON API
+### Songs
 
-### Notes
+- `GET /api/songs`
+  - Songs home/index/search
+  - accepts `top` query param to list top songs by upvotes
+  - accepts `genre` query param to list songs in genre (bonus)
+  - accepts pagination params (bonus)
+- `POST /api/songs`
+- `GET /api/songs/:id`
 
-- `GET /api/notes`
-  - Notes index/search
-  - accepts `tag_name` query param to list notes by tag
-  - accepts pagination params (if I get there)
-- `POST /api/notes`
-- `GET /api/notes/:id`
-- `PATCH /api/notes/:id`
-- `DELETE /api/notes/:id`
+### Annotations
 
-### Notebooks
+-  A song's annotations will be included in the song show template
+- `POST /api/annotations`
+  - includes query param for song
+  - returns annotations ordered by upvotes descending
+- `GET /api/annotations/:id`
+  - returns annotation with all associated comments
+  - comments will be ordered by upvoted descending
+- `PATCH /api/annotations/:id`
+- `DELETE /api/annotations/:id`
+  - destroys associated comments
 
-- `GET /api/notebooks`
-- `POST /api/notebooks`
-- `GET /api/notebooks/:id`
-- `PATCH /api/notebooks/:id`
-- `DELETE /api/notebooks/:id`
-- `GET /api/notebooks/:id/notes`
-  - index of all notes for a notebook
-  - accepts pagination params (if I get there)
 
-### Tags
+### Comments
 
-- A note's tags will be included in the note show template
-- `GET /api/tags`
-  - includes query param for typeahead suggestions
-- `POST /api/notes/:note_id/tags`: add tag to note by name
-  - if note doesn't already exist, it will be created
-- `DELETE /api/notes/:note_id/tags/:tag_name`: remove tag from note by
-  name
+- A song's comments will be included in the song show template
+- An annotation's comments will be included in the annotation show template
+- `POST /api/comments`
+  - includes param indicating commentable type and id
+- `DELETE /api/comments/:id`
+
+### Upvotes
+
+- Upvotes for songs, annotations and comments will be included in their respective show pages
+- Upvotes will be treated as singular resources nested within each of the commentable types (song, annotation, comment)
+- `PATCH /api/songs/:id/upvote`
+- `PATCH /api/annotations/:id/upvote`
+- `PATCH /api/comments/:id/upvote`

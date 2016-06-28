@@ -1,46 +1,48 @@
 # Schema Information
 
-## notes
+## songs
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-title       | string    | not null
+artist      | string    | not null
+title       | string    | not null, indexed
+lyrics      | text      | not null
+youtube_url    | string |
+soundcloud_url | string |
+featuring      | string |
+produced_by    | string |
+written_by     | string |
+release_date   | date   |
+
+
+## annotations
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+author_id   | integer   | not null, foreign key (references users), indexed
 body        | text      | not null
-author_id   | integer   | not null, foreign key (references users), indexed
-notebook_id | integer   | not null, foreign key (references notebooks), indexed
-archived    | boolean   | not null, default: false
+start_index | string    | not null, indexed
+end_index   | string    | not null, indexed
 
-## notebooks
+
+## comments
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users), indexed
-title       | string    | not null
-description | string    | 
+commentable_id    | integer  | not null, indexed
+commentable_type  | string   | not null, indexed
 
-## reminders
+
+## upvotes
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed
-note_id     | string    | not null, foreign key (references notes), indexed
-date        | datetime  | not null
-type        | string    | not null
-prev_id     | integer   | foreign key (references reminders), indexed
+vote        | integer   | not null
+upvotable_id| integer   | not null, indexed
+upvotable_type| string   | not null, indexed
 
-## tags
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-name        | string    | not null
-
-## taggings
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-name        | string    | not null
-note_id     | integer   | not null, foreign key (references notes), indexed, unique [tag_id]
-tag_id      | integer   | not null, foreign key (references tags), indexed
 
 ## users
 column name     | data type | details

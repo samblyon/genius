@@ -1,22 +1,56 @@
 # View Wireframes
 
+## Home
+![home]
+
+## Navbar Dropdown
+![navbar-dropdown]
+
 ## New User
 ![new-user]
 
 ## New Session
 ![new-session]
 
-## NotesIndex / NoteIndexItem / NoteForm
-![notes]
+## Header Logged In
+![header-logged-in]
 
-## NotebooksIndex / NotebookIndexItem
-![notebooks]
+## New Song
+![new-song]
 
-## NotebookForm
-![notebook-form]
+## Song Index
+![songs-index]
 
+## Song
+![song]
+
+## Song Annotation
+Suggestion
+
+![song-annotation-suggest]
+
+Creation
+
+![song-annotation-new]
+
+Viewing
+
+![song-annotation]
+
+Editing
+
+![song-annotation-edit]
+
+[home]: ./wireframes/home_logged_out.png
+[navbar-dropdown]: ./wireframes/navbar_dropdown.png
 [new-user]: ./wireframes/new_user.png
 [new-session]: ./wireframes/new_session.png
-[notes]: ./wireframes/root_notes.png
-[notebooks]: ./wireframes/root_notebooks.png
-[notebook-form]: ./wireframes/notebook_form.png
+[header-logged-in]: ./wireframes/header_logged_in.png
+[songs-index]: ./wireframes/songs_index.png
+[new-song]: ./wireframes/new_song.png
+
+[song]: ./wireframes/song.png
+[song-annotation-suggest]: ./wireframes/song_annotation_suggest.png
+[song-annotation-new]: ./wireframes/song_annotation_new.png
+[song-annotation]: ./wireframes/song_annotation_mode.png
+[song-annotation-edit]: ./wireframes/song_annotation_edit.png
