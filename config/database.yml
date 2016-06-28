@@ -78,8 +78,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: genius_production
-  username: genius
-  password: <%= ENV['GENIUS_DATABASE_PASSWORD'] %>
+# production:
+#   <<: *default
+#   database: genius_production
+#   username: genius
+#   password: <%= ENV['GENIUS_DATABASE_PASSWORD'] %>

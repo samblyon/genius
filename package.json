@@ -1,0 +1,38 @@
+{
+  "name": "genius",
+  "version": "1.0.0",
+  "description": "[Heroku link][heroku] **Note:** This should be a link to your production site",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "engines": {
+    "node": "6.2.1",
+    "npm": "3.9.3"
+  },
+  "scripts": {
+    "heroku-postbuild": "webpack --config webpack.config.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samblyon/genius.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samblyon/genius/issues"
+  },
+  "homepage": "https://github.com/samblyon/genius#readme",
+  "dependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "flux": "^2.1.1",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-router": "^2.5.1",
+    "webpack": "^1.13.1"
+  }
+}

@@ -11,6 +11,9 @@
 /log/*
 !/log/.keep
 /tmp
-/node_modules
 .DS_Store
 *.bmpr
+
+# Ignore node modules and bundled js
+/node_modules
+bundle.js

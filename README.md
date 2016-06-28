@@ -1,8 +1,8 @@
 # Genius
 
-[Heroku link][heroku] **Note:** This should be a link to your production site
+[Production link][production]
 
-[heroku]: ADD ME AT THE END OF THE FIRST DAY
+[production]: so-genius.com 
 
 ## Minimum Viable Product
 
