@@ -6,26 +6,25 @@
 
 - `GET /` - loads React web app
 
+## JSON API
+
 ### Users
 
-- `GET /users/new`
 - `POST /users`
 
 ### Session
 
-- `GET /session/new`
+- `GET /session`
 - `POST /session`
 - `DELETE /session`
-
-## JSON API
 
 ### Songs
 
 - `GET /api/songs`
   - Songs home/index/search
   - accepts `top` query param to list top songs by upvotes
-  - accepts `genre` query param to list songs for requested genre
-  - accepts pagination params (if I get there)
+  - accepts `genre` query param to list songs in genre (bonus)
+  - accepts pagination params (bonus)
 - `POST /api/songs`
 - `GET /api/songs/:id`
 

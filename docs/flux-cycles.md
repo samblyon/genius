@@ -5,6 +5,66 @@ be sub-categories, and each action is listed with the sequence of events
 that result from its invocation, ending with the API or store. Finally,
 store listeners are listed at the end.
 
+## Auth Cycles
+
+### Users API Request Actions
+
+* `signUp`
+  0. invoked from `SignupForm` `onSubmit`
+  0. `POST api/users` is called.
+  0. `receiveCurrentUser` is set as the success callback.
+  0. `ErrorActions.setErrors` is set as the error callback.
+
+### Sessions API Request Actions
+
+* `login`
+  0. invoked from `LoginForm` `onSubmit`
+  0. `POST api/session` is called.
+  0. `receiveCurrentUser` is set as the success callback.
+  0. `ErrorActions.setErrors` is set as the error callback.
+
+
+* `logout`
+  0. invoked from `Header` logout button `onClick`
+  0. `POST api/session` is called.
+  0. `receiveCurrentUser` is set as the success callback.
+  0. `onError` is set as the error callback.
+
+
+### Sessions API Response Actions
+* `receiveCurrentUser`
+  0. invoked from API callbacks and ReactDOM initial render
+  0. `Session` store replaces `_currentUser` and emits change.
+
+
+* `onError`
+  0. invoked from an API callback passed to `logout` only
+  0. Error logged to the console.
+
+
+### Session Store Listeners
+* `LoginForm` listens to `Session` store.
+* `SignupForm` listens to `Session` store.
+
+
+## Error Cycles
+
+### Errors API Response Actions
+
+* `setErrors`
+  0. invoked from an API callback
+  0. `Errors` store updates `_errors` and `_form` and emits change.
+
+
+* `clearErrors`
+  0. invoked from an API callback
+  0. `Errors` store resets `_errors` and `_form` and emits change.
+
+### Error Store Listeners
+* `LoginForm` listens to the `Error` store.
+* `SignupForm` listens to the `Error` store.
+* `SongForm` listens to the `Error` store.
+
 ## Song Cycles
 
 ### Songs API Request Actions

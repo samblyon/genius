@@ -7,7 +7,6 @@ id          | integer   | not null, primary key
 artist      | string    | not null
 title       | string    | not null, indexed
 lyrics      | text      | not null
-primary_genre  | string | not null
 youtube_url    | string |
 soundcloud_url | string |
 featuring      | string |
@@ -40,6 +39,7 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed
+vote        | integer   | not null
 upvotable_id| integer   | not null, indexed
 upvotable_type| string   | not null, indexed
 
