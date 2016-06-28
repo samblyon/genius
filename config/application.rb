@@ -31,5 +31,10 @@ module Genius
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Devise accept JSON
+    config.to_prepare do
+      DeviseController.respond_to :html, :json
+    end
   end
 end
