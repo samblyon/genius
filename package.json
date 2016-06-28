@@ -11,7 +11,7 @@
     "npm": "3.9.3"
   },
   "scripts": {
-    "heroku-postbuild": "webpack --config webpack.config.prod.js"
+    "postinstall": "./node_modules/.bin/webpack"
   },
   "repository": {
     "type": "git",
