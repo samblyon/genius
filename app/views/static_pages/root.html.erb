@@ -1,1 +1,18 @@
 <h1>Hi there!</h1>
+
+<!-- bootstrap current user-->
+<% if api_user_signed_in? %>
+  <script type="text/javascript">
+    window.currentUser =
+      <%=
+        render(
+          "api/users/user.json.jbuilder",
+          user: current_api_user
+        ).html_safe
+      %>
+  </script>
+<% end %>
+
+
+<!-- react hook-on div -->
+<div id="content" class="group"/>
