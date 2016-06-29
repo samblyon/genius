@@ -22,7 +22,7 @@ h3 {
 }
 
 .blog-post-image {
-  background-image: url(/assets/article1);
+  background-image: image-url("article1");
   background-size: cover;
   width: 100%;
   height: 300px;
@@ -103,11 +103,11 @@ h3 {
   font-family: 'DIN Pro Condensed Regular';
   font-style: normal;
   font-weight: normal;
-  src: local("DIN Pro Condensed Regular"), url("/assets/din-pro-cond/DINPro-Cond.woff") format("woff");
+  src: local("DIN Pro Condensed Regular"), font-url("/assets/din-pro-cond/DINPro-Cond.woff") format("woff");
 }
 @font-face {
   font-family: 'DIN Pro Condensed Bold';
   font-style: normal;
   font-weight: normal;
-  src: local("DIN Pro Condensed Bold"), url("/assets/din-pro-cond/DINPro-CondBold.woff") format("woff");
+  src: local("DIN Pro Condensed Bold"), font-url("/assets/din-pro-cond/DINPro-CondBold.woff") format("woff");
 }
