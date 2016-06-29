@@ -6,7 +6,7 @@
   * pale blue: #99a7ee, #7d8fe8
   * bright link blue: #5ba7c2
   * green: #0ecb27
-  * default text on dark background: #aaa, #ccc, #9a9a9a, #bbb
+  * default text on dark background: #aaa, #ccc, #9a9a9a, #bbb, #EDE8E9
   * text on dark background hover: #EDE8E9
   * text: #000
   * nav dropdown background: #000

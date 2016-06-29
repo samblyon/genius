@@ -33,7 +33,12 @@ const SongsIndex = React.createClass({
 
     return (
       <div className="song-index">
-        <div className="index-title"><h3>Everything in so-genius</h3></div>
+        <div className="index-title">
+          <h3>
+            Everything in <span className="bright">so-genius</span>
+          </h3>
+
+        </div>
         {items}
       </div>
     );

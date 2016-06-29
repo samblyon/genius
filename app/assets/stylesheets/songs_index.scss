@@ -1,10 +1,16 @@
 .index-title {
   margin-bottom: 10px;
+  letter-spacing: 0.06em;
+}
+
+.bright {
+  color: #EDE8E9;
 }
 
 .song-index {
   background: #000;
   padding: 20px 30px 20px 30px;
+  letter-spacing: 0.03em;
 }
 
 .songs-index-item {
@@ -33,7 +39,7 @@
 
 .songs-index-item:hover {
   border-left: 3px solid #ffff64;
-  padding-left: 7px;
+  padding-left: 9px;
   border-bottom: 0;
   cursor: pointer;
   color: #EDE8E9;
