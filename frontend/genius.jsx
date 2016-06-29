@@ -7,15 +7,17 @@ const Route = ReactRouter.Route;
 const IndexRoute = ReactRouter.IndexRoute;
 const hashHistory = ReactRouter.hashHistory;
 
-const Header = require('./components/header');
-const LoginForm = require('./components/login_form');
-const SignupForm = require('./components/signup_form');
+const Header = require('./components/header/header');
+const LoginForm = require('./components/auth/login_form');
+const SignupForm = require('./components/auth/signup_form');
 const SessionActions = require('./actions/session_actions');
 const SessionStore = require('./stores/session_store');
-const SongActions = window.SongActions = require('./actions/song_actions');
-const SongStore = window.SongStore = require('./stores/song_store');
+const SongActions = require('./actions/song_actions');
+const SongStore = require('./stores/song_store');
+const SongDisplay = require('./components/song/song_display');
+const SongsIndex = require('./components/song/songs_index');
+const Song = require('./components/song/song');
 
-// const SongsDisplay = require('./components/songs_display');
 
 const App = React.createClass({
   render() {
@@ -31,8 +33,11 @@ const App = React.createClass({
 const AppRouter = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
+      <IndexRoute component={SongDisplay} />
       <Route path="/login" component={LoginForm} />
       <Route path="/signup" component={SignupForm} />
+      <Route path="/songs" component={SongsIndex} />
+      <Route path="/songs/:songId" component={Song} />
     </Route>
   </Router>
 );

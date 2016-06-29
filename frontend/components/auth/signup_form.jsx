@@ -1,8 +1,8 @@
 const React = require('react');
-const SessionActions = require('../actions/session_actions');
-const ErrorActions = require('../actions/error_actions');
-const SessionStore = require('../stores/session_store');
-const ErrorStore = require('../stores/error_store');
+const SessionActions = require('../../actions/session_actions');
+const ErrorActions = require('../../actions/error_actions');
+const SessionStore = require('../../stores/session_store');
+const ErrorStore = require('../../stores/error_store');
 const hashHistory = require('react-router').hashHistory;
 
 const SignupForm = React.createClass({
