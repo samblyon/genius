@@ -1,19 +1,40 @@
-$charcoal: #222;
-$yellow: #ffff64;
-$bright-blue: #5ba7c2;
-$pale-blue: #99a7ee;
-$bright-green: #0ecb27;
+.index-title {
+  margin-bottom: 10px;
+}
 
 .song-index {
   background: #000;
+  padding: 20px 30px 20px 30px;
 }
 
 .songs-index-item {
-  color: #aaa;
+  color: #9a9a9a;
   padding: 3px;
-  border-top: 1px solid white;
+  border-top: 1px solid #1E1E1E;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  -webkit-transition: .15s all;
+  transition: .15s all;
+}
+
+.songs-index-item .song-title {
+  font-family: 'Assistant', sans-serif;
+  font-weight: 400;
+  font-size: 1.15em;
+  color: #EDE8E9;
+}
+
+.songs-index-item .song-artist {
+  font-family: 'Assistant', sans-serif;
+  font-weight: 400;
+  font-size: 1.1em;
+  margin-top: 3px;
 }
 
 .songs-index-item:hover {
-  border-left: 1px solid $bright-green;
+  border-left: 3px solid #ffff64;
+  padding-left: 7px;
+  border-bottom: 0;
+  cursor: pointer;
+  color: #EDE8E9;
 }

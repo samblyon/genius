@@ -11,8 +11,8 @@ const SongsIndexItem = React.createClass({
       <li onClick={this.goToSong}
           id={this.props.song.id}
           className="songs-index-item">
-        {this.props.song.title}
-        {this.props.song.artist}
+        <div className="song-title">{this.props.song.title}</div>
+        <div className="song-artist">{this.props.song.artist}</div>
       </li>
     );
   }
