@@ -1,10 +1,12 @@
-$brandYellow: #ffff64;
 
 header {
-  background: $brandYellow;
+  background: #ffff64;
+  display: flex;
+  justify-content:space-between;
 }
 
-.logo {
+
+section.logo {
   margin: 0 auto;
   width: 135px;
   background-size: contain;
@@ -12,7 +14,14 @@ header {
   z-index: 1;
 }
 
-
 .nav {
-  float: right;
+  display: flex;
+}
+
+.nav li {
+  padding: 10px;
+}
+
+.nav a:hover {
+  background: white;
 }

@@ -4,16 +4,16 @@ const Link = require('react-router').Link;
 const HeaderAuth = React.createClass({
   render(){
     return(
-      <ul className="nav">
+      <ul className="auth-nav">
         <Link to="/signup">
           <li className="auth">
-            Sign Up
+            SIGN UP
           </li>
         </Link>
 
         <Link to="/login">
           <li className="auth">
-            Login
+            SIGN IN
           </li>
         </Link>
       </ul>

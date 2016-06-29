@@ -3,7 +3,7 @@ const React = require('react');
 const HeaderUserProfile = React.createClass({
   render(){
     return(
-      <ul className="nav">
+      <ul className="auth-nav">
         <button onClick={this.props.handleLogout} className="auth">
           Log Out
         </button>

@@ -10,7 +10,8 @@ h3, a, p, button, input {
 
   background: transparent;
   color: inherit;
-  font-family: inherit;
+  font-family: sans-serif;
+  text-decoration: none;
 }
 
 .clearfix::after {
