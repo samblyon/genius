@@ -2,13 +2,13 @@
 
 [Production link][production]
 
-[production]: https://so-genius.com 
+[production]: https://so-genius.com
 
 ## Minimum Viable Product
 
 Genius is a web application inspired by Genius that will be built using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
 
-- [ ] Hosting on Heroku
+- [x] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
 - [ ] A production README, replacing this README
 - [ ] Songs with Lyrics
@@ -48,51 +48,58 @@ one feature at a time. Refer back to your MVP and group the features into logica
 
 **Objective:** Functioning rails project with Authentication
 
-- [ ] create new project
-- [ ] host on Heroku
-- [ ] create `User` model
-- [ ] authentication
-- [ ] user signup/signin pages
-- [ ] blank landing page after signin
+- [x] create new project
+- [x] host on Heroku
+- [x] create `User` model
+- [x] authentication
+- [x] user signup/signin pages
+- [x] blank landing page after signin
 
 ### Phase 2: Songs Model, API, and basic APIUtil (.5 day, W1 Tu 6pm)
 
 **Objective:** Songs can be created and read through the API.
 
-- [ ] create `Song` model
-- [ ] seed the database with a small amount of test data
-- [ ] CR API for songs (`SongsController`)
-- [ ] jBuilder views for songs
-- [ ] setup Webpack & Flux scaffold
-- [ ] setup `APIUtil` to interact with the API
-- [ ] test out API interaction in the console.
+- [x] create `Song` model
+- [x] seed the database with a small amount of test data
+- [x] CR API for songs (`SongsController`)
+- [x] jBuilder views for songs
+- [x] setup Webpack & Flux scaffold
+- [x] setup `APIUtil` to interact with the API
+- [x] test out API interaction in the console.
 
 ### Phase 3: Flux Architecture and Router (1.5 day, W1 Th 6pm)
 
 **Objective:** Songs and their lyrics can be browsed with the user interface.
 
-- [ ] setup the flux loop with skeleton files
-- [ ] setup React Router
+- [x] setup the flux loop with skeleton files
+- [x] setup React Router
 - implement each song component, building out the flux loop as needed.
-  - [ ] `SongDisplay`
-  - [ ] `SongDisplayItem`
-  - [ ] `SongsIndex`
-  - [ ] `SongsIndexItem`
-  - [ ] `SongForm`
-  - [ ] `Song`
-  - [ ] `LyricsDisplay`
-  - [ ] `Lyrics`
-  - [ ] `SongInfo`
-  - [ ] `SongInfoStats`
-  - [ ] `SongAbout`
+  - [x] `SongDisplay`
+  - [x] `SongDisplayItem`
+  - [x] `SongsIndex`
+  - [x] `SongsIndexItem`
+  - [x] `SongForm`
+  - [x] `Song`
+  - [x] `LyricsDisplay`
+  - [x] `Lyrics`
+  - [x] `SongInfo`
+  - [x] `SongInfoStats`
+  - [x] `SongAbout`
 
-### Phase 4: Start Styling (0.5 days, W2 F 12pm)
+### Phase 4: Start Styling (0.5 days, W1 F 12pm)
 
 **Objective:** Existing pages (including signup/signin) will look good.
 
-- [ ] create a basic style guide
+- [x] create a basic style guide
 - [ ] position elements on the page
+  - [x] Home page (Songs Display)
+  - [ ] Songs Index
+  - [ ] Song
+
 - [ ] add basic colors & styles
+  - [x] Home page (Songs Display)
+  - [ ] Songs Index
+  - [ ] Song
 
 ### Phase 5: Annotations (2 days, W2 Tu 12pm)
 
