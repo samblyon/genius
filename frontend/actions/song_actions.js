@@ -22,9 +22,11 @@ module.exports = {
     );
   },
 
-  createSong(song) {
+  createSong(song, formName) {
     SongApiUtil.createSong(
-      song, this.receiveSong, ErrorActions.onError
+      song,
+      this.receiveSong,
+      ErrorActions.setSongErrors.bind(null, formName)
     );
   },
 

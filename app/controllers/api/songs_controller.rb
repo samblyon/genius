@@ -32,7 +32,8 @@ class Api::SongsController < ApplicationController
       :featuring,
       :produced_by,
       :written_by,
-      :release_date
+      :release_date,
+      :about
     )
   end
 end

@@ -10,6 +10,14 @@ module.exports = {
     });
   },
 
+  setSongErrors(formName, errors){
+    AppDispatcher.dispatch({
+      actionType: ErrorConstants.SET_ERRORS,
+      errors: errors.responseJSON,
+      formName: formName
+    });
+  },
+
   setLoginErrors(formName, error){
     AppDispatcher.dispatch({
       actionType: ErrorConstants.SET_ERRORS,

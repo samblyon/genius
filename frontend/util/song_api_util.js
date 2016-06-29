@@ -8,7 +8,7 @@ module.exports =  {
       success(res){
         onSuccess(res);
       },
-      errors(res){
+      error(res){
         onError(res);
       }
     });
@@ -20,7 +20,7 @@ module.exports =  {
       success(res){
         onSuccess(res);
       },
-      errors(res){
+      error(res){
         onError(res);
       }
     });
@@ -32,7 +32,7 @@ module.exports =  {
       success(res){
         onSuccess(res);
       },
-      errors(res){
+      error(res){
         onError(res);
       }
     });
@@ -47,7 +47,7 @@ module.exports =  {
       success(res){
         onSuccess(res);
       },
-      errors(res){
+      error(res){
         onError(res);
       }
     });

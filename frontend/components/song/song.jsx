@@ -1,6 +1,10 @@
 const React = require('react');
 const SongStore = require('../../stores/song_store');
 const SongActions = require('../../actions/song_actions');
+const SongSplash = require('./song_splash');
+const SongInfo = require('./song_info');
+const LyricsDisplay = require('./lyrics_display');
+
 
 const Song = React.createClass({
   getInitialState: function() {
@@ -29,9 +33,12 @@ const Song = React.createClass({
   },
 
   render () {
+    const song = this.state.song;
     return (
       <div className="song">
-        Hi from {this.state.song.title}!
+        <SongSplash song={song} />
+        <LyricsDisplay song={song} />
+        <SongInfo song={song} />
       </div>
     );
   }

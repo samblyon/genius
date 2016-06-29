@@ -17,6 +17,7 @@ const SongStore = require('./stores/song_store');
 const SongDisplay = require('./components/song/song_display');
 const SongsIndex = require('./components/song/songs_index');
 const Song = require('./components/song/song');
+const SongForm = require('./components/song/song_form');
 
 
 const App = React.createClass({
@@ -38,6 +39,7 @@ const AppRouter = (
       <Route path="/signup" component={SignupForm} />
       <Route path="/songs" component={SongsIndex} />
       <Route path="/songs/:songId" component={Song} />
+      <Route path="/song/new" component={SongForm} />
     </Route>
   </Router>
 );

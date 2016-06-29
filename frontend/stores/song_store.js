@@ -3,6 +3,7 @@ const AppDispatcher = require('../dispatcher/dispatcher');
 const SongConstants = require('../constants/song_constants');
 
 let _songs = {};
+let _latestAddedSong = {};
 
 const SongStore = new Store(AppDispatcher);
 
@@ -14,6 +15,7 @@ SongStore.__onDispatch = function (payload) {
       break;
     case SongConstants.SONG_RECEIVED:
       _songs[payload.song.id] = payload.song;
+      _latestAddedSong = payload.song;
       this.__emitChange();
       break;
   }
@@ -27,6 +29,10 @@ SongStore.all = function () {
   return Object.keys(_songs).map(id => {
     return _songs[id];
   });
+};
+
+SongStore.latestAdded = function (){
+  return _latestAddedSong;
 };
 
 function _resetSongs(songs){
