@@ -1,4 +1,5 @@
 const React = require('react');
+const Link = require('react-router').Link;
 const hashHistory = require('react-router').hashHistory;
 const SessionStore = require('../../stores/session_store');
 const SessionActions = require('../../actions/session_actions');
@@ -40,12 +41,16 @@ const Header = React.createClass({
     }
 
     return(
-      <header className="header clearfix">
-        <section className="logo-container" onClick={this.goHome}>
-          <a className="logo-link">"GENIUS"</a>
-        </section>
-        {authOrProfile}
-      </header>
+      <div className="header">
+        <header className="header-top">
+          <div className="search-placeholder">Search</div>
+          <div className="logo-container" onClick={this.goHome} />
+          {authOrProfile}
+        </header>
+        <nav className="header-nav">
+          <Link to="/song/new" className="nav-link">ADD SONG</Link>
+        </nav>
+      </div>
     );
   }
 });

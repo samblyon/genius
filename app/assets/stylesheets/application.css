@@ -14,4 +14,6 @@
  *= require_self
  *= require reset.css
  *= require header.scss
+ *= require songs.scss
+ *= require songs_display.scss
  */

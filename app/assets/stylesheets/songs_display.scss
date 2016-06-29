@@ -1,0 +1,113 @@
+
+.song-display-page {
+  background: #000;
+  display: flex;
+}
+
+
+h3 {
+  font-family: 'Assistant', sans-serif;
+  font-weight: 400;
+  font-size: .875em;
+  color: #aaa;
+  text-transform: uppercase;
+  align-self: flex-start;
+}
+
+.blog {
+  width: 49%;
+  margin-left: 10px;
+  margin-right: 15px;
+  padding: 0px, 10px;
+}
+
+.blog-post-image {
+  background-image: url(/assets/article1);
+  background-size: cover;
+  width: 100%;
+  height: 300px;
+}
+
+
+.blog-post {
+  margin-top: 10px;
+  padding-bottom: 10px;
+  color: #aaa;
+}
+
+.blog-post .post-title {
+  font-family: 'DIN Pro Condensed Regular', sans-serif;
+  font-size: 2em;
+  padding: 10px, 0, 0, 0;
+}
+
+.post-content {
+  font-size: 13px;
+  padding-top: 10px;
+}
+
+
+.song-displays {
+  width: 49%;
+}
+
+
+.song-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+
+.song-display-item:nth-child(-n+1) {
+  width: 98%;
+}
+
+
+.song-display-item:nth-last-of-type(-n+1) {
+  width: 98%;
+}
+
+
+.song-display-item {
+  box-sizing: border-box;
+  border: 0.5px solid #1E1E1E;
+  width: 48%;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  height: 125px;
+  padding: 10px;
+  color: #aaa;
+  background-image: linear-gradient(rgba(40, 40, 40, 0.6), rgba(40, 40, 40, 0.6)), url("https://i.ytimg.com/vi/4NJlUribp3c/maxresdefault.jpg");
+  background-size: cover;
+}
+
+
+.song-display-item:hover {
+  border: 1px solid #fff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.song-display-item {
+  font-family: 'DIN Pro Condensed Regular', sans-serif;
+  font-size: 1.5em;
+}
+
+.song-title {
+  font-family: 'DIN Pro Condensed Bold', sans-serif;
+}
+
+@font-face {
+  font-family: 'DIN Pro Condensed Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local("DIN Pro Condensed Regular"), url("/assets/din-pro-cond/DINPro-Cond.woff") format("woff");
+}
+@font-face {
+  font-family: 'DIN Pro Condensed Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local("DIN Pro Condensed Bold"), url("/assets/din-pro-cond/DINPro-CondBold.woff") format("woff");
+}

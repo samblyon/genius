@@ -11,8 +11,8 @@ const SongDisplayItem = React.createClass({
       <li onClick={this.goToSong}
           id={this.props.song.id}
           className="song-display-item">
-        {this.props.song.title}
-        {this.props.song.artist}
+        <span className="song-title">{this.props.song.title}</span>
+        <span className="song-artist">{" by " + this.props.song.artist}</span>
       </li>
     );
   }

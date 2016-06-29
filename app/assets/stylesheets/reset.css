@@ -10,7 +10,7 @@ h3, a, p, button, input {
 
   background: transparent;
   color: inherit;
-  font-family: sans-serif;
+  font-family: inherit;
   text-decoration: none;
 }
 
