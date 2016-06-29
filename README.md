@@ -2,7 +2,7 @@
 
 [Production link][production]
 
-[production]: so-genius.com 
+[production]: https://so-genius.com 
 
 ## Minimum Viable Product
 
