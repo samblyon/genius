@@ -21,7 +21,7 @@ module.exports = {
   },
 
   logout(){
-    SessionApiUtil.logout(this.removeCurrentUser, this.onError);
+    SessionApiUtil.logout(this.removeCurrentUser, ErrorActions.onError);
   },
 
   receiveCurrentUser(user){
@@ -37,8 +37,4 @@ module.exports = {
       user: {}
     });
   },
-
-  onError(error){
-    console.log(error);
-  }
 };

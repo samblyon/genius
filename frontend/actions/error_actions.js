@@ -30,5 +30,9 @@ module.exports = {
     AppDispatcher.dispatch({
       actionType: ErrorConstants.CLEAR_ERRORS,
     });
+  },
+
+  onError(error){
+    console.log(error);
   }
 };

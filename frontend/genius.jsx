@@ -12,7 +12,9 @@ const LoginForm = require('./components/login_form');
 const SignupForm = require('./components/signup_form');
 const SessionActions = require('./actions/session_actions');
 const SessionStore = require('./stores/session_store');
-const SongApiUtil = window.api = require('./util/song_api_util');
+const SongActions = window.SongActions = require('./actions/song_actions');
+const SongStore = window.SongStore = require('./stores/song_store');
+
 // const SongsDisplay = require('./components/songs_display');
 
 const App = React.createClass({
@@ -29,7 +31,6 @@ const App = React.createClass({
 const AppRouter = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
-      // <IndexRoute components={SongsDisplay} />
       <Route path="/login" component={LoginForm} />
       <Route path="/signup" component={SignupForm} />
     </Route>
