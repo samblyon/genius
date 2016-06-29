@@ -1,0 +1,18 @@
+$brandYellow: #ffff64;
+
+header {
+  background: $brandYellow;
+}
+
+.logo {
+  margin: 0 auto;
+  width: 135px;
+  background-size: contain;
+  position: relative;
+  z-index: 1;
+}
+
+
+.nav {
+  float: right;
+}

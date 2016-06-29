@@ -1,0 +1,20 @@
+body, header, ul, li,
+div, section, h1, h2,
+h3, a, p, button, input {
+  margin: 0;
+  padding: 0;
+  border: 0.05 solid black;
+  list-style: none;
+
+  display: block;
+
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}

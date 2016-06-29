@@ -40,8 +40,10 @@ const Header = React.createClass({
     }
 
     return(
-      <header>
-        <section className="logo" onClick={this.goHome}></section>
+      <header className="header clearfix">
+        <section className="logo-container" onClick={this.goHome}>
+          <a className="logo-link">"GENIUS"</a>
+        </section>
         {authOrProfile}
       </header>
     );
