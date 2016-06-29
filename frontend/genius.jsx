@@ -37,7 +37,7 @@ const AppRouter = (
       <IndexRoute component={SongDisplay} />
       <Route path="/login" component={LoginForm} />
       <Route path="/signup" component={SignupForm} />
-      <Route path="/songs" component={SongsIndex} />
+      <Route path="songs" component={SongsIndex} />
       <Route path="/songs/:songId" component={Song} />
       <Route path="/song/new" component={SongForm} />
     </Route>

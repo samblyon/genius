@@ -1,0 +1,19 @@
+$charcoal: #222;
+$yellow: #ffff64;
+$bright-blue: #5ba7c2;
+$pale-blue: #99a7ee;
+$bright-green: #0ecb27;
+
+.song-index {
+  background: #000;
+}
+
+.songs-index-item {
+  color: #aaa;
+  padding: 3px;
+  border-top: 1px solid white;
+}
+
+.songs-index-item:hover {
+  border-left: 1px solid $bright-green;
+}

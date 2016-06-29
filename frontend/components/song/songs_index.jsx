@@ -1,7 +1,7 @@
 const React = require('react');
 const SongStore = require('../../stores/song_store');
 const SongActions = require('../../actions/song_actions');
-const SongsIndexItem = require('./song_display_item');
+const SongsIndexItem = require('./songs_index_item');
 
 const SongsIndex = React.createClass({
   getInitialState() {
@@ -32,7 +32,7 @@ const SongsIndex = React.createClass({
     });
 
     return (
-      <div className="song-display">
+      <div className="song-index">
         Hi from the song index
         {items}
       </div>

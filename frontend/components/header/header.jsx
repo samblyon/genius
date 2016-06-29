@@ -49,6 +49,7 @@ const Header = React.createClass({
         </header>
         <nav className="header-nav">
           <Link to="/song/new" className="nav-link">ADD SONG</Link>
+          <Link to="/songs" className="nav-link">ALL SONGS</Link>
         </nav>
       </div>
     );

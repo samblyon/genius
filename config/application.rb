@@ -32,6 +32,9 @@ module Genius
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
+    #serve fonts!
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
     # Devise accept JSON
     config.to_prepare do
       DeviseController.respond_to :json
