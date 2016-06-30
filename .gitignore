@@ -17,3 +17,4 @@
 # Ignore node modules and bundled js
 /node_modules
 bundle.js
+.env
