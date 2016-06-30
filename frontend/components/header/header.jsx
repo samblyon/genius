@@ -47,6 +47,7 @@ const Header = React.createClass({
           <div className="logo-container" onClick={this.goHome} />
           {authOrProfile}
         </header>
+        <div></div>
         <nav className="header-nav">
           <Link to="/" className="nav-link">HOME</Link>
           <Link to="/song/new" className="nav-link">ADD SONG</Link>

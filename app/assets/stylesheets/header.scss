@@ -1,13 +1,22 @@
+/* line 1, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 3, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 4, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
 body {
   font-family: 'Assistant', sans-serif;
 }
 
+/* line 5, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 8, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 10, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
 .header-top {
   padding: 1px;
   background: #ffff64;
   position: relative;
 }
 
+/* line 11, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 15, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 18, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
 .search-placeholder {
   position: absolute;
   top: 0;
@@ -15,6 +24,9 @@ body {
   padding: 10px;
 }
 
+/* line 18, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 23, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 27, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
 .logo-container {
   background-image: url(/geniuslogo.png);
   width: 150px;
@@ -23,26 +35,39 @@ body {
   margin: 0 auto;
 }
 
+/* line 26, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 32, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 37, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
 .auth-nav {
   position: absolute;
   top: 0;
   right: 0;
   display: flex;
   color: #222;
-  padding: 10px;
+  // padding: 10px;
 }
 
 /* line 29, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 36, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 43, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 49, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
 .auth-nav li {
-  padding: 0 .6em;
+  padding: 10px;
+  position: relative;
 }
 
 /* line 33, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-.auth-nav a:hover {
+/* line 41, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 49, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 56, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+.auth-nav li:active {
   background: white;
 }
 
 /* line 37, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 54, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 70, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 69, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
 nav {
   display: flex;
   justify-content: center;
@@ -51,24 +76,33 @@ nav {
   padding: .875em 1.5em;
   font-size: .875em;
   text-transform: uppercase;
-  :last-of-type {
-    margin-right: 0;
-  }
+}
+
+/* line 62, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 80, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 81, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+nav :last-of-type {
+  margin-right: 0;
 }
 
 /* line 46, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 68, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 86, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 88, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
 nav :hover {
   color: #ffff64;
 }
 
+/* line 72, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 91, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+/* line 94, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
 .nav-link {
   margin-right: 30px;
-
 }
 
 @font-face {
   font-family: 'DIN Pro Condensed Regular';
   font-style: normal;
   font-weight: normal;
-  src: local('DIN Pro Condensed Regular'), url('DINPro-Cond.woff') format('woff');
+  src: local("DIN Pro Condensed Regular"), url("DINPro-Cond.woff") format("woff");
 }

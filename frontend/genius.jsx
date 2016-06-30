@@ -1,6 +1,8 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 
+const Modal = require('react-modal');
+
 const ReactRouter = require('react-router');
 const Router = ReactRouter.Router;
 const Route = ReactRouter.Route;
@@ -50,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const root = document.getElementById('content');
+  Modal.setAppElement(document.body); //disable body when modal active
   ReactDOM.render(AppRouter, root);
 });
 
