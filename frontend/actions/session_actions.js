@@ -20,6 +20,17 @@ module.exports = {
     );
   },
 
+  loginGuest(){
+    SessionApiUtil.login(
+      {
+        username: "guest",
+        password: "guestguest"
+      },
+      this.receiveCurrentUser,
+      ErrorActions.setLoginErrors.bind(null, "login")
+    );
+  },
+
   logout(){
     SessionApiUtil.logout(this.removeCurrentUser, ErrorActions.onError);
   },

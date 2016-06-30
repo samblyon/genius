@@ -49,9 +49,14 @@ const LoginForm = React.createClass({
     SessionActions.login(user, this.formName);
   },
 
+  loginGuest(e){
+    e.preventDefault();
+    SessionActions.loginGuest();
+  },
+
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form>
         <p className="form-error">{this.state.errors.errors}</p>
         <label>Username:
           <input type="text"
@@ -67,9 +72,8 @@ const LoginForm = React.createClass({
           </input>
         </label>
 
-        <input value="Login"
-               type="submit">
-        </input>
+        <button onClick={this.handleSubmit}>Login</button>
+        <button onClick={this.loginGuest}>Login as Guest</button>
       </form>
     );
   }
