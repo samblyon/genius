@@ -24,6 +24,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Use puma for server
+gem 'puma'
+
+# Make puma time out before heroku does
+gem 'rack-timeout'
+
 # Use Devise for Auth
 gem 'devise'
 
