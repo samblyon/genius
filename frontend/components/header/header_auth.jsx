@@ -7,7 +7,7 @@ const HeaderAuth = React.createClass({
   getInitialState() {
     return {
       modalOpen: false,
-      form: "signup"
+      form: ""
     };
   },
 
@@ -22,7 +22,10 @@ const HeaderAuth = React.createClass({
   },
 
   closeModal(){
-    this.setState({ modalOpen: false });
+    this.setState({
+      modalOpen: false,
+      form: ""
+    });
   },
 
   openModal(){
@@ -32,9 +35,9 @@ const HeaderAuth = React.createClass({
   render(){
     let signupOrSignin;
     if (this.state.form === "signup") {
-      signupOrSignin = <SignupForm />;
+      signupOrSignin = <SignupForm closeModal={this.closeModal}/>;
     } else {
-      signupOrSignin = <LoginForm />;
+      signupOrSignin = <LoginForm closeModal={this.closeModal}/>;
     }
 
     const style = {
@@ -52,25 +55,34 @@ const HeaderAuth = React.createClass({
         top             : '40px',
         right           : '0px',
         left            : '80%',
-        height          : '150px',
+        height          : '340px',
         border          : 'none',
-        padding         : '20px',
+        padding         : '0px',
+        backgroundColor : '#ff1464',
+        borderRadius   : '0px',
         zIndex          : 11
       }
     };
 
     return(
       <ul className="auth-nav">
-        <li className="auth" onClick={this.openSignup}>
+        <li className={
+            (this.state.form === "signup") ? "auth highlight" : "auth"
+            }
+            onClick={this.openSignup}>
           Sign Up
         </li>
 
-        <li className="auth" onClick={this.openSignin}>
+        <li className={
+            (this.state.form === "signin") ? "auth highlight" : "auth"
+            }
+            onClick={this.openSignin}>
           Sign In
         </li>
         <Modal
           isOpen={this.state.modalOpen}
           onRequestClose={this.closeModal}
+          onMouseLeave={this.closeModal}
           style={style}>
           {signupOrSignin}
 

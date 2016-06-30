@@ -70,9 +70,9 @@ const SignupForm = React.createClass({
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="auth-form">
         <label>Username:
-          <p>{this.state.errors.username}</p>
+          <p className="form-error">{this.state.errors.username}</p>
           <input type="text"
                  value={this.state.username}
                  onChange={this.handleUsernameChange}>
@@ -80,7 +80,7 @@ const SignupForm = React.createClass({
         </label>
 
         <label>Password:
-          <p>{this.state.errors.password}</p>
+          <p className="form-error">{this.state.errors.password}</p>
           <input type="password"
                  value={this.state.password}
                  onChange={this.handlePasswordChange}>
@@ -88,7 +88,7 @@ const SignupForm = React.createClass({
         </label>
 
         <label>Confirm Password:
-          <p>{this.state.errors.passwordConfirmation}</p>
+          <p className="form-error">{this.state.errors.passwordConfirmation}</p>
           <input type="password"
                  value={this.state.passwordConfirmation}
                  onChange={this.handlePasswordConfirmationChange}>
@@ -96,7 +96,8 @@ const SignupForm = React.createClass({
         </label>
 
         <input value="Sign Up"
-               type="submit">
+               type="submit"
+               className="submit">
         </input>
       </form>
     );

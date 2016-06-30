@@ -56,7 +56,7 @@ const LoginForm = React.createClass({
 
   render() {
     return (
-      <form>
+      <form className="auth-form">
         <p className="form-error">{this.state.errors.errors}</p>
         <label>Username:
           <input type="text"

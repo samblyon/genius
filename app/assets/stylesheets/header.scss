@@ -1,22 +1,25 @@
-/* line 1, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 3, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 4, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+$charcoal: #222;
+$yellow: #ffff64;
+$bright-blue: #5ba7c2;
+$pale-blue: #99a7ee;
+$bright-green: #0ecb27;
+$pink: #ff1464;
+
 body {
   font-family: 'Assistant', sans-serif;
 }
 
-/* line 5, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 8, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 10, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+li:hover,
+a:hover {
+  transition: .15s;
+}
+
 .header-top {
-  padding: 1px;
-  background: #ffff64;
+  padding: 0px 1px 0px 1px;
+  background: $yellow;
   position: relative;
 }
 
-/* line 11, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 15, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 18, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
 .search-placeholder {
   position: absolute;
   top: 0;
@@ -24,9 +27,6 @@ body {
   padding: 10px;
 }
 
-/* line 18, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 23, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 27, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
 .logo-container {
   background-image: url(/geniuslogo.png);
   width: 150px;
@@ -35,70 +35,125 @@ body {
   margin: 0 auto;
 }
 
-/* line 26, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 32, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 37, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
 .auth-nav {
   position: absolute;
   top: 0;
   right: 0;
   display: flex;
   color: #222;
-  // padding: 10px;
+  -webkit-transition: .15s all;
+  transition: .15s all;
 }
 
-/* line 29, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 36, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 43, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 49, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
+
 .auth-nav li {
   padding: 10px;
   position: relative;
+  cursor: pointer;
+
 }
 
-/* line 33, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 41, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 49, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 56, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-.auth-nav li:active {
-  background: white;
+.auth-nav li:hover, .highlight {
+  color: white;
+  background: $pink;
 }
 
-/* line 37, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 54, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 70, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 69, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
 nav {
   display: flex;
   justify-content: center;
   background: #000;
-  color: #99a7ee;
+  color: $pale-blue;
   padding: .875em 1.5em;
   font-size: .875em;
   text-transform: uppercase;
 }
 
-/* line 62, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 80, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 81, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
 nav :last-of-type {
   margin-right: 0;
 }
 
-/* line 46, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 68, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 86, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 88, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
 nav :hover {
-  color: #ffff64;
+  color: $yellow;
 }
 
-/* line 72, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 91, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
-/* line 94, /Users/appacademy/genius/app/assets/stylesheets/header.scss */
 .nav-link {
   margin-right: 30px;
 }
+
+.user-dropdown {
+  transition: .15s;
+  visibility: hidden;
+  display: none;
+  width: 200px;
+}
+
+.auth:hover > .user-dropdown {
+  transition-delay: .15s;
+  visibility: visible;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 40px;
+  background: $pink;
+  color: white;
+}
+
+.auth-form {
+  padding: 20px;
+  color: white;
+}
+
+input {
+  height: 20px;
+  line-height: 1.4em;
+  background: white;
+  color: $pink;
+  padding: 5px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  font-weight: 400;
+  font-size: 1.2em;
+  width: 140px;
+
+}
+
+.submit, button {
+  height: auto;
+  font-size: 1em;
+  font-weight: 700;
+  width: 100px;
+  margin-top: 20px;
+  background: #fff;
+  color: $pink;
+  padding: 5px;
+  transition: .15s ease 0s;
+
+
+}
+.submit:hover, button:hover {
+  border: .5px solid white;
+}
+
+.form-error {
+  font-size: .875em;
+  font-style: italic;
+  // margin-bottom: .875em;
+}
+
+.user-dropdown li:hover{
+  background: white;
+  color: $pink;
+}
+//
+// <ul className="auth-nav">
+//   <button onClick={this.props.handleLogout} className="auth">
+//     Log Out
+//   </button>
+//
+//   <li className="auth">
+//     Hi, {this.props.currentUser.username}!
+//   </li>
+// </ul>
 
 @font-face {
   font-family: 'DIN Pro Condensed Regular';

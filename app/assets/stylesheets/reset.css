@@ -3,7 +3,7 @@ div, section, h1, h2,
 h3, a, p, button, input {
   margin: 0;
   padding: 0;
-  border: 0.05 solid black;
+  border: 0;
   list-style: none;
 
   display: block;
