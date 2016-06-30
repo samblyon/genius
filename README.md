@@ -9,7 +9,7 @@
 Genius is a web application inspired by Genius that will be built using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
 
 - [x] Hosting on Heroku
-- [ ] New account creation, login, and guest/demo login
+- [x] New account creation, login, and guest/demo login
 - [ ] A production README, replacing this README
 - [ ] Songs with Lyrics
   - [ ] Smooth, bug-free navigation
@@ -93,13 +93,19 @@ one feature at a time. Refer back to your MVP and group the features into logica
 - [x] create a basic style guide
 - [ ] position elements on the page
   - [x] Home page (Songs Display)
-  - [ ] Songs Index
+  - [x] Songs Index
   - [ ] Song
+  - [ ] SongForm
+  - [ ] Login Dropdown
+  - [ ] Profile Dropdown
 
 - [ ] add basic colors & styles
   - [x] Home page (Songs Display)
-  - [ ] Songs Index
+  - [x] Songs Index
   - [ ] Song
+  - [ ] SongForm
+  - [ ] Login Dropdown
+  - [ ] Profile Dropdown
 
 ### Phase 5: Annotations (2 days, W2 Tu 12pm)
 
