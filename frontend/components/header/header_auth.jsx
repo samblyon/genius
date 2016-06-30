@@ -7,13 +7,13 @@ const HeaderAuth = React.createClass({
       <ul className="auth-nav">
         <Link to="/signup">
           <li className="auth">
-            SIGN UP
+            Sign Up
           </li>
         </Link>
 
         <Link to="/login">
           <li className="auth">
-            SIGN IN
+            Sign In
           </li>
         </Link>
       </ul>

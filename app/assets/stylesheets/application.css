@@ -17,4 +17,5 @@
  *= require songs.scss
  *= require songs_display.scss
  *= require songs_index.scss
+ *= require song.scss
  */

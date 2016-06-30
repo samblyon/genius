@@ -2,6 +2,11 @@
 .song-display-page {
   background: #000;
   display: flex;
+  padding: 0px 10px;
+
+  h3 {
+    margin-top: 1.3em;
+  }
 }
 
 
@@ -58,6 +63,22 @@ h3 {
   justify-content: space-around;
 }
 
+.song-display-item.about {
+  background-image: none;
+  font-family: 'Assistant', sans-serif;
+  font-size: 1.1em;
+  display: flex;
+}
+
+.about-image-container {
+  background-image: image-url("musicGirl.png");
+  filter: invert(100%);
+  width: 30px;
+  height: 30px;
+  background-image-size: cover;
+  display: inline-block;
+}
+
 
 .song-display-item:nth-child(-n+1) {
   width: 98%;
@@ -71,7 +92,7 @@ h3 {
 
 .song-display-item {
   box-sizing: border-box;
-  border: 0.5px solid #1E1E1E;
+  border: 1px solid #1E1E1E;
   width: 48%;
   margin-top: 10px;
   margin-bottom: 5px;
@@ -103,11 +124,11 @@ h3 {
   font-family: 'DIN Pro Condensed Regular';
   font-style: normal;
   font-weight: normal;
-  src: local("DIN Pro Condensed Regular"), font-url("/assets/din-pro-cond/DINPro-Cond.woff") format("woff");
+  src:font-url("/assets/din-pro-cond/DINPro-Cond.woff") format("woff");
 }
 @font-face {
   font-family: 'DIN Pro Condensed Bold';
   font-style: normal;
   font-weight: normal;
-  src: local("DIN Pro Condensed Bold"), font-url("/assets/din-pro-cond/DINPro-CondBold.woff") format("woff");
+  src:font-url("/assets/din-pro-cond/DINPro-CondBold.woff") format("woff");
 }

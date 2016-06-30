@@ -62,7 +62,7 @@ const SongDisplay = React.createClass({
           <h3>About So-Genius</h3>
           <div className="song-display">
             <div className="song-display-item about">
-              <div className="image-container" />
+              <div className="about-image-container"></div>
               <p>
                 Rap Genius is dedicated to crowd-sourced
                 (and artist/producer-sourced) annotation of rap
