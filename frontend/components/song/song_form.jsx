@@ -34,6 +34,7 @@ const SongForm = React.createClass({
 
   _onSongChange(){
     const song = SongStore.latestAdded();
+    this.props.closeModal();
     hashHistory.push("songs/" + song.id);
     this.songListener.remove();
   },
@@ -71,10 +72,11 @@ const SongForm = React.createClass({
   render() {
     return (
       <div className="song-form-container">
+        <h3>add song</h3>
         <form className="song-form" onSubmit={this.handleSubmit}>
           <label>
             By
-            {this.state.errors.artist}
+            <p className="form-error">{this.state.errors.artist}</p>
             <input type="text"
                    value={this.state.artist}
                    name="artist"
@@ -82,28 +84,28 @@ const SongForm = React.createClass({
           </label>
           <label>
             Title
-            {this.state.errors.title}
+            <p className="form-error">{this.state.errors.title}</p>
             <input type="text"
                    value={this.state.title}
                    name="title"
                    onChange={this.receiveChange}/>
           </label>
           <label>
-            Lyrics
-            {this.state.errors.lyrics}
+            <p>Lyrics</p>
+            <p className="form-error">{this.state.errors.lyrics}</p>
             <textarea onChange={this.receiveChange}
                       name="lyrics"
                       defaultValue={this.state.lyrics} />
           </label>
           <label>
-            About
-            {this.state.errors.about}
+            <p>About</p>
+            <p className="form-error">{this.state.errors.about}</p>
             <textarea onChange={this.receiveChange}
                       name="about"
                       defaultValue={this.state.about} />
           </label>
           <label>
-            Featuring
+            <p>Featuring</p>
             <input type="text"
                    value={this.state.featuring}
                    name="featuring"
@@ -142,11 +144,13 @@ const SongForm = React.createClass({
             <input type="date"
                    value={this.state.releaseDate}
                    name="releaseDate"
+                   className="date"
                    onChange={this.receiveChange}/>
           </label>
 
           <input type="submit"
                  value="Submit"
+                 className="submit"
                  disabled={this.state.submitting}/>
         </form>
       </div>

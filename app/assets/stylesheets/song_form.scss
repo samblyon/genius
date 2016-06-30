@@ -1,0 +1,60 @@
+$charcoal: #222;
+$yellow: #ffff64;
+$bright-blue: #5ba7c2;
+$pale-blue: #99a7ee;
+$bright-green: #0ecb27;
+$pink: #ff1464;
+
+
+.song-form {
+  color: white;
+}
+
+.song-form input {
+  width: 70%;
+  font-size: 1em;
+  padding-left: 7px;
+}
+
+.song-form textarea {
+  font-size: 1em;
+  color: $pink;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  background: white;
+  width: 80%;
+  height: 400px;
+  padding: 5px;
+  padding-left: 8px;
+}
+
+.song-form label {
+  padding-top: 20px;
+  color: white;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.song-form-container h3 {
+  color: #000;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.song-form input.submit  {
+  height: auto;
+  width: 40%;
+  border: 1px solid white;
+  background: $pink;
+  color: white;
+}
+
+.song-form input.submit:hover  {
+  background: #FF6699;
+  cursor: pointer;
+}
+
+.song-form input.submit-clicked  {
+  background: #FF6699;
+  cursor: pointer;
+}

@@ -15,7 +15,7 @@ a:hover {
 }
 
 .header-top {
-  padding: 0px 1px 0px 1px;
+  padding: 0px 10px 0px 10px;
   background: $yellow;
   position: relative;
 }
@@ -23,7 +23,7 @@ a:hover {
 .search-placeholder {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 10px;
   padding: 10px;
 }
 
@@ -38,7 +38,7 @@ a:hover {
 .auth-nav {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 10px;
   display: flex;
   color: #222;
   -webkit-transition: .15s all;
@@ -126,6 +126,7 @@ input {
   background: #fff;
   color: $pink;
   padding: 5px;
+  padding-left: 8px;
   transition: .15s ease 0s;
 
 
@@ -137,7 +138,6 @@ input {
 .form-error {
   font-size: .875em;
   font-style: italic;
-  // margin-bottom: .875em;
 }
 
 .user-dropdown li:hover{

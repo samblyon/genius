@@ -96,16 +96,16 @@ one feature at a time. Refer back to your MVP and group the features into logica
   - [x] Songs Index
   - [ ] Song
   - [ ] SongForm
-  - [ ] Login Dropdown
-  - [ ] Profile Dropdown
+  - [X] Login Dropdown
+  - [X] Profile Dropdown
 
 - [ ] add basic colors & styles
   - [x] Home page (Songs Display)
   - [x] Songs Index
   - [ ] Song
   - [ ] SongForm
-  - [ ] Login Dropdown
-  - [ ] Profile Dropdown
+  - [X] Login Dropdown
+  - [X] Profile Dropdown
 
 ### Phase 5: Annotations (2 days, W2 Tu 12pm)
 
