@@ -21,9 +21,8 @@ module.exports = {
       url: "/api/users/sign_in.json",
       data: {
         api_user: {
-          email: user.email,
+          username: user.username,
           password: user.password,
-          password_confirmation: user.passwordConfirmation
         }
       },
       success(res){
@@ -48,3 +47,20 @@ module.exports = {
     });
   }
 };
+
+// $.post({
+//       url: "/api/users/sign_in",
+//       data: {
+//         api_user: {
+//           email: "guest2@guest.com",
+// username: "guest2",
+// password: "guestguest"
+//         }
+//       },
+//       success(res){
+//         console.log(res);
+//       },
+//       error(err){
+//         console.log(err);
+//       }
+//     });

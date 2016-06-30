@@ -9,7 +9,7 @@ const HeaderUserProfile = React.createClass({
         </button>
 
         <li className="auth">
-          Hi, {this.props.currentUser.email}!
+          Hi, {this.props.currentUser.username}!
         </li>
       </ul>
     );

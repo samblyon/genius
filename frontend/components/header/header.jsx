@@ -32,7 +32,7 @@ const Header = React.createClass({
 
   render(){
     let authOrProfile;
-    if (this.state.currentUser.email) {
+    if (this.state.currentUser.username) {
       authOrProfile = <HeaderUserProfile
                 currentUser={this.state.currentUser}
                 handleLogout={this.handleLogout} />;

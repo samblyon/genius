@@ -8,7 +8,7 @@ const hashHistory = require('react-router').hashHistory;
 const SignupForm = React.createClass({
   getInitialState() {
     return {
-      email: "",
+      username: "",
       password: "",
       passwordConfirmation: "",
       errors: {}
@@ -28,7 +28,7 @@ const SignupForm = React.createClass({
 
   _sessionChanged(){
     const user = SessionStore.currentUser();
-    if (user.email) {
+    if (user.username) {
       hashHistory.push("/");
     }
   },
@@ -37,8 +37,8 @@ const SignupForm = React.createClass({
     this.setState({ errors: ErrorStore.formErrors("signup") });
   },
 
-  handleEmailChange(e){
-    this.setState({ email: e.target.value });
+  handleUsernameChange(e){
+    this.setState({ username: e.target.value });
   },
 
   handlePasswordChange(e){
@@ -71,11 +71,11 @@ const SignupForm = React.createClass({
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>Email:
-          <p>{this.state.errors.email}</p>
+        <label>Username:
+          <p>{this.state.errors.username}</p>
           <input type="text"
                  value={this.state.username}
-                 onChange={this.handleEmailChange}>
+                 onChange={this.handleUsernameChange}>
           </input>
         </label>
 

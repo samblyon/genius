@@ -24,7 +24,7 @@ SessionStore.currentUser = function(){
 };
 
 SessionStore.isUserLoggedIn = function(){
-  return (_currentUser.email) ? true : false;
+  return (_currentUser.username) ? true : false;
 };
 
 function _login (user){
