@@ -32,7 +32,7 @@ module.exports = {
     SongApiUtil.createSong(
       song,
       this.receiveSong,
-      ErrorActions.setSongErrors.bind(null, formName)
+      ErrorActions.setFormErrors.bind(null, formName)
     );
   },
 

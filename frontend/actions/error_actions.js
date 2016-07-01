@@ -10,7 +10,7 @@ module.exports = {
     });
   },
 
-  setSongErrors(formName, errors){
+  setFormErrors(formName, errors){
     AppDispatcher.dispatch({
       actionType: ErrorConstants.SET_ERRORS,
       errors: errors.responseJSON,

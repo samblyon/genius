@@ -20,7 +20,7 @@ module.exports = {
     AnnotationApiUtil.createAnnotation(
       annotation,
       this.receiveAnnotation,
-      ErrorActions.setAnnotationErrors.bind(null, formName)
+      ErrorActions.setFormErrors.bind(null, formName)
     );
   },
 
@@ -28,7 +28,7 @@ module.exports = {
     AnnotationApiUtil.updateAnnotation(
       annotation,
       this.receiveAnnotation,
-      ErrorActions.setAnnotationErrors.bind(null, formName)
+      ErrorActions.setFormErrors.bind(null, formName)
     );
   },
 
@@ -53,7 +53,7 @@ module.exports = {
       annotation: annotation
     });
   },
-  
+
   removeAnnotation(annotation) {
     AppDispatcher.dispatch({
       actionType: AnnotationConstants.ANNOTATION_REMOVED,
