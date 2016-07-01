@@ -12,9 +12,9 @@ Genius is a web application inspired by Genius that will be built using Ruby on 
 - [x] New account creation, login, and guest/demo login
 - [ ] A production README, replacing this README
 - [ ] Songs with Lyrics
-  - [ ] Smooth, bug-free navigation
+  - [X] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
+  - [X] Adequate CSS styling
 - [ ] Annotations on Lyrics
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
@@ -91,18 +91,18 @@ one feature at a time. Refer back to your MVP and group the features into logica
 **Objective:** Existing pages (including signup/signin) will look good.
 
 - [x] create a basic style guide
-- [ ] position elements on the page
+- [X] position elements on the page
   - [x] Home page (Songs Display)
   - [x] Songs Index
-  - [ ] Song
+  - [X] Song
   - [X] SongForm
   - [X] Login Dropdown
   - [X] Profile Dropdown
 
-- [ ] add basic colors & styles
+- [X] add basic colors & styles
   - [x] Home page (Songs Display)
   - [x] Songs Index
-  - [ ] Song
+  - [X] Song
   - [X] SongForm
   - [X] Login Dropdown
   - [X] Profile Dropdown

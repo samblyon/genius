@@ -7,6 +7,7 @@ const SongInfo = React.createClass({
   render() {
     return (
       <div class="song-info">
+        <div className="album-cover" />
         <SongInfoStats song={this.props.song} />
         <SongAbout song={this.props.song} />
       </div>

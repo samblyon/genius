@@ -1,10 +1,17 @@
+$charcoal: #222;
+$yellow: #ffff64;
+$bright-blue: #5ba7c2;
+$pale-blue: #99a7ee;
+$bright-green: #0ecb27;
+$pink: #ff1464;
+
 /* line 10, /Users/appacademy/genius/app/assets/stylesheets/song.scss */
 .song-splash {
   background-image: url("https://i.ytimg.com/vi/4NJlUribp3c/maxresdefault.jpg");
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: 180px;
+  min-height: 220px;
   color: white;
   position: relative;
 }
@@ -12,10 +19,12 @@
 /* line 20, /Users/appacademy/genius/app/assets/stylesheets/song.scss */
 .splash-content {
   font-family: 'Cairo', serif;
-  font-weight: 700;
+  font-weight: 400;
   position: absolute;
+  max-width: 50%;
+  line-height: 3em;
   top: 20%;
-  left: 5%;
+  left: 30px;
 }
 
 /* line 28, /Users/appacademy/genius/app/assets/stylesheets/song.scss */
@@ -28,20 +37,56 @@
 /* line 34, /Users/appacademy/genius/app/assets/stylesheets/song.scss */
 .splash-artist {
   font-weight: 400;
-  font-size: 1.7em;
+  font-size: 1.5em;
 }
 
 .not-splash {
   display: flex;
+  color: #222;
 }
 .song-left-col {
   width: 60%;
-  background: wheat;
-  padding: 30px;
+  padding: 20px;
+  padding-left: 30px;
   white-space: pre-line;
+  font-size: 1.25em;
+  line-height: 1.7em;
+}
+
+.annotation-tag {
+  background-color: $bright-green;
+  padding: .1em;
+  display: inline-block;
+  box-shadow: .1em 0 0 $bright-green;
+  cursor: pointer;
 }
 
 .song-right-col {
-  width: 20%;
-  background: blue;
+  position: relative;
+  width: 40%;
+  padding: 10px 40px 10px 20px;
+  max-width: 300px
+}
+
+.album-cover {
+  min-height: 300px;
+  width: 100%;
+  background: wheat;
+  margin-top: -210px;
+  border: 4px solid white;
+  box-sizing: border-box;
+  background-image: url(http://i30.photobucket.com/albums/c307/rye415/Jason.png);
+  background-size: cover;
+}
+
+.song-info-stats {
+  margin-top: 30px;
+  border: 1px solid #000;
+  height: 100px;
+}
+
+.song-about {
+  margin-top: 30px;
+  border: 1px solid #000;
+  height: 100px;
 }
