@@ -35,6 +35,7 @@ AnnotationStore.all = function () {
 };
 
 function _resetAnnotations(annotations){
+  _annotations = {};
   for (let annotation of annotations){
     _annotations[annotation.id] = annotation;
   }
