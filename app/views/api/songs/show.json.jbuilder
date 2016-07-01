@@ -1,1 +1,1 @@
-json.partial! "api/songs/song_with_annotations", song: @song
+json.partial! "api/songs/song", song: @song

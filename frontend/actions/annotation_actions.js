@@ -4,6 +4,12 @@ const ErrorActions = require('../actions/error_actions');
 const AnnotationConstants = require('../constants/annotation_constants');
 
 module.exports = {
+  fetchAnnotations (songId) {
+    AnnotationApiUtil.fetchAnnotations(
+      songId, this.receiveAnnotations, ErrorActions.onError
+    );
+  },
+
   fetchSingleAnnotation (id) {
     AnnotationApiUtil.fetchSingleAnnotation(
       id, this.receiveAnnotation, ErrorActions.onError
@@ -18,9 +24,39 @@ module.exports = {
     );
   },
 
+  updateAnnotation(annotation, formName) {
+    AnnotationApiUtil.updateAnnotation(
+      annotation,
+      this.receiveAnnotation,
+      ErrorActions.setAnnotationErrors.bind(null, formName)
+    );
+  },
+
+  destroyAnnotation(id, formName) {
+    AnnotationApiUtil.destroyAnnotation(
+      id,
+      this.removeAnnotation,
+      ErrorActions.onError
+    );
+  },
+
+  receiveAnnotations(annotations) {
+    AppDispatcher.dispatch({
+      actionType: AnnotationConstants.ANNOTATIONS_RECEIVED,
+      annotations: annotations
+    });
+  },
+
   receiveAnnotation(annotation) {
     AppDispatcher.dispatch({
       actionType: AnnotationConstants.ANNOTATION_RECEIVED,
+      annotation: annotation
+    });
+  },
+  
+  removeAnnotation(annotation) {
+    AppDispatcher.dispatch({
+      actionType: AnnotationConstants.ANNOTATION_REMOVED,
       annotation: annotation
     });
   }

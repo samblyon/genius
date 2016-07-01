@@ -1,12 +1,17 @@
 class Api::AnnotationsController < ApplicationController
-  before_action :must_be_author, except: [:show, :create]
+  before_action :must_be_author, except: [:index, :show, :create]
+
+  def index
+    @annotations = Annotation.where(song_id: params[:song_id])
+    puts @annotations
+  end
 
   def show
     @annotation = Annotation.find(params[:id])
   end
 
   def create
-    @annotation = current_user.annotations.create!(annotation_params)
+    @annotation = current_api_user.annotations.create!(annotation_params)
     render :show
   end
 
@@ -34,6 +39,6 @@ class Api::AnnotationsController < ApplicationController
 
   def must_be_author
     @annotation = Annotation.find(params[:id])
-    current_user.id == @annotation.author_id
+    current_api_user.id == @annotation.author_id
   end
 end

@@ -1,6 +1,7 @@
 const AppDispatcher = require('../dispatcher/dispatcher');
 const SongApiUtil = require('../util/song_api_util');
-const ErrorActions = require('../actions/error_actions');
+const AnnotationActions = require('./annotation_actions');
+const ErrorActions = require('./error_actions');
 const SongConstants = require('../constants/song_constants');
 
 module.exports = {
@@ -19,6 +20,11 @@ module.exports = {
   fetchSingleSong (id) {
     SongApiUtil.fetchSingleSong(
       id, this.receiveSong, ErrorActions.onError
+    );
+    AnnotationActions.fetchAnnotations(
+      id,
+      AnnotationActions.receiveAnnotations,
+      ErrorActions.onError
     );
   },
 

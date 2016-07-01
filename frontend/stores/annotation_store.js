@@ -2,7 +2,7 @@ const Store = require('flux/utils').Store;
 const AppDispatcher = require('../dispatcher/dispatcher');
 const AnnotationConstants = require('../constants/annotation_constants');
 
-// NOTE ANNOTATIONS ARE STORED BY SONG ID
+// NOTE ANNOTATIONS ARE STORED BY ID
 let _annotations = {};
 
 const AnnotationStore = new Store(AppDispatcher);
@@ -10,7 +10,15 @@ const AnnotationStore = new Store(AppDispatcher);
 AnnotationStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case AnnotationConstants.ANNOTATION_RECEIVED:
+      _annotations[payload.annotation.id] = payload.annotation;
+      this.__emitChange();
+      break;
+    case AnnotationConstants.ANNOTATIONS_RECEIVED:
       _resetAnnotations(payload.annotations);
+      this.__emitChange();
+      break;
+    case AnnotationConstants.ANNOTATION_REMOVED:
+      delete _annotations[payload.annotation.id];
       this.__emitChange();
       break;
   }
@@ -27,7 +35,9 @@ AnnotationStore.all = function () {
 };
 
 function _resetAnnotations(annotations){
-  _annotations = annotations;
+  for (let annotation of annotations){
+    _annotations[annotation.id] = annotation;
+  }
 }
 
 module.exports = AnnotationStore;
