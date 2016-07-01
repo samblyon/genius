@@ -1,0 +1,3 @@
+module.exports = {
+  ANNOTATION_RECEIVED: "ANNOTATION_RECEIVED",
+};

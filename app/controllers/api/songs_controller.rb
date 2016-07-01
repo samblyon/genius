@@ -18,7 +18,7 @@ class Api::SongsController < ApplicationController
   end
 
   def show
-    render json: Song.find(params[:id])
+    @song = Song.includes(:annotations).find(params[:id])
   end
 
   private

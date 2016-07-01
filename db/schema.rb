@@ -11,19 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160701150049) do
+ActiveRecord::Schema.define(version: 20160701182011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "annotations", force: :cascade do |t|
-    t.integer  "author_id"
-    t.text     "body"
-    t.integer  "start_index"
-    t.integer  "end_index"
+    t.integer  "song_id",     null: false
+    t.text     "body",        null: false
+    t.integer  "start_index", null: false
+    t.integer  "end_index",   null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "author_id"
   end
+
+  add_index "annotations", ["author_id"], name: "index_annotations_on_author_id", using: :btree
+  add_index "annotations", ["song_id"], name: "index_annotations_on_song_id", using: :btree
+  add_index "annotations", ["start_index", "end_index"], name: "index_annotations_on_start_index_and_end_index", using: :btree
 
   create_table "songs", force: :cascade do |t|
     t.string   "artist",         null: false
@@ -58,8 +63,10 @@ ActiveRecord::Schema.define(version: 20160701150049) do
     t.string   "username",               default: "", null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username", "email"], name: "index_users_on_username_and_email", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
+  add_foreign_key "annotations", "songs"
+  add_foreign_key "annotations", "users", column: "author_id"
 end
