@@ -37,8 +37,14 @@ const Song = React.createClass({
     return (
       <div className="song">
         <SongSplash song={song} />
-        <LyricsDisplay song={song} />
-        <SongInfo song={song} />
+        <div className="not-splash">
+          <div className="song-left-col">
+            <LyricsDisplay song={song} />
+          </div>
+          <div className="song-right-col">
+            <SongInfo song={song} />
+          </div>
+        </div>
       </div>
     );
   }

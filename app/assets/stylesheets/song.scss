@@ -1,12 +1,4 @@
-$charcoal: #222;
-$yellow: #ffff64;
-$bright-blue: #5ba7c2;
-$pale-blue: #99a7ee;
-$bright-green: #0ecb27;
-
-.song {
-}
-
+/* line 10, /Users/appacademy/genius/app/assets/stylesheets/song.scss */
 .song-splash {
   background-image: url("https://i.ytimg.com/vi/4NJlUribp3c/maxresdefault.jpg");
   background-size: cover;
@@ -17,6 +9,7 @@ $bright-green: #0ecb27;
   position: relative;
 }
 
+/* line 20, /Users/appacademy/genius/app/assets/stylesheets/song.scss */
 .splash-content {
   font-family: 'Cairo', serif;
   font-weight: 700;
@@ -25,13 +18,29 @@ $bright-green: #0ecb27;
   left: 5%;
 }
 
+/* line 28, /Users/appacademy/genius/app/assets/stylesheets/song.scss */
 .splash-title {
   font-size: 2.5em;
-  color: $yellow;
+  color: #ffff64;
   padding: 0;
 }
 
+/* line 34, /Users/appacademy/genius/app/assets/stylesheets/song.scss */
 .splash-artist {
   font-weight: 400;
   font-size: 1.7em;
+}
+
+.not-splash {
+  display: flex;
+}
+.song-left-col {
+  width: 60%;
+  background: wheat;
+  padding: 30px;
+}
+
+.song-right-col {
+  width: 20%
+  background: blue;
 }

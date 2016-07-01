@@ -95,7 +95,7 @@ one feature at a time. Refer back to your MVP and group the features into logica
   - [x] Home page (Songs Display)
   - [x] Songs Index
   - [ ] Song
-  - [ ] SongForm
+  - [X] SongForm
   - [X] Login Dropdown
   - [X] Profile Dropdown
 
@@ -103,7 +103,7 @@ one feature at a time. Refer back to your MVP and group the features into logica
   - [x] Home page (Songs Display)
   - [x] Songs Index
   - [ ] Song
-  - [ ] SongForm
+  - [X] SongForm
   - [X] Login Dropdown
   - [X] Profile Dropdown
 

@@ -82,20 +82,19 @@ nav :hover {
 
 .user-dropdown {
   transition: .15s;
-  visibility: hidden;
   display: none;
   width: 200px;
 }
 
 .auth:hover > .user-dropdown {
   transition-delay: .15s;
-  visibility: visible;
   display: block;
   position: absolute;
   right: 0;
   top: 40px;
   background: $pink;
   color: white;
+  z-index: 10;
 }
 
 .auth-form {
