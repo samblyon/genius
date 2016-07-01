@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  attr_accessor :login
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :authentication_keys => [:username]
@@ -13,6 +15,10 @@ class User < ActiveRecord::Base
        }
 
    validate :validate_username
+
+   has_many :annotations,
+    foreign_key: :author_id,
+    primary_key: :id
 
    def validate_username
      if User.where(email: username).exists?
@@ -28,7 +34,6 @@ class User < ActiveRecord::Base
      false
    end
 
-  attr_accessor :login
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
