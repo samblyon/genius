@@ -4,7 +4,7 @@ const Lyrics = React.createClass({
 
   render() {
     return (
-      <div class="lyrics">
+      <div className="lyrics">
         {this.props.lyrics}
       </div>
     );

@@ -21,8 +21,8 @@ column name | data type | details
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users), indexed
 body        | text      | not null
-start_index | string    | not null, indexed
-end_index   | string    | not null, indexed
+start_index | integer   | not null, indexed
+end_index   | integer   | not null, indexed
 
 
 ## comments
