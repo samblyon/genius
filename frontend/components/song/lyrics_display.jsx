@@ -6,7 +6,9 @@ const LyricsDisplay = React.createClass({
   render() {
     return (
       <div class="lyrics-display">
-        <Lyrics lyrics={this.props.song.lyrics} />
+        <Lyrics populatedLyrics={this.props.populatedLyrics}
+          lyrics={this.props.song.lyrics}
+          onHighlight={this.props.onHighlight}/>
       </div>
     );
   }
