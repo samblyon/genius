@@ -5,8 +5,10 @@ const SongAbout = require('./song_about');
 const SongInfo = React.createClass({
 
   render() {
+    const infoClass = (this.props.visible) ? "song-info" : "invisible";
+
     return (
-      <div class="song-info">
+      <div className={infoClass}>
         <div className="album-cover" />
         <SongInfoStats song={this.props.song} />
         <SongAbout song={this.props.song} />

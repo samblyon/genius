@@ -5,6 +5,10 @@ $pale-blue: #99a7ee;
 $bright-green: #0ecb27;
 $pink: #ff1464;
 
+.invisible {
+  display: none;
+}
+
 /* line 10, /Users/appacademy/genius/app/assets/stylesheets/song.scss */
 .song-splash {
   background-image: url("https://i.ytimg.com/vi/4NJlUribp3c/maxresdefault.jpg");
@@ -100,7 +104,7 @@ $pink: #ff1464;
     display: inline;
     background-color: #ccc;
     color: #222;
-    z-index: 11;
+    z-index: 3;
   }
 
   a:hover {
@@ -110,6 +114,6 @@ $pink: #ff1464;
 }
 
 .ghost-lyrics {
-  z-index: 10;
+  z-index: 2;
   color: transparent;
 }

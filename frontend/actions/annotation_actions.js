@@ -16,6 +16,13 @@ module.exports = {
     );
   },
 
+  createTempAnnotation(annotation) {
+    AppDispatcher.dispatch({
+      actionType: AnnotationConstants.STORE_TEMP_ANNOTATION,
+      annotation: annotation
+    });
+  },
+
   createAnnotation(annotation, formName) {
     AnnotationApiUtil.createAnnotation(
       annotation,
