@@ -54,7 +54,7 @@ const HeaderAuth = React.createClass({
         position        : 'absolute',
         top             : '40px',
         right           : '0px',
-        left            : '80%',
+        left            : 'auto',
         height          : '340px',
         border          : 'none',
         padding         : '0px',

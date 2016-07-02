@@ -8,6 +8,7 @@ const Annotation = require('../annotation/annotation');
 const SongSplash = require('./song_splash');
 const SongInfo = require('./song_info');
 const LyricsDisplay = require('./lyrics_display');
+const Modal = require('react-modal');
 
 
 const Song = React.createClass({
@@ -18,6 +19,9 @@ const Song = React.createClass({
       editing: false,
       selectedStart: "",
       selectedEnd: "",
+      showPrompt: false,
+      showAnnotationForm: false,
+      showInfo: true
     };
   },
 
@@ -44,78 +48,92 @@ const Song = React.createClass({
 
   _onAnnotationChange(){
     this.setState({ annotations: AnnotationStore.all() });
+
+    //switch to editing mode if there is a temp annotation
+    if (AnnotationStore.temp()) {
+      this.switchToEditingMode();
+    }
   },
 
-  handleHighlight(){
+  switchToEditingMode(){
+    this.setState({
+      showPrompt: false
+    });
+
+    //other stuff
+  },
+
+  handleHighlight(e){
     const selection = window.getSelection();
     console.log(selection.anchorOffset, selection.focusOffset);
     this.setState({
       selectedStart: selection.anchorOffset,
       selectedEnd: selection.focusOffset
     });
+    this.activateAnnotationPrompt();
+  },
 
+  activateAnnotationPrompt(){
+    this.setState({
+      showPrompt: true,
+      showInfo: false
+    });
+    window.addEventListener("click", (event) => {
+      if (event.target.id !== "annotation-prompt"
+        && event.target.id !== "annotation-button"
+        && this.state.showPrompt
+      ){
+        this.closeAnnotationPrompt();
+        this.setState({
+          showInfo: true
+        });
+      }
+    });
+  },
+
+  closeAnnotationPrompt(){
+    this.setState({
+      showPrompt: false
+    });
   },
 
   handlePromptClick(){
-    this.setState({ editing: true });
     console.log("handled prompt click");
+    AnnotationActions.createTempAnnotation({
+      start_index: this.state.selectedStart,
+      end_index: this.state.selectedEnd,
+      body: "",
+      song_id: this.songId
+    });
   },
 
   handleHighlightClick(e){
     alert(e.target.id);
   },
 
-  populatedLyrics(){
-    if (this.state.annotations.length === 0) {
-      return [];
-    }
-
-    const lyrics = this.state.song.lyrics;
-    const lyricsEls = [];
-
-    let tracked = 0;
-    for (let annotation of this.state.annotations) {
-      lyricsEls.push(
-        lyrics.slice(tracked, annotation.start_index)
-      );
-
-      lyricsEls.push(
-        <a onClick={this.handleHighlightClick}
-           key={annotation.id}
-           id={annotation.id}
-           className="highlight">
-          {
-            lyrics.slice(annotation.start_index, annotation.end_index + 1)
-          }
-        </a>
-      );
-
-      tracked = annotation.end_index + 1;
-    }
-
-    lyricsEls.push(lyrics.slice(tracked));
-
-    return lyricsEls;
-  },
-
   render () {
     const song = this.state.song;
-
     const annotations = this.state.annotations;
-    const lyrics = this.populatedLyrics();
 
     return (
       <div className="song">
         <SongSplash song={song} />
         <div className="not-splash">
           <div className="song-left-col">
-            <LyricsDisplay song={song}
-                populatedLyrics={lyrics}
-                onHighlight={this.handleHighlight} />
+            <LyricsDisplay
+                song={song}
+                annotations={annotations}
+                onHighlight={this.handleHighlight}
+                handleHighlightClick={this.handleHighlightClick} />
           </div>
           <div className="song-right-col">
-            <SongInfo song={song} />
-            <AnnotationPrompt handleClick={this.handlePromptClick} />
+            <SongInfo
+              song={song}
+              visible={this.state.showInfo}/>
+            <AnnotationPrompt
+              visible={this.state.showPrompt}
+              closePrompt={this.closeAnnotationPrompt}
+              handleClick={this.handlePromptClick} />
           </div>
         </div>
       </div>
