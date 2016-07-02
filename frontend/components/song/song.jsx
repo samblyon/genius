@@ -61,23 +61,48 @@ const Song = React.createClass({
     console.log("handled prompt click");
   },
 
-  populatedLyrics(){
-    const lyrics = this.state.song.lyrics.split("");
+  handleHighlightClick(e){
+    alert(e.target.id);
+  },
 
-    for (let annotation of this.state.annotations) {
-      lyrics.splice(annotation.end_index, 0, '</a>');
-      lyrics.splice(annotation.start_index, 0, '<a id="' + annotation.id + '" "class="highlight">');
+  populatedLyrics(){
+    if (this.state.annotations.length === 0) {
+      return [];
     }
 
-    return lyrics.join("");
+    const lyrics = this.state.song.lyrics;
+    const lyricsEls = [];
+
+    let tracked = 0;
+    for (let annotation of this.state.annotations) {
+      lyricsEls.push(
+        lyrics.slice(tracked, annotation.start_index)
+      );
+
+      lyricsEls.push(
+        <a onClick={this.handleHighlightClick}
+           key={annotation.id}
+           id={annotation.id}
+           className="highlight">
+          {
+            lyrics.slice(annotation.start_index, annotation.end_index + 1)
+          }
+        </a>
+      );
+
+      tracked = annotation.end_index + 1;
+    }
+
+    lyricsEls.push(lyrics.slice(tracked));
+
+    return lyricsEls;
   },
 
   render () {
     const song = this.state.song;
 
     const annotations = this.state.annotations;
-    let lyrics = "";
-    if (this.state.song.lyrics) { lyrics += this.populatedLyrics(); }
+    const lyrics = this.populatedLyrics();
 
     return (
       <div className="song">
