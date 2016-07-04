@@ -17,5 +17,6 @@
 # Ignore node modules and bundled js
 /node_modules
 bundle.js
+bundle.js.map
 .env
 bundle.js.map
