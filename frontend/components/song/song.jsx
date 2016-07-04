@@ -70,7 +70,25 @@ const Song = React.createClass({
       selectedStart: selection.anchorOffset,
       selectedEnd: selection.focusOffset
     });
-    this.activateAnnotationPrompt();
+    if (!this.selectionOverlapping(
+          selection.anchorOffset, selection.focusOffset
+    )) {
+      this.activateAnnotationPrompt();
+    }
+  },
+
+  selectionOverlapping(startIdx, endIdx){
+    return this
+      .state
+      .annotations
+      .filter(annotation => {
+        return !(
+          endIdx < annotation.start_index
+          ||
+          startIdx > annotation.end_index
+        );
+      })
+      .length > 0;
   },
 
   activateAnnotationPrompt(){

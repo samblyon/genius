@@ -2,7 +2,7 @@ class Api::AnnotationsController < ApplicationController
   before_action :must_be_author, except: [:index, :show, :create]
 
   def index
-    @annotations = Annotation.where(song_id: params[:song_id])
+    @annotations = Annotation.where(song_id: params[:song_id]).order(:start_index)
     puts @annotations
   end
 
