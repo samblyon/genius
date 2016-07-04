@@ -18,3 +18,4 @@
 /node_modules
 bundle.js
 .env
+bundle.js.map
