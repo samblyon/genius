@@ -7,7 +7,8 @@ const SearchBar = React.createClass({
   getInitialState() {
     return {
       query: "",
-      results: SongStore.searchResults()
+      results: SongStore.searchResults(),
+      searching: false
     };
   },
 
@@ -25,19 +26,43 @@ const SearchBar = React.createClass({
 
   handleChange(e){
     e.preventDefault();
-    SongActions.fetchSongsByQuery(e.target.value);
-
+    if (e.target.value) {
+      SongActions.fetchSongsByQuery(e.target.value);
+      this.setState({ searching: true });
+    } else {
+      this.setState({ searching: false });
+    }
     this.setState({ query: e.target.value });
   },
 
-  render(){
-    const results = this.state.results.map(result => {
-      return <SongsIndexItem key={result.id} song={result} />
+  handleSelect(e){
+    e.preventDefault();
+    this.setState({
+      query: e.target.textContent,
+      searching: false
     });
+  },
+
+  render(){
+    let results = [];
+    let className = "search-bar";
+
+    if (this.state.searching) {
+      results = this.state.results.map(result => {
+        return <SongsIndexItem key={result.id} song={result} />
+      });
+
+      className = "search-bar-selected";
+    }
 
     return(
-      <div className="search-bar">
+      <div className={className} onClick={this.handleSelect}>
         <input type="text"
+               placeholder="Search songs and artists"
+               onFocus={ (e) => e.target.placeholder = "" }
+               onBlur={
+                 (e) => e.target.placeholder = "Search for songs and artists"
+               }
                value={this.state.query}
                onChange={this.handleChange}/>
         <div className="search-results">

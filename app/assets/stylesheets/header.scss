@@ -15,29 +15,86 @@ a:hover {
 }
 
 .header-top {
-  padding: 0px 10px 0px 10px;
+  padding: 0px 10px 0px 3px;
   background: $yellow;
   position: relative;
+  z-index: 90;
+  -webkit-transition: all 2s;
 }
 
 .search-bar {
   position: absolute;
   top: 5px;
-  height: 20px;
-  left: 10px;
+  height: auto;
+  left: 5px;
   padding: 3px;
-  border: 1px solid #222;
-  width: 200px;
+  width: 220px;
+  color: #000;
+  font-size: .875em;
+  font-weight: 400;
+  border-radius: 1px;
+  background: white;
 
   input {
-    padding: 0;
-    width: 100%;
+    padding: 2px 5px 2px 5px;
+    width: 90%;
     margin: 0;
+    background: transparent;
+    color: #000;
+  }
+
+  input::-webkit-input-placeholder {
+    color: #000;
+  }
+
+  input:-moz-placeholder { /* Firefox 18- */
+    color: #000;
+  }
+
+  input::-moz-placeholder {  /* Firefox 19+ */
+    color: #000;
+  }
+
+  input:-ms-input-placeholder {
+    color: #000;
+  }
+
+  input:focus {
+    outline: none;
+  }
+}
+
+.search-bar-selected {
+  transition: height .15s;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 99;
+  background: $yellow;
+  font-size: 1em;
+
+  input {
+    padding: 10px;
+    width: 100%;
+    margin: 5px;
+    background: white;
+    color: #000;
+  }
+
+  input:focus {
+    outline: none;
   }
 }
 
 .search-results {
-  background: #222;
+  z-index: 99;
+  background: #000;
+  padding-left: 10px;
+
+  .songs-title {
+    float: left;
+  }
 }
 
 .logo-container {
@@ -76,7 +133,7 @@ nav {
   justify-content: center;
   background: #000;
   color: $pale-blue;
-  padding: .875em 1.5em;
+  padding: .5em 1.2em;
   font-size: .875em;
   text-transform: uppercase;
 }
@@ -143,6 +200,7 @@ input {
 
 
 }
+
 .submit:hover, button:hover {
   border: .5px solid white;
 }
@@ -156,16 +214,7 @@ input {
   background: white;
   color: $pink;
 }
-//
-// <ul className="auth-nav">
-//   <button onClick={this.props.handleLogout} className="auth">
-//     Log Out
-//   </button>
-//
-//   <li className="auth">
-//     Hi, {this.props.currentUser.username}!
-//   </li>
-// </ul>
+
 
 @font-face {
   font-family: 'DIN Pro Condensed Regular';
