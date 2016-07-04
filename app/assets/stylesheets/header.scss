@@ -20,11 +20,24 @@ a:hover {
   position: relative;
 }
 
-.search-placeholder {
+.search-bar {
   position: absolute;
-  top: 0;
+  top: 5px;
+  height: 20px;
   left: 10px;
-  padding: 10px;
+  padding: 3px;
+  border: 1px solid #222;
+  width: 200px;
+
+  input {
+    padding: 0;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.search-results {
+  background: #222;
 }
 
 .logo-container {

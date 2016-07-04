@@ -6,12 +6,14 @@ const SongsIndexItem = require('./songs_index_item');
 const SongsIndex = React.createClass({
   getInitialState() {
     return {
-      songs: []
+      songs: SongStore.all(),
+      initialized: false
     };
   },
 
   componentWillMount() {
     this.songListener = SongStore.addListener(this._onSongsChange);
+    console.log(this.props.params);
     SongActions.fetchAlphabeticalSongs();
   },
 
@@ -20,7 +22,14 @@ const SongsIndex = React.createClass({
   },
 
   _onSongsChange(){
-    this.setState({ songs: SongStore.all() });
+    if ( this.state.initialized ) {
+      this.setState({ songs: SongStore.searchResults() });
+    } else {
+      this.setState({
+        songs: SongStore.all(),
+        initialized: true
+      });
+    }
   },
 
 

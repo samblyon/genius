@@ -14,6 +14,21 @@ module.exports =  {
     });
   },
 
+  fetchSongsByQuery(query, onSuccess, onError) {
+    $.get({
+      url: "api/songs",
+      data: {
+        query: query
+      },
+      success(res){
+        onSuccess(res);
+      },
+      error(res){
+        onError(res);
+      }
+    });
+  },
+
   fetchTopSongs (onSuccess, onError) {
     $.get({
       url: "api/songs",

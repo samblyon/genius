@@ -1,7 +1,14 @@
 class Api::SongsController < ApplicationController
   def index
     if params[:query] == "alphabetical"
-      @songs = Song.order(:title, :artist)
+      @songs = Song
+                  .order(:title, :artist)
+    elsif params[:query]
+      @songs = Song
+                  .where(
+                    "LOWER(title) ~ :query OR LOWER(artist) ~ :query",
+                    query: params[:query].downcase
+                  ).order(:title, :artist)
     else
       # Upgrade this to select top 10 songs by upvotes
       @songs = Song.all.limit(10)

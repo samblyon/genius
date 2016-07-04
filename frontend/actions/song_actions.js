@@ -11,6 +11,12 @@ module.exports = {
     );
   },
 
+  fetchSongsByQuery (query) {
+    SongApiUtil.fetchSongsByQuery(
+      query, this.receiveSearchResults, ErrorActions.onError
+    );
+  },
+
   fetchTopSongs () {
     SongApiUtil.fetchTopSongs(
       this.receiveSongs, ErrorActions.onError
@@ -41,6 +47,13 @@ module.exports = {
       actionType: SongConstants.SONGS_RECEIVED,
       songs: songs
     });
+  },
+
+  receiveSearchResults(songs) {
+    AppDispatcher.dispatch({
+      actionType: SongConstants.SEARCH_RESULTS_RECEIVED,
+      songs: songs
+    })
   },
 
   receiveSong(song) {
