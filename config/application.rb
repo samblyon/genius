@@ -37,7 +37,7 @@ module Genius
 
     # Devise accept JSON
     config.to_prepare do
-      DeviseController.respond_to :json
+      DeviseController.respond_to :json, :html
     end
   end
 end

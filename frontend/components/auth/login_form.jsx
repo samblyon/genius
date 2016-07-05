@@ -47,11 +47,13 @@ const LoginForm = React.createClass({
     e.preventDefault();
     const user = this.state;
     SessionActions.login(user, this.formName);
+    e.stopPropagation();
   },
 
   loginGuest(e){
     e.preventDefault();
     SessionActions.loginGuest();
+    e.stopPropagation();
   },
 
   render() {

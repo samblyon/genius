@@ -1,5 +1,6 @@
 class Api::SessionsController < Devise::SessionsController
 # before_action :configure_sign_in_params, only: [:create]
+  protect_from_forgery except: :destroy
 
   # GET /resource/sign_in
   # def new
@@ -11,8 +12,8 @@ class Api::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # DELETE /resource/sign_out
-  # def destroy
+  # def destroy # Assumes only JSON requests
+  #   # signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
   #   super
   # end
 

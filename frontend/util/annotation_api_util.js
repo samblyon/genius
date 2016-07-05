@@ -2,6 +2,7 @@ module.exports =  {
   fetchAnnotations (songId, onSuccess, onError) {
     $.get({
       url: "api/annotations",
+      dataType: "JSON",
       data: {
         song_id: songId
       },
@@ -17,6 +18,7 @@ module.exports =  {
   fetchSingleAnnotation (id, onSuccess, onError) {
     $.get({
       url: "api/annotations/" + id,
+      dataType: "JSON",
       success(res){
         onSuccess(res);
       },
@@ -29,6 +31,7 @@ module.exports =  {
   createAnnotation(annotation, onSuccess, onError) {
     $.post({
       url: "api/annotations",
+      dataType: "JSON",
       data: {
         annotation: annotation
       },
@@ -44,6 +47,7 @@ module.exports =  {
   updateAnnotation(annotation, onSuccess, onError) {
     $.ajax({
       url: "api/annotations/" + annotation.id,
+      dataType: "JSON",
       method: 'PATCH',
       data: {
         annotation: annotation
@@ -60,6 +64,7 @@ module.exports =  {
   destroyAnnotation(id, onSuccess, onError) {
     $.post({
       url: "api/annotations/" + id,
+      dataType: "JSON",
       method: 'DELETE',
       success(res){
         onSuccess(res);

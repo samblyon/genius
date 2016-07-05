@@ -105,13 +105,19 @@ $pink: #ff1464;
     background-color: #ccc;
     color: #222;
     z-index: 3;
+
   }
 
   a:hover {
     background: $bright-green;
     cursor: pointer;
   }
+
+  a.selected-annotation {
+    background: $yellow;
+  }
 }
+
 
 .ghost-lyrics {
   z-index: 2;

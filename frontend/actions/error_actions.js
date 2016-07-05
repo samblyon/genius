@@ -11,6 +11,7 @@ module.exports = {
   },
 
   setFormErrors(formName, errors){
+    debugger;
     AppDispatcher.dispatch({
       actionType: ErrorConstants.SET_ERRORS,
       errors: errors.responseJSON,

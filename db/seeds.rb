@@ -21,7 +21,7 @@ Song.all.each do |song|
   10.times do
     User.first.annotations.create(
       song_id: song.id,
-      body: "hi",
+      body: Faker::StarWars.quote,
       start_index: start,
       end_index: finish
     )

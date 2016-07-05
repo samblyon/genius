@@ -3,13 +3,10 @@ const SongStore = require('../../stores/song_store');
 const SongActions = require('../../actions/song_actions');
 const AnnotationStore = require('../../stores/annotation_store');
 const AnnotationActions = require('../../actions/annotation_actions');
-const AnnotationPrompt = require('../annotation/annotation_prompt');
 const Annotation = require('../annotation/annotation');
 const SongSplash = require('./song_splash');
 const SongInfo = require('./song_info');
 const LyricsDisplay = require('./lyrics_display');
-const Modal = require('react-modal');
-
 
 const Song = React.createClass({
   getInitialState: function() {
@@ -19,9 +16,8 @@ const Song = React.createClass({
       editing: false,
       selectedStart: "",
       selectedEnd: "",
-      showPrompt: false,
-      showAnnotationForm: false,
-      showInfo: true
+      showInfo: true,
+      selectedAnnotationId: ""
     };
   },
 
@@ -47,20 +43,89 @@ const Song = React.createClass({
   },
 
   _onAnnotationChange(){
-    this.setState({ annotations: AnnotationStore.all() });
+    // refresh annotations for LyricsDisplay
+    this.setState({
+      annotations: AnnotationStore.all(),
+    });
 
-    //switch to editing mode if there is a temp annotation
-    if (AnnotationStore.temp()) {
-      this.switchToEditingMode();
+    // if there's a temp, tell the annotation component to use the temp
+    // and set own mode to editing (for click listener)
+    // otherwise, an annotation must have been added, so grab its id
+    if ( AnnotationStore.temp() ) {
+      this.tempAnnotation = AnnotationStore.temp();
+      this.setState({
+        selectedAnnotationId: "temp",
+        editing: true
+      });
+    } else {
+      this.setState({
+        editing: false,
+        selectedAnnotationId: AnnotationStore.lastAddedAnnotation().id
+      });
     }
   },
 
-  switchToEditingMode(){
+  activateAnnotationPrompt(){
     this.setState({
-      showPrompt: false
+      selectedAnnotationId: "prompt",
+      showInfo: false
     });
+    console.log("Activated listener");
+    window.addEventListener("click", (event) => {
+      // debugger;
+      console.log("received click");
+      if (event.target.id !== "annotation-prompt"
+        && event.target.id !== "annotation-button"
+        && event.target.id !== "signup-button"
+        && event.target.id !== "signin-button"
+        && this.state.selectedAnnotationId === "prompt"
+      ){
+        console.log("clicked outside");
+        this.setState({
+          showInfo: true,
+          selectedAnnotationId: "",
+          editing: false
+        });
+      }
+    });
+  },
 
-    //other stuff
+  handleHighlightClick(e){
+    this.setState({
+      selectedAnnotationId: parseInt(e.target.id),
+      showInfo: false
+    });
+  },
+
+  afterSubmit(){
+    this.setState({
+      editing: false,
+    });
+  },
+
+  handleCancelCreate(){
+    this.setState({
+      editing: false,
+      selectedStart: "",
+      selectedEnd: "",
+      showInfo: true,
+      selectedAnnotationId: ""
+    });
+    AnnotationActions.clearTemp();
+  },
+
+  selectionOverlapping(startIdx, endIdx){
+    return this
+    .state
+    .annotations
+    .filter(annotation => {
+      return !(
+        endIdx < annotation.start_index
+        ||
+        startIdx > annotation.end_index
+      );
+    })
+    .length > 0;
   },
 
   handleHighlight(e){
@@ -70,68 +135,25 @@ const Song = React.createClass({
       selectedStart: selection.anchorOffset,
       selectedEnd: selection.focusOffset
     });
-    if (!this.selectionOverlapping(
-          selection.anchorOffset, selection.focusOffset
-    )) {
+    if ( this.state.editing === true ){
+      return;
+    } else if (
+      selection.isCollapsed ||
+      this.selectionOverlapping(selection.anchorOffset, selection.focusOffset)
+    ) {
+      this.setState({
+        showInfo: true,
+        selectedAnnotationId: ""
+      });
+    } else {
       this.activateAnnotationPrompt();
     }
-  },
-
-  selectionOverlapping(startIdx, endIdx){
-    return this
-      .state
-      .annotations
-      .filter(annotation => {
-        return !(
-          endIdx < annotation.start_index
-          ||
-          startIdx > annotation.end_index
-        );
-      })
-      .length > 0;
-  },
-
-  activateAnnotationPrompt(){
-    this.setState({
-      showPrompt: true,
-      showInfo: false
-    });
-    window.addEventListener("click", (event) => {
-      if (event.target.id !== "annotation-prompt"
-        && event.target.id !== "annotation-button"
-        && this.state.showPrompt
-      ){
-        this.closeAnnotationPrompt();
-        this.setState({
-          showInfo: true
-        });
-      }
-    });
-  },
-
-  closeAnnotationPrompt(){
-    this.setState({
-      showPrompt: false
-    });
-  },
-
-  handlePromptClick(){
-    console.log("handled prompt click");
-    AnnotationActions.createTempAnnotation({
-      start_index: this.state.selectedStart,
-      end_index: this.state.selectedEnd,
-      body: "",
-      song_id: this.songId
-    });
-  },
-
-  handleHighlightClick(e){
-    alert(e.target.id);
   },
 
   render () {
     const song = this.state.song;
     const annotations = this.state.annotations;
+    const selection = this.state.selectedAnnotationId;
 
     return (
       <div className="song">
@@ -141,6 +163,7 @@ const Song = React.createClass({
             <LyricsDisplay
                 song={song}
                 annotations={annotations}
+                selected={selection}
                 onHighlight={this.handleHighlight}
                 handleHighlightClick={this.handleHighlightClick} />
           </div>
@@ -148,15 +171,20 @@ const Song = React.createClass({
             <SongInfo
               song={song}
               visible={this.state.showInfo}/>
-            <AnnotationPrompt
-              visible={this.state.showPrompt}
-              closePrompt={this.closeAnnotationPrompt}
-              handleClick={this.handlePromptClick} />
+            <Annotation
+              selectedStart={this.state.selectedStart}
+              selectedEnd={this.state.selectedEnd}
+              tempAnnotation={this.tempAnnotation}
+              afterSubmit={this.afterSubmit}
+              handleCancelCreate={this.handleCancelCreate}
+              annotationId={selection}
+              songId={this.songId} />
           </div>
         </div>
       </div>
     );
   }
+
 });
 
 module.exports = Song;

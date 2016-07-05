@@ -11,6 +11,10 @@
   </script>
 <% end %>
 
+<script type="text/javascript">
+  window.csrf = "<%= form_authenticity_token %>"
+</script>
+
 
 <!-- react hook-on div -->
 <div id="content" class="group"/>

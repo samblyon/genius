@@ -47,6 +47,12 @@ module.exports = {
     );
   },
 
+  clearTemp() {
+    AppDispatcher.dispatch({
+      actionType: AnnotationConstants.CLEAR_TEMP_ANNOTATION
+    });
+  },
+
   receiveAnnotations(annotations) {
     AppDispatcher.dispatch({
       actionType: AnnotationConstants.ANNOTATIONS_RECEIVED,

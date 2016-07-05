@@ -12,6 +12,11 @@ const LyricsDisplay = React.createClass({
 
     let tracked = 0;
     for (let annotation of this.props.annotations) {
+      let viewClass = "highlight";
+      if (this.props.selected === annotation.id || annotation.id === "temp") {
+        viewClass = "selected-annotation";
+      }
+
       lyricsEls.push(
         lyrics.slice(tracked, annotation.start_index)
       );
@@ -19,7 +24,7 @@ const LyricsDisplay = React.createClass({
         <a onClick={this.props.handleHighlightClick}
            key={annotation.id}
            id={annotation.id}
-           className="highlight"
+           className={viewClass}
            >{lyrics.slice(annotation.start_index, annotation.end_index)}
         </a>
       );

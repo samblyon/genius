@@ -46,23 +46,4 @@ module.exports = {
       }
     });
   }
-
-  // guestLogin(onSuccess, onError){
-  //   $.post({
-  //     url: "/api/users/sign_in",
-  //     data: {
-  //       api_user: {
-  //         email: "guest2@guest.com",
-  //         username: "guest2",
-  //         password: "guestguest"
-  //       }
-  //     },
-  //     success(res){
-  //       onSuccess(res);
-  //     },
-  //     error(err){
-  //       onError(err);
-  //     }
-  //   });
-  // }
 };
