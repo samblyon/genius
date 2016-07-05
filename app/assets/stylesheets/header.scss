@@ -190,20 +190,20 @@ input {
 .submit, button {
   height: auto;
   font-size: 1em;
-  font-weight: 700;
+  font-weight: 400;
   width: 100px;
   margin-top: 20px;
-  background: #fff;
-  color: $pink;
   padding: 5px;
   padding-left: 8px;
   transition: .15s ease 0s;
+  border: 1px solid white;
 
 
 }
 
 .submit:hover, button:hover {
-  border: .5px solid white;
+  background: #fff;
+  color: $pink;
 }
 
 .form-error {

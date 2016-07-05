@@ -24,13 +24,13 @@ const AnnotationForm = React.createClass({
       AnnotationActions.createAnnotation(annotation, "editAnnotation");
       this.setState({ submitting: true });
     } else {
-      this.setState({ errors: { body: "Go ahead, write something."} })
+      this.setState({ errors: { body: "Go ahead, write something."} });
     }
   },
 
   render () {
     return (
-      <form className="annotation-form">
+      <form className="annotation annotation-form">
         <p className="form-error">{this.state.errors.body}</p>
         <textarea
           className="annotation-textarea"

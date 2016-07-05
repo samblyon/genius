@@ -67,12 +67,24 @@ $pink: #ff1464;
 
 .annotation-prompt {
   padding: 10px;
-  border: 4px solid #0ecb26;
+  border: 4px solid $bright-green;
+}
+
+.annotation-prompt:hover {
+  cursor: pointer;
+
+  button:hover {
+    border: 2px solid $bright-green;
+  }
 }
 
 .annotation {
+  border: 2px solid #ccc;
+
   input, button {
-    border: 2px solid #ccc;
+    border: 2px solid $bright-green;
+    font-weight: 400;
+    color: #aaa;
   }
 
   label {
@@ -84,9 +96,23 @@ $pink: #ff1464;
   }
 }
 
-.annotation-prompt:hover {
-  background: #aaa;
-  cursor: pointer;
+.annotation-view {
+  padding: 10px;
+}
+
+.annotation-form {
+  padding: 10px;
+
+  textarea {
+    padding: 5px;
+    font-size: 1em;
+    width: 90%;
+    border: 2px solid #ccc;
+  }
+
+  textarea:focus {
+    outline: none;
+  }
 }
 
 .song-right-col {
