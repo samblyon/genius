@@ -72,7 +72,6 @@ const Song = React.createClass({
     });
     console.log("Activated listener");
     window.addEventListener("click", (event) => {
-      // debugger;
       console.log("received click");
       if (!$(event.target).closest('#annotation-prompt').length
         && this.state.selectedAnnotationId === "prompt"
@@ -88,7 +87,9 @@ const Song = React.createClass({
   },
 
   handleHighlightClick(e){
+    const element = e.target;
     this.setState({
+      popupStyle: this.heightOfElement(element),
       selectedAnnotationId: parseInt(e.target.id),
       showInfo: false
     });
@@ -112,39 +113,54 @@ const Song = React.createClass({
   },
 
   selectionOverlapping(startIdx, endIdx){
-    return this
-    .state
-    .annotations
-    .filter(annotation => {
-      return !(
-        endIdx < annotation.start_index
-        ||
-        startIdx > annotation.end_index
-      );
-    })
-    .length > 0;
+    return(
+      this.state
+        .annotations
+        .some(annotation => {
+          return !(
+            endIdx < annotation.start_index
+            ||
+            startIdx > annotation.end_index
+          );
+        })
+    );
   },
 
   handleHighlight(e){
     const selection = window.getSelection();
-    console.log(selection.anchorOffset, selection.focusOffset);
+    const indices = [selection.anchorOffset, selection.focusOffset];
+    const sortedIndices = indices.sort((a, b) => a - b);
     this.setState({
-      selectedStart: selection.anchorOffset,
-      selectedEnd: selection.focusOffset
+      selectedStart: sortedIndices[0],
+      selectedEnd: sortedIndices[1]
     });
     if ( this.state.editing === true ){
       return;
     } else if (
-      selection.isCollapsed ||
-      this.selectionOverlapping(selection.anchorOffset, selection.focusOffset)
+      selection.isCollapsed
+      || this.selectionOverlapping(...sortedIndices)
     ) {
       this.setState({
         showInfo: true,
         selectedAnnotationId: ""
       });
     } else {
+      const element = selection.getRangeAt(0);
+      this.setState({ popupStyle: this.heightOfElement(element) });
       this.activateAnnotationPrompt();
     }
+  },
+
+  //returns object with top set to top of selection
+  heightOfElement(element){
+    const style = {};
+    const relative = document.body.parentNode.getBoundingClientRect();
+    const r = element.getBoundingClientRect();
+    // this will get top of the selection (300 is custom adjustment,
+    // due to the popup that uses this location sitting inside another
+    // div)
+    style.top = (r.top - relative.top - 310) + 'px';
+    return style;
   },
 
   render () {
@@ -169,6 +185,7 @@ const Song = React.createClass({
               song={song}
               visible={this.state.showInfo}/>
             <Annotation
+              popupStyle={this.state.popupStyle}
               selectedStart={this.state.selectedStart}
               selectedEnd={this.state.selectedEnd}
               tempAnnotation={this.tempAnnotation}

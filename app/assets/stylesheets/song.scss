@@ -9,6 +9,19 @@ $pink: #ff1464;
   display: none;
 }
 
+.unselectable {
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+
+   /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+   -ms-user-select: none;
+   user-select: none;
+}
+
 /* line 10, /Users/appacademy/genius/app/assets/stylesheets/song.scss */
 .song-splash {
   background-image: url("https://i.ytimg.com/vi/4NJlUribp3c/maxresdefault.jpg");
@@ -65,17 +78,35 @@ $pink: #ff1464;
   cursor: pointer;
 }
 
+.annotation-segment {
+  position: absolute;
+  width: 90%;
+}
+
 .annotation-prompt {
   padding: 10px;
   border: 4px solid $bright-green;
+
+  a {
+    color: $bright-blue;
+    cursor: pointer;
+  }
+
+  a:hover {
+    color: $pink;
+  }
 }
 
-.annotation-prompt:hover {
-  cursor: pointer;
+button.annotation-prompt {
+  margin-top: 0;
+  border: 2px solid $bright-green;
+}
 
-  button:hover {
-    border: 2px solid $bright-green;
-  }
+button.annotation-prompt:hover {
+  color: white;
+  cursor: pointer;
+  background: $bright-green;
+  transition: all .15s;
 }
 
 .annotation {

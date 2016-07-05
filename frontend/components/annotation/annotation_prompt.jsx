@@ -1,12 +1,13 @@
 const React = require('react');
 const SessionStore = require("../../stores/session_store");
 const LoginForm = require('../auth/login_form');
+const SignupForm = require('../auth/signup_form');
 
 const AnnotationPrompt = React.createClass({
   getInitialState() {
     return {
       loggedIn: SessionStore.isUserLoggedIn(),
-      showLogin: false
+      showForm: ""
     };
   },
 
@@ -22,28 +23,41 @@ const AnnotationPrompt = React.createClass({
     this.setState({ loggedIn: SessionStore.isUserLoggedIn() });
   },
 
-  revealLogin(){
-    console.log("clicked button to show login");
-    this.setState({ showLogin: true });
+  revealLogin(e){
+    e.preventDefault();
+    this.setState({ showForm: "login" });
+    e.stopPropagation();
+  },
+
+  revealSignup(e){
+    e.preventDefault();
+    this.setState({ showForm: "signup" });
+    e.stopPropagation();
   },
 
   render (){
     let promptContent;
 
     if (!this.state.loggedIn) {
-      if (this.state.showLogin) {
+      if (this.state.showForm === "login") {
         promptContent = (
           <div id="annotation-login"
             className="annotation annotation-login">
             <LoginForm />
           </div>
         );
+      } else if (this.state.showForm === "signup") {
+        promptContent = (
+          <div id="annotation-login"
+            className="annotation annotation-login">
+            <SignupForm />
+          </div>
+        );
       } else {
         promptContent = (
           <div id="annotation-signup-button"
-            className="annotation annotation-prompt"
-            onClick={this.revealLogin}>
-            Signup or login to annotate
+            className="annotation annotation-prompt">
+            <a onClick={this.revealSignup}>Signup</a> or <a onClick={this.revealLogin}>login</a> to annotate
           </div>
         );
       }
