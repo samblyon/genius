@@ -75,7 +75,7 @@ const LoginForm = React.createClass({
         </label>
 
         <button onClick={this.handleSubmit}>Login</button>
-        <button onClick={this.loginGuest}>Login as Guest</button>
+        <button onClick={this.loginGuest}>Demo Login</button>
       </form>
     );
   }
