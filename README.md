@@ -111,13 +111,13 @@ one feature at a time. Refer back to your MVP and group the features into logica
 
 **Objective:** Annotations belong to Songs, and can be viewed by portion of site lyrics.
 
-- [ ] create `Annotation` model
+- [X] create `Annotation` model
 - build out API, Flux loop, and components for:
-  - [ ] Annotation CRUD
-  - [ ] triggering annotation suggestion (upgrade Lyrics component)
+  - [X] Annotation CRUD
+  - [X] triggering annotation suggestion (upgrade Lyrics component)
   - [ ] associating annotations with positions in lyrics
-  - [ ] activating sections of lyrics as links (upgrade Lyrics component)
-  - [ ] viewing annotations by section of lyrics
+  - [X] activating sections of lyrics as links (upgrade Lyrics component)
+  - [X] viewing annotations by section of lyrics
 
 ### Phase 6: Comments (1 days, W2 W 12pm)
 
