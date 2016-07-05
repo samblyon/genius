@@ -64,6 +64,12 @@ const SignupForm = React.createClass({
     }
   },
 
+  loginGuest(e){
+    e.preventDefault();
+    SessionActions.loginGuest();
+    e.stopPropagation();
+  },
+
   passwordsMatch(){
     return this.state.password === this.state.passwordConfirmation;
   },
@@ -99,6 +105,11 @@ const SignupForm = React.createClass({
                type="submit"
                className="submit">
         </input>
+        <label className="dividing-text">
+          or
+        </label>
+        <button className="demo-login"
+          onClick={this.loginGuest}>Demo Login</button>
       </form>
     );
   }

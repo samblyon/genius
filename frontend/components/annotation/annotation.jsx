@@ -8,14 +8,29 @@ const SessionStore = require("../../stores/session_store");
 const Annotation = React.createClass({
   getInitialState(){
     return({
-      annotation: AnnotationStore.find(this.props.annotationId)
+      annotation: AnnotationStore.find(this.props.annotationId),
+      editing: false
     });
+  },
+
+  componentDidMount(){
+    this.annotationListener = AnnotationStore.addListener(
+      this._onAnnotationsChange
+    );
+  },
+
+  componentWillUnmount(){
+    this.annotationListener.remove();
   },
 
   componentWillReceiveProps(newProps) {
     this.setState({
       annotation: AnnotationStore.find(newProps.annotationId)
     });
+  },
+
+  _onAnnotationsChange(){
+    this.afterSubmit();
   },
 
   handlePromptClick(){
@@ -27,6 +42,23 @@ const Annotation = React.createClass({
       id: "temp"
     });
   },
+
+  switchToEditingMode(e){
+    e.preventDefault();
+    this.setState({editing: true});
+  },
+
+  afterSubmit(){
+    this.setState({
+      editing: false
+    });
+    this.props.afterSubmit();
+  },
+
+  handleCancelEdit(){
+    this.setState({ editing: false });
+  },
+
 
   render () {
     const command = this.props.annotationId;
@@ -47,14 +79,15 @@ const Annotation = React.createClass({
       const form = (
         <AnnotationForm
           annotation={AnnotationStore.find(command)}
-          afterSubmit={this.props.afterSubmit}
-          handleCancelEdit={ () => console.log("cancel clicked") } />
+          afterSubmit={this.afterSubmit}
+          handleCancelCreate={this.handleCancelEdit}
+          editing="true"/>
       );
 
       let editButton;
       if (
-        window.currentUser &&
-        this.state.annotation.author_id === SessionStore.currentUser.id
+        SessionStore.isUserLoggedIn() &&
+        this.state.annotation.author_id === SessionStore.currentUser().id
       ) {
         editButton = (
           <button onClick={this.switchToEditingMode}>
@@ -70,7 +103,10 @@ const Annotation = React.createClass({
         </div>
       );
 
-      const formOrView = view;
+      let formOrView = view;
+      if (this.state.editing) {
+        formOrView = form;
+      }
 
       annotationSegment = (
         <div className="annotation">

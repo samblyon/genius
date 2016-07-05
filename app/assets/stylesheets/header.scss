@@ -64,6 +64,10 @@ a:hover {
   }
 }
 
+button.demo-login {
+  margin-top: 5px;
+}
+
 .search-bar-selected {
   position: fixed;
   top: 0px;
@@ -116,12 +120,10 @@ a:hover {
   transition: .15s all;
 }
 
-
 .auth-nav li {
   padding: 10px;
   position: relative;
   cursor: pointer;
-
 }
 
 .auth-nav li:hover, .highlight {
@@ -194,9 +196,10 @@ input {
   width: 100px;
   margin-top: 20px;
   padding: 5px;
-  padding-left: 8px;
   transition: .15s ease 0s;
   border: 1px solid white;
+  color: white;
+  background: $pink;
 }
 
 .submit:hover, button:hover {
@@ -213,7 +216,6 @@ input {
   background: white;
   color: $pink;
 }
-
 
 @font-face {
   font-family: 'DIN Pro Condensed Regular';

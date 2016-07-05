@@ -75,7 +75,11 @@ const LoginForm = React.createClass({
         </label>
 
         <button onClick={this.handleSubmit}>Login</button>
-        <button onClick={this.loginGuest}>Demo Login</button>
+        <label className="dividing-text">
+          or
+        </label>
+        <button className="demo-login"
+          onClick={this.loginGuest}>Demo Login</button>
       </form>
     );
   }

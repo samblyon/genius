@@ -9,19 +9,6 @@ $pink: #ff1464;
   display: none;
 }
 
-.unselectable {
-   -moz-user-select: -moz-none;
-   -khtml-user-select: none;
-   -webkit-user-select: none;
-
-   /*
-     Introduced in IE 10.
-     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
-   */
-   -ms-user-select: none;
-   user-select: none;
-}
-
 /* line 10, /Users/appacademy/genius/app/assets/stylesheets/song.scss */
 .song-splash {
   background-image: url("https://i.ytimg.com/vi/4NJlUribp3c/maxresdefault.jpg");
@@ -80,7 +67,7 @@ $pink: #ff1464;
 
 .annotation-segment {
   position: absolute;
-  width: 90%;
+  width: 85%;
 }
 
 .annotation-prompt {
@@ -89,11 +76,23 @@ $pink: #ff1464;
 
   a {
     color: $bright-blue;
+    border: 2px solid #ccc;
     cursor: pointer;
+    text-align: center;
+    padding: 3px 0px 3px 0;
+  }
+
+  a.signup {
+    color: white;
+    background: $bright-green;
+    border: 2px solid $bright-green;
   }
 
   a:hover {
-    color: $pink;
+    background: $bright-green;
+    border: 2px solid $bright-green;
+    padding: 5px 0px 5px 0;
+    color: white;
   }
 }
 
@@ -115,11 +114,26 @@ button.annotation-prompt:hover {
   input, button {
     border: 2px solid $bright-green;
     font-weight: 400;
-    color: #aaa;
+    color: $bright-green;
+    background: white;
+  }
+
+  input.submit:hover {
+    border: 2px solid $bright-green;
+    font-weight: 400;
+    background: $bright-green;
+    color: white;
+  }
+
+  button:hover {
+    border: 2px solid $bright-green;
+    font-weight: 400;
+    background: $bright-green;
+    color: white;
   }
 
   label {
-    color: #ccc;
+    color: #222;
   }
 
   p {
@@ -127,8 +141,37 @@ button.annotation-prompt:hover {
   }
 }
 
+span.dividing-text {
+  display: block;
+  margin: 5px 0 5px 0;
+  text-align: center;
+}
+
 .annotation-view {
   padding: 10px;
+}
+
+button.cancel-button {
+  color: #ccc;
+  border: 2px solid #ccc;
+  cursor: pointer;
+}
+
+button.cancel-button:hover {
+  background: #222;
+  color: white;
+  border: 2px solid #222;
+}
+
+button.save-button, button.annotation-button {
+  color: $bright-green;
+  background: white;
+  border: 2px solid $bright-green;
+}
+
+button.save-button:hover, button.annotation-button:hover {
+  background: $bright-green;
+  color: white;
 }
 
 .annotation-form {
@@ -149,8 +192,9 @@ button.annotation-prompt:hover {
 .song-right-col {
   position: relative;
   width: 40%;
-  padding: 10px 40px 10px 20px;
-  max-width: 300px
+  padding: 10px 40px 10px 30px;
+  max-width: 400px;
+  height: 900px;
 }
 
 .album-cover {
@@ -178,12 +222,12 @@ button.annotation-prompt:hover {
 
 .lyrics, .ghost-lyrics {
   position: absolute;
-  max-width: 600px;
+  max-width: 55%;
 
   a {
     position: relative;
     display: inline;
-    background-color: #ccc;
+    background-color: #E6E6E6;
     color: #222;
     z-index: 3;
 
