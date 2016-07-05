@@ -30,14 +30,12 @@ const Annotation = React.createClass({
 
   render () {
     const command = this.props.annotationId;
-    let annotationSegment = <div>no command</div>;
+    let annotationSegment = <div></div>;
     if (command === "prompt") {
       annotationSegment = (
         <AnnotationPrompt
           handleClick={this.handlePromptClick} />
-      )
-    } else if (this.state.needToSignIn) {
-
+      );
     } else if (command === "temp") {
       annotationSegment = (
         <AnnotationForm

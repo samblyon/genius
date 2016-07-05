@@ -12,14 +12,6 @@ const AnnotationPrompt = React.createClass({
 
   componentDidMount(){
     this.sessionListener = SessionStore.addListener(this._onUserChange);
-    if ( !this.state.loggedIn ) {
-      document.getElementById('signup-button').addEventListener('click', (e)=>{
-        this.revealLogin();
-        console.log("stopping propogation");
-        e.stopPropagation();
-        e.preventDefault();
-      });
-    }
   },
 
   componentWillUnmount(){
@@ -27,7 +19,7 @@ const AnnotationPrompt = React.createClass({
   },
 
   _onUserChange(){
-    this.setState({ loggedIn: SessionStore.isUserLoggedIn() })
+    this.setState({ loggedIn: SessionStore.isUserLoggedIn() });
   },
 
   revealLogin(){
@@ -40,19 +32,27 @@ const AnnotationPrompt = React.createClass({
 
     if (!this.state.loggedIn) {
       if (this.state.showLogin) {
-        promptContent = <LoginForm />;
+        promptContent = (
+          <div id="annotation-login"
+            className="annotation annotation-login">
+            <LoginForm />
+          </div>
+        );
       } else {
         promptContent = (
-          <div id="signup-button" onClick={this.revealLogin}>
-            Signup to annotate
+          <div id="annotation-signup-button"
+            className="annotation annotation-prompt"
+            onClick={this.revealLogin}>
+            Signup or login to annotate
           </div>
         );
       }
     } else {
       promptContent = (
         <button id="annotation-button"
+          className="annotation annotation-prompt"
           onClick={this.props.handleClick}>
-          Annotate
+          Click to Annotate
         </button>
       );
     }
