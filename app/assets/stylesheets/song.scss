@@ -65,6 +65,30 @@ $pink: #ff1464;
   cursor: pointer;
 }
 
+.annotation-prompt {
+  padding: 10px;
+  border: 4px solid #0ecb26;
+}
+
+.annotation {
+  input, button {
+    border: 2px solid #ccc;
+  }
+
+  label {
+    color: #ccc;
+  }
+
+  p {
+    color: red;
+  }
+}
+
+.annotation-prompt:hover {
+  background: #aaa;
+  cursor: pointer;
+}
+
 .song-right-col {
   position: relative;
   width: 40%;

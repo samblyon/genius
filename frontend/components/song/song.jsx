@@ -74,10 +74,7 @@ const Song = React.createClass({
     window.addEventListener("click", (event) => {
       // debugger;
       console.log("received click");
-      if (event.target.id !== "annotation-prompt"
-        && event.target.id !== "annotation-button"
-        && event.target.id !== "signup-button"
-        && event.target.id !== "signin-button"
+      if (!$(event.target).closest('#annotation-prompt').length
         && this.state.selectedAnnotationId === "prompt"
       ){
         console.log("clicked outside");
