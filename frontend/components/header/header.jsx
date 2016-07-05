@@ -70,11 +70,11 @@ const Header = React.createClass({
       content : {
         position        : 'relative',
         justifyContent  : 'center',
-        top             : '80px',
+        top             : '70px',
         left            : '0%',
         width           : '100%',
         height          : '80%',
-        outline         : '3px solid ##ff1464',
+        outline         : 'none',
         padding         : '20px',
         backgroundColor : '#ff1464',
         borderRadius    : '0px',

@@ -15,7 +15,7 @@ const SignupForm = require('./components/auth/signup_form');
 const SessionActions = require('./actions/session_actions');
 const SessionStore = require('./stores/session_store');
 const AnnotationStore = window.annotStore = require('./stores/annotation_store');
-const AnnotationActions = window.annotActions = require('./actions/annotation_actions');
+const AnnotationActions = require('./actions/annotation_actions');
 const SongActions = require('./actions/song_actions');
 const SongStore = require('./stores/song_store');
 const SongDisplay = require('./components/song/song_display');

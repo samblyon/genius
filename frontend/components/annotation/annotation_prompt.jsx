@@ -57,14 +57,17 @@ const AnnotationPrompt = React.createClass({
         promptContent = (
           <div id="annotation-signup-button"
             className="annotation annotation-prompt">
-            <a onClick={this.revealSignup}>Signup</a> or <a onClick={this.revealLogin}>login</a> to annotate
+            <a className="signup" onClick={this.revealSignup}>Signup</a>
+            <span className="dividing-text">or</span>
+            <a onClick={this.revealLogin}>Login</a>
+            <span className="dividing-text">to annotate</span>
           </div>
         );
       }
     } else {
       promptContent = (
         <button id="annotation-button"
-          className="annotation annotation-prompt"
+          className="annotation annotation-button"
           onClick={this.props.handleClick}>
           Click to Annotate
         </button>

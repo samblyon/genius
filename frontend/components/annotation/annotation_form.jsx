@@ -21,7 +21,11 @@ const AnnotationForm = React.createClass({
     if (this.state.body) {
       const annotation = this.props.annotation;
       annotation.body = this.state.body;
-      AnnotationActions.createAnnotation(annotation, "editAnnotation");
+      if (this.props.editing) {
+        AnnotationActions.updateAnnotation(annotation, "editAnnotation");
+      } else {
+        AnnotationActions.createAnnotation(annotation, "editAnnotation");
+      }
       this.setState({ submitting: true });
     } else {
       this.setState({ errors: { body: "Go ahead, write something."} });
@@ -38,6 +42,7 @@ const AnnotationForm = React.createClass({
           onChange={this.handleBodyChange}>
         </textarea>
         <button
+          className="save-button"
           disabled={this.state.submitting}
           onClick={this.handleSubmit}>
             Save
@@ -46,7 +51,7 @@ const AnnotationForm = React.createClass({
           className="cancel-button"
           disabled={this.state.submitting}
           onClick={this.props.handleCancelCreate}>
-            JK
+            Nevermind
         </button>
       </form>
     );
