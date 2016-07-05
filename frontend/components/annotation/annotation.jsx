@@ -39,6 +39,7 @@ const Annotation = React.createClass({
     } else if (command === "temp") {
       annotationSegment = (
         <AnnotationForm
+          popupStyle={this.props.popupStyle}
           annotation={this.props.tempAnnotation}
           handleCancelCreate={this.props.handleCancelCreate} />
       );
@@ -82,8 +83,11 @@ const Annotation = React.createClass({
     }
 
     return (
-      <div id="annotation-segment">{annotationSegment}</div>
-
+      <div id="annotation-segment"
+        className="annotation-segment"
+        style={this.props.popupStyle}>
+        {annotationSegment}
+      </div>
     );
   }
 });
