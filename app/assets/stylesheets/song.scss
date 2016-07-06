@@ -196,6 +196,13 @@ button.save-button, button.annotation-button {
   border: 2px solid $bright-green;
 }
 
+button.annotation-button {
+  position: absolute;
+  top: -13px;
+  width: 60%;
+  text-align: left;
+}
+
 button.save-button:hover, button.annotation-button:hover {
   background: $bright-green;
   color: white;
