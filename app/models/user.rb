@@ -8,31 +8,35 @@ class User < ActiveRecord::Base
          :authentication_keys => [:username]
 
 
-   validates :username,
-       :presence => true,
-       :uniqueness => {
-         :case_sensitive => false
-       }
+  validates :username,
+     :presence => true,
+     :uniqueness => {
+       :case_sensitive => false
+     }
 
-   validate :validate_username
+  validate :validate_username
 
-   has_many :annotations,
+  has_many :annotations,
+  foreign_key: :author_id,
+  primary_key: :id
+
+  has_many :comments,
     foreign_key: :author_id,
     primary_key: :id
 
-   def validate_username
-     if User.where(email: username).exists?
-       errors.add(:username, :invalid)
-     end
+  def validate_username
+   if User.where(email: username).exists?
+     errors.add(:username, :invalid)
    end
+  end
 
-   def email_required?
-     false
-   end
+  def email_required?
+   false
+  end
 
-   def email_changed?
-     false
-   end
+  def email_changed?
+   false
+  end
 
 
   def self.find_for_database_authentication(warden_conditions)

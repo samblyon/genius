@@ -12,4 +12,6 @@ class Annotation < ActiveRecord::Base
     primary_key: :id,
     class_name: :User
 
+  has_many :comments, as: :commentable
+
 end
