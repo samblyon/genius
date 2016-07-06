@@ -36,7 +36,7 @@ const SongsIndex = React.createClass({
   render () {
     const items = this.state.songs.map(song => {
       return(
-        <SongsIndexItem song={song} key={song.id} />
+        <SongsIndexItem song={song} key={"index_" + song.id} />
       );
     });
 

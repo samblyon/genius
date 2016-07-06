@@ -47,6 +47,7 @@ $pink: #ff1464;
 .not-splash {
   display: flex;
   color: #222;
+  background: white;
 }
 .song-left-col {
   width: 60%;
@@ -116,6 +117,17 @@ button.annotation-prompt:hover {
     font-weight: 400;
     color: $bright-green;
     background: white;
+    margin-top: 5px;
+  }
+
+  button.demo-login {
+    float: none;
+  }
+
+  input.submit, button {
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
   }
 
   input.submit:hover {
@@ -136,6 +148,12 @@ button.annotation-prompt:hover {
     color: #222;
   }
 
+  label.dividing-text {
+    float: left;
+    margin-right: 10px;
+    padding: 10px;
+  }
+
   p {
     color: red;
   }
@@ -151,7 +169,14 @@ span.dividing-text {
   padding: 10px;
 }
 
+.annotation-author {
+  display: block;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 button.cancel-button {
+  float: left;
   color: #ccc;
   border: 2px solid #ccc;
   cursor: pointer;
@@ -164,9 +189,18 @@ button.cancel-button:hover {
 }
 
 button.save-button, button.annotation-button {
+  margin-right: 10px;
+  float: left;
   color: $bright-green;
   background: white;
   border: 2px solid $bright-green;
+}
+
+button.annotation-button {
+  position: absolute;
+  top: -13px;
+  width: 60%;
+  text-align: left;
 }
 
 button.save-button:hover, button.annotation-button:hover {
@@ -194,7 +228,7 @@ button.save-button:hover, button.annotation-button:hover {
   width: 40%;
   padding: 10px 40px 10px 30px;
   max-width: 400px;
-  height: 900px;
+  height: 400px;
 }
 
 .album-cover {

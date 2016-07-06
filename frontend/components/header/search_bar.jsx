@@ -1,7 +1,7 @@
 const React = require('react');
 const SongActions = require('../../actions/song_actions');
 const SongsIndexItem = require('../song/songs_index_item');
-const SongStore = require('../../stores/song_store')
+const SongStore = require('../../stores/song_store');
 
 const SearchBar = React.createClass({
   getInitialState() {
@@ -37,9 +37,14 @@ const SearchBar = React.createClass({
 
   handleSelect(e){
     e.preventDefault();
+    if (e.target.id) {
+      this.setState({
+        query: e.target.textContent,
+      });
+    }
     this.setState({
-      query: e.target.textContent,
-      searching: false
+      searching: false,
+      query: ""
     });
   },
 
@@ -49,19 +54,30 @@ const SearchBar = React.createClass({
 
     if (this.state.searching) {
       results = this.state.results.map(result => {
-        return <SongsIndexItem key={result.id} song={result} />
+        return <SongsIndexItem key={result.id} song={result} />;
       });
 
       className = "search-bar-selected";
+    }
+
+    if (this.state.searching && results.length === 0) {
+      results = <SongsIndexItem
+        key="none" song={{
+          title: "Couldn't find a song with that title or artist",
+          id: "",
+          disabled: "true"
+        }} />;
     }
 
     return(
       <div className={className} onClick={this.handleSelect}>
         <input type="text"
                placeholder="Search songs and artists"
-               onFocus={ (e) => e.target.placeholder = "" }
+               onFocus={ function(e) { e.target.placeholder = ""; } }
                onBlur={
-                 (e) => e.target.placeholder = "Search for songs and artists"
+                 function(e) {
+                   e.target.placeholder = "Search for songs and artists";
+                 }
                }
                value={this.state.query}
                onChange={this.handleChange}/>

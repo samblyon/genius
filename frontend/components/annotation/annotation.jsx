@@ -59,6 +59,9 @@ const Annotation = React.createClass({
     this.setState({ editing: false });
   },
 
+  handleDelete(){
+    AnnotationActions.destroyAnnotation(this.props.annotationId);
+  },
 
   render () {
     const command = this.props.annotationId;
@@ -75,7 +78,7 @@ const Annotation = React.createClass({
           annotation={this.props.tempAnnotation}
           handleCancelCreate={this.props.handleCancelCreate} />
       );
-    } else if (command) {
+    } else if (command && this.state.annotation) {
       const form = (
         <AnnotationForm
           annotation={AnnotationStore.find(command)}
@@ -84,22 +87,32 @@ const Annotation = React.createClass({
           editing="true"/>
       );
 
-      let editButton;
+      let userButtons;
       if (
         SessionStore.isUserLoggedIn() &&
         this.state.annotation.author_id === SessionStore.currentUser().id
       ) {
-        editButton = (
-          <button onClick={this.switchToEditingMode}>
-            Edit
-          </button>
+        userButtons = (
+          <div>
+            <button className="edit-button"
+              onClick={this.switchToEditingMode}>
+              Edit
+            </button>
+            <button className="cancel-button"
+              onClick={this.handleDelete}>
+              Delete
+            </button>
+          </div>
         );
       }
 
       const view = (
-        <div className="annotation-view">
+        <div className="annotation-view clearfix">
+          <span className="annotation-author">
+            {this.state.annotation.author}
+          </span>
           {this.state.annotation.body}
-          <div>{ (editButton) ? editButton : "" }</div>
+          { (userButtons) ? userButtons : "" }
         </div>
       );
 

@@ -57,8 +57,15 @@ const LoginForm = React.createClass({
   },
 
   render() {
+    let title;
+    if (this.props.showTitle) {
+      title = <h3 className="auth-form-title">Login</h3>;
+    }
     return (
-      <form className="auth-form">
+      <form className="auth-form clearfix">
+        {title}
+        <button className="demo-login"
+          onClick={this.loginGuest}>Click for Demo</button>
         <p className="form-error">{this.state.errors.errors}</p>
         <label>Username:
           <input type="text"
@@ -75,11 +82,6 @@ const LoginForm = React.createClass({
         </label>
 
         <button onClick={this.handleSubmit}>Login</button>
-        <label className="dividing-text">
-          or
-        </label>
-        <button className="demo-login"
-          onClick={this.loginGuest}>Demo Login</button>
       </form>
     );
   }

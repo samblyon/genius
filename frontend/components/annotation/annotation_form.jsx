@@ -34,7 +34,7 @@ const AnnotationForm = React.createClass({
 
   render () {
     return (
-      <form className="annotation annotation-form">
+      <form className="annotation annotation-form clearfix">
         <p className="form-error">{this.state.errors.body}</p>
         <textarea
           className="annotation-textarea"

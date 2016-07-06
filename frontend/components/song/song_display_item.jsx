@@ -3,6 +3,7 @@ const hashHistory = require('react-router').hashHistory;
 
 const SongDisplayItem = React.createClass({
   goToSong(){
+    if (this.props.disabled) { return; }
     hashHistory.push("/songs/" + this.props.song.id);
   },
 
