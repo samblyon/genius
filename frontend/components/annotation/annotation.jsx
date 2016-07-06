@@ -63,7 +63,6 @@ const Annotation = React.createClass({
     AnnotationActions.destroyAnnotation(this.props.annotationId);
   },
 
-
   render () {
     const command = this.props.annotationId;
     let annotationSegment = <div></div>;

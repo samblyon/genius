@@ -23,7 +23,9 @@ const Song = React.createClass({
 
   componentDidMount(){
     this.songListener = SongStore.addListener(this._onSongChange);
-    this.annotationListener = AnnotationStore.addListener(this._onAnnotationChange);
+    this.annotationListener = AnnotationStore.addListener(
+      this._onAnnotationChange
+    );
     this.songId = parseInt(this.props.params.songId);
     SongActions.fetchSingleSong(this.songId);
   },
@@ -70,9 +72,7 @@ const Song = React.createClass({
       selectedAnnotationId: "prompt",
       showInfo: false
     });
-    console.log("Activated listener");
     window.addEventListener("click", (event) => {
-      console.log("received click");
       if (!$(event.target).closest('#annotation-prompt').length
         && this.state.selectedAnnotationId === "prompt"
       ){
