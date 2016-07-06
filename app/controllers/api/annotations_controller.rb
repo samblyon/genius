@@ -6,11 +6,12 @@ class Api::AnnotationsController < ApplicationController
       .where(song_id: params[:song_id])
       .includes(:author)
       .order(:start_index)
-    puts @annotations
   end
 
   def show
-    @annotation = Annotation.find(params[:id])
+    @annotation = Annotation
+        .includes(:author, :comments, comments: [:author])
+        .find(params[:id])
   end
 
   def create

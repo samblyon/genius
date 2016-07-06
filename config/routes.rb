@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     devise_for :users
     resources :songs, only: [:create, :index, :show]
-    resources :annotations, except: [:new]
+    resources :annotations, except: [:new, :edit]
+    resources :comments, only: [:create, :update, :destroy]
   end
   root to: "static_pages#root"
 end

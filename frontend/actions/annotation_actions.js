@@ -34,7 +34,7 @@ module.exports = {
   updateAnnotation(annotation, formName) {
     AnnotationApiUtil.updateAnnotation(
       annotation,
-      this.receiveAnnotation,
+      this.receiveUpdatedAnnotation,
       ErrorActions.setFormErrors.bind(null, formName)
     );
   },
@@ -63,6 +63,13 @@ module.exports = {
   receiveAnnotation(annotation) {
     AppDispatcher.dispatch({
       actionType: AnnotationConstants.ANNOTATION_RECEIVED,
+      annotation: annotation
+    });
+  },
+
+  receiveUpdatedAnnotation(annotation) {
+    AppDispatcher.dispatch({
+      actionType: AnnotationConstants.UPDATED_ANNOTATION_RECEIVED,
       annotation: annotation
     });
   },

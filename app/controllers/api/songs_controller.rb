@@ -18,14 +18,14 @@ class Api::SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     if @song.save
-      render :show
+      render :create
     else
       render json: @song.errors, status: 422
     end
   end
 
   def show
-    @song = Song.find(params[:id])
+    @song = Song.includes(:comments, comments: [:user]).find(params[:id])
   end
 
   private

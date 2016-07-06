@@ -1,27 +1,16 @@
-class CommentsController < ApplicationController
-  # def index
-  #   if params[:parent] == "annotation"
-  #     @comments = Annotation
-  #                   .find(params[:annotation_id])
-  #                   .comments
-  #                   .order(:created_at)
-  #   else
-  #     @comments = Song
-  #       .find(params[:song_id])
-  #       .comments
-  #       .order(:created_at)
-  #   end
-  # end
-
+class Api::CommentsController < ApplicationController
   def show
     @comment = Comment.find(params[:id])
   end
 
   def create
-    if params[:annotation_id]
-      @item = Annotation.find(params[:annotation_id])
+    if comment_params[:annotation_id]
+      @item = Annotation.find(comment_params[:annotation_id])
+    elsif comment_params[:song_id]
+      @item = Song.find(comment_params[:song_id])
     else
-      @item = Song.find(params[:song_id])
+      render json: {'message': 'missing commentable id'}, status: 422
+      return
     end
 
     @comment = @item.comments.create(
@@ -49,10 +38,11 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
+    render :show
   end
 
   private
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:body, :song_id, :annotation_id)
   end
 end

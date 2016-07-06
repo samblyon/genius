@@ -18,11 +18,13 @@ class User < ActiveRecord::Base
 
   has_many :annotations,
   foreign_key: :author_id,
-  primary_key: :id
+  primary_key: :id,
+  dependent: :destroy
 
   has_many :comments,
     foreign_key: :author_id,
-    primary_key: :id
+    primary_key: :id,
+    dependent: :destroy
 
   def validate_username
    if User.where(email: username).exists?

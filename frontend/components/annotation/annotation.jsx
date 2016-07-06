@@ -17,6 +17,7 @@ const Annotation = React.createClass({
     this.annotationListener = AnnotationStore.addListener(
       this._onAnnotationsChange
     );
+    this.callForAnnotationIfAppropriate(this.props.annotationId);
   },
 
   componentWillUnmount(){
@@ -27,10 +28,20 @@ const Annotation = React.createClass({
     this.setState({
       annotation: AnnotationStore.find(newProps.annotationId)
     });
+    this.callForAnnotationIfAppropriate(newProps.annotationId);
   },
 
   _onAnnotationsChange(){
     this.afterSubmit();
+  },
+
+  callForAnnotationIfAppropriate(annotationId){
+    debugger;
+    if (
+      annotationId && ((annotationId !== "prompt") && (annotationId !== "temp"))
+    ) {
+      AnnotationActions.fetchSingleAnnotation(this.props.annotationId);
+    }
   },
 
   handlePromptClick(){
