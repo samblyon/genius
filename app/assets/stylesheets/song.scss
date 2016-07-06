@@ -48,6 +48,8 @@ $pink: #ff1464;
   display: flex;
   color: #222;
   background: white;
+  max-width: 1020px;
+  margin: 0 auto;
 }
 .song-left-col {
   width: 60%;
@@ -110,7 +112,7 @@ button.annotation-prompt:hover {
 }
 
 .annotation {
-  border: 2px solid #ccc;
+  border-left: 6px solid $yellow;
 
   input, button {
     border: 2px solid $bright-green;
@@ -256,7 +258,7 @@ button.save-button:hover, button.annotation-button:hover {
 
 .lyrics, .ghost-lyrics {
   position: absolute;
-  max-width: 55%;
+  max-width: 45%;
 
   a {
     position: relative;

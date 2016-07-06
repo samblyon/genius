@@ -16,7 +16,7 @@ h3, a, p, button, input, textarea {
 
 body {
   min-height: 600px;
-  background: #222;
+  background: #fafafa;
 }
 
 .clearfix::after {

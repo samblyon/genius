@@ -4,6 +4,8 @@ const AnnotationActions = require("../../actions/annotation_actions");
 const AnnotationForm = require("./annotation_form");
 const AnnotationPrompt = require("./annotation_prompt");
 const SessionStore = require("../../stores/session_store");
+const CommentForm = require("../comment/comment_form");
+const CommentsIndex = require("../comment/comments_index");
 
 const Annotation = React.createClass({
   getInitialState(){
@@ -135,8 +137,8 @@ const Annotation = React.createClass({
       annotationSegment = (
         <div className="annotation">
           {formOrView}
-          <div>
-            Comments will go here
+          <div className="comments clearfix">
+            <CommentForm annotation={this.state.annotation} />
           </div>
         </div>
       );
@@ -144,7 +146,7 @@ const Annotation = React.createClass({
 
     return (
       <div id="annotation-segment"
-        className="annotation-segment"
+        className="annotation-segment clearfix"
         style={this.props.popupStyle}>
         {annotationSegment}
       </div>
