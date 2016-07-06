@@ -6,3 +6,5 @@ json.extract! annotation,
   :body,
   :song_id,
   :updated_at
+
+json.author annotation.author.username

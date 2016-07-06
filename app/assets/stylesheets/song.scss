@@ -116,6 +116,17 @@ button.annotation-prompt:hover {
     font-weight: 400;
     color: $bright-green;
     background: white;
+    margin-top: 5px;
+  }
+
+  button.demo-login {
+    float: none;
+  }
+
+  input.submit, button {
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
   }
 
   input.submit:hover {
@@ -136,6 +147,12 @@ button.annotation-prompt:hover {
     color: #222;
   }
 
+  label.dividing-text {
+    float: left;
+    margin-right: 10px;
+    padding: 10px;
+  }
+
   p {
     color: red;
   }
@@ -151,7 +168,14 @@ span.dividing-text {
   padding: 10px;
 }
 
+.annotation-author {
+  display: block;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 button.cancel-button {
+  float: left;
   color: #ccc;
   border: 2px solid #ccc;
   cursor: pointer;
@@ -164,6 +188,8 @@ button.cancel-button:hover {
 }
 
 button.save-button, button.annotation-button {
+  margin-right: 10px;
+  float: left;
   color: $bright-green;
   background: white;
   border: 2px solid $bright-green;

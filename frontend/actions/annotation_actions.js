@@ -39,7 +39,7 @@ module.exports = {
     );
   },
 
-  destroyAnnotation(id, formName) {
+  destroyAnnotation(id) {
     AnnotationApiUtil.destroyAnnotation(
       id,
       this.removeAnnotation,

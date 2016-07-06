@@ -43,14 +43,14 @@ const AnnotationPrompt = React.createClass({
         promptContent = (
           <div id="annotation-login"
             className="annotation annotation-login">
-            <LoginForm />
+            <LoginForm showTitle="true" />
           </div>
         );
       } else if (this.state.showForm === "signup") {
         promptContent = (
           <div id="annotation-login"
             className="annotation annotation-login">
-            <SignupForm />
+            <SignupForm showTitle="true" />
           </div>
         );
       } else {
