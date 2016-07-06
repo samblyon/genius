@@ -51,6 +51,7 @@ $pink: #ff1464;
   max-width: 1020px;
   margin: 0 auto;
 }
+
 .song-left-col {
   width: 60%;
   padding: 20px;
@@ -58,6 +59,10 @@ $pink: #ff1464;
   white-space: pre-line;
   font-size: 1.25em;
   line-height: 1.7em;
+
+  .comment-author {
+    line-height: normal;
+  }
 }
 
 .annotation-tag {
@@ -75,7 +80,6 @@ $pink: #ff1464;
 
 .annotation-prompt {
   padding: 10px;
-  border: 4px solid $bright-green;
 
   a {
     color: $bright-blue;
@@ -191,6 +195,7 @@ button.cancel-button {
   color: #ccc;
   border: 2px solid #ccc;
   cursor: pointer;
+  background: transparent;
 }
 
 button.cancel-button:hover {
@@ -227,6 +232,7 @@ button.save-button:hover, button.annotation-button:hover {
     font-size: 1em;
     width: 90%;
     border: 2px solid #ccc;
+    background: white;
   }
 
   textarea:focus {
@@ -268,6 +274,7 @@ button.save-button:hover, button.annotation-button:hover {
 .lyrics, .ghost-lyrics {
   position: absolute;
   max-width: 45%;
+  padding-bottom: 10px;
 
   a {
     position: relative;
@@ -295,15 +302,30 @@ button.save-button:hover, button.annotation-button:hover {
 
 .comment {
   padding: 10px;
+
+  button {
+    margin: 0 5px 0 0;
+    float: right;
+  }
+}
+
+.comments {
+  background: #E6E6E6;
+  font-size: 1rem;
+}
+
+.comment-content {
+  float: left;
 }
 
 .separator {
   height: 4px;
   background: #aaa;
-  margin: 20px 0px 20px 0px;
+  margin: 10px 0px 15px 0px;
 }
 
 .comment-author {
   text-transform: uppercase;
-  color: #aaa;
+  font-size: .875em;
+  font-weight: 700;
 }

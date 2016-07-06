@@ -138,8 +138,6 @@ const Annotation = React.createClass({
         <div className="annotation">
           {formOrView}
           <div className="comments clearfix">
-            <div className="separator" />
-            <h3>Comments</h3>
             <CommentForm annotation={this.state.annotation} />
             <CommentsIndex comments={this.state.annotation.comments} />
           </div>

@@ -18,8 +18,10 @@ const CommentsIndexItem = React.createClass({
 
     return(
       <div className="comment clearfix">
-        <div className="comment-author">{this.props.comment.author}</div>
-        <div className="comment-body">{this.props.comment.body}</div>
+        <div className="comment-content">
+          <div className="comment-author">{this.props.comment.author}</div>
+          <div className="comment-body">{this.props.comment.body}</div>
+        </div>
         {userButton}
       </div>
     );

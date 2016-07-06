@@ -181,9 +181,7 @@ const Song = React.createClass({
                 selected={selection}
                 onHighlight={this.handleHighlight}
                 handleHighlightClick={this.handleHighlightClick} />
-            <div className="separator" />
-            <div className="annotation">
-              <h3>Comments</h3>
+            <div className="annotation comments clearfix">
               <CommentForm song={song} />
               <CommentsIndex comments={song.comments} />
             </div>

@@ -10,7 +10,8 @@ const CommentsIndex = React.createClass({
 
   render(){
     let items;
-    if (this.props.comments) {
+    let header;
+    if (this.props.comments && this.props.comments.length > 0) {
       items = this.props.comments.map(comment => {
         return(
           <CommentsIndexItem
@@ -19,10 +20,17 @@ const CommentsIndex = React.createClass({
             handleDelete={this.handleDelete} />
         );
       });
+      header = (
+        <div>
+          <div className="separator" />
+          <h3>Comments</h3>
+        </div>
+      );
     }
 
     return(
       <div className="comments-index">
+        {header}
         {items}
       </div>
     );
