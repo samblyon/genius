@@ -7,6 +7,8 @@ const Annotation = require('../annotation/annotation');
 const SongSplash = require('./song_splash');
 const SongInfo = require('./song_info');
 const LyricsDisplay = require('./lyrics_display');
+const CommentsIndex = require('../comment/comments_index');
+const CommentForm = require('../comment/comment_form');
 
 const Song = React.createClass({
   getInitialState: function() {
@@ -179,6 +181,12 @@ const Song = React.createClass({
                 selected={selection}
                 onHighlight={this.handleHighlight}
                 handleHighlightClick={this.handleHighlightClick} />
+            <div className="separator" />
+            <div className="annotation">
+              <h3>Comments</h3>
+              <CommentForm song={song} />
+              <CommentsIndex comments={song.comments} />
+            </div>
           </div>
           <div className="song-right-col">
             <SongInfo

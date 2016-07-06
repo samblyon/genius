@@ -1,6 +1,8 @@
 const Store = require('flux/utils').Store;
 const AppDispatcher = require('../dispatcher/dispatcher');
 const AnnotationConstants = require('../constants/annotation_constants');
+const CommentConstants = require('../constants/comment_constants');
+
 
 // NOTE ANNOTATIONS ARE STORED BY ID
 let _annotations = {};
@@ -41,6 +43,14 @@ AnnotationStore.__onDispatch = function (payload) {
       _clearTempAnnotation();
       this.__emitChange();
       break;
+    case CommentConstants.ANNOTATION_COMMENT_RECEIVED:
+      _addComment(payload.comment);
+      this.__emitChange();
+      break;
+    case CommentConstants.ANNOTATION_COMMENT_REMOVED:
+      _removeComment(payload.comment);
+      this.__emitChange();
+      break;
   }
 };
 
@@ -74,6 +84,18 @@ function _resetAnnotations(annotations){
 function _clearTempAnnotation () {
   _tempAnnotation = null;
   delete _annotations["temp"];
+}
+
+function _addComment(comment){
+  const annotationId = comment.commentable_id;
+  _annotations[annotationId].comments.push(comment);
+}
+
+function _removeComment(comment){
+  const annotationId = comment.commentable_id;
+  const annotation = _annotations[annotationId];
+  const commentIndex = annotation.comments.indexOf(comment);
+  annotation.comments.splice(commentIndex, 1);
 }
 
 module.exports = AnnotationStore;

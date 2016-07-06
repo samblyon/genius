@@ -1,12 +1,39 @@
 const React = require('react');
 const CommentActions = require('../../actions/comment_actions');
+const AnnotationStore = require('../../stores/annotation_store');
+const SongStore = require('../../stores/song_store');
 
 const CommentForm = React.createClass({
   getInitialState() {
     return {
       body: "",
-      editing: false
+      editing: false,
+      submitting: false
     };
+  },
+
+  componentDidMount(){
+    if (this.props.annotation) {
+      this.annotationListener = AnnotationStore.addListener(
+        this._onStoreChange
+      );
+    } else if (this.props.song) {
+      this.listener = SongStore.addListener(
+        this._onStoreChange
+      );
+    }
+  },
+
+  componentWillUnmount(){
+    this.annotationListener.remove();
+  },
+
+  _onStoreChange(){
+    this.setState({
+      body: "",
+      submitting: false,
+      editing: false
+    });
   },
 
   handleChange(e){
@@ -14,6 +41,8 @@ const CommentForm = React.createClass({
     this.setState({ body: e.target.value })
     if (e.target.value !== "") {
       this.setState({ editing: true });
+    } else {
+      this.setState({ editing: false });
     }
   },
 
@@ -30,6 +59,8 @@ const CommentForm = React.createClass({
     }
 
     CommentActions.createComment(comment);
+
+    this.setState({ submitting: true })
   },
 
   handleCancelCreate(e){
@@ -41,7 +72,7 @@ const CommentForm = React.createClass({
     const buttonGroup = (this.state.editing) ? "" : "invisible";
 
     return (
-      <form className="comment-form">
+      <form className="annotation-form comment-form clearfix">
         <textarea
           value={this.state.body}
           placeholder="Add comment..."
