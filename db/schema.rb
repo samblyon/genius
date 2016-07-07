@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20160707202118) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -81,6 +82,19 @@ ActiveRecord::Schema.define(version: 20160707202118) do
   add_index "users", ["username", "email"], name: "index_users_on_username_and_email", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
+  create_table "votes", force: :cascade do |t|
+    t.integer  "user_id",        null: false
+    t.integer  "vote",           null: false
+    t.integer  "upvotable_id",   null: false
+    t.string   "upvotable_type", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "votes", ["upvotable_id", "upvotable_type"], name: "index_votes_on_upvotable_id_and_upvotable_type", using: :btree
+  add_index "votes", ["user_id", "upvotable_id", "upvotable_type"], name: "index_votes_on_user_id_and_upvotable_id_and_upvotable_type", unique: true, using: :btree
+
   add_foreign_key "annotations", "songs"
   add_foreign_key "annotations", "users", column: "author_id"
+  add_foreign_key "votes", "users"
 end

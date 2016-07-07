@@ -35,7 +35,7 @@ class Api::SongsController < ApplicationController
   end
 
   def show
-    @song = Song.includes(:comments, comments: [:author]).find(params[:id])
+    @song = Song.includes(:comments, comments: [:author, :votes]).find(params[:id])
   end
 
   private

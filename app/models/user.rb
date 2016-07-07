@@ -26,6 +26,8 @@ class User < ActiveRecord::Base
     primary_key: :id,
     dependent: :destroy
 
+  has_many :votes, dependent: :destroy
+
   def validate_username
    if User.where(email: username).exists?
      errors.add(:username, :invalid)
