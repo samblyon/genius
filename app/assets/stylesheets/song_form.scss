@@ -7,25 +7,28 @@ $pink: #ff1464;
 
 
 .song-form {
-  color: white;
+  color: #222;
+  padding: 10px;
+  max-width: 400px;
 }
 
 .song-form input {
   width: 70%;
   font-size: 1em;
   padding-left: 7px;
+  color: #222;
 }
 
 .song-form textarea {
   font-size: 1em;
-  color: $pink;
   margin-top: 5px;
   margin-bottom: 10px;
   background: white;
   width: 80%;
-  height: 400px;
+  height: 100px;
   padding: 5px;
   padding-left: 8px;
+  color: #222;
 }
 
 .song-form label {
@@ -35,22 +38,33 @@ $pink: #ff1464;
   text-transform: uppercase;
 }
 
+
+.song-form-container {
+  padding: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+  background: #bbb;
+}
+
 .song-form-container h3 {
   color: #000;
   font-weight: 700;
-  margin-bottom: 5px;
+  padding: 10px;
 }
 
 .song-form input.submit  {
+  float: left;
   height: auto;
-  width: 40%;
-  border: 1px solid white;
-  background: $pink;
-  color: white;
+  width: 80px;
+  border: 1px solid $bright-green;
+  border-left: 4px solid $bright-green;
+  background: white;
+  margin-right: 10px;
+  color: $bright-green;
 }
 
 .song-form input.submit:hover  {
-  background: white;
-  color: $pink;
+  background: $bright-green;
+  color: white;
   cursor: pointer;
 }

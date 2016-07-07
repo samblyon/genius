@@ -96,7 +96,6 @@ function _removeComment(comment){
   const annotation = _annotations[annotationId];
   const commentIds = annotation.comments.map(comment => comment.id);
   const commentIndex = commentIds.indexOf(comment.id);
-  debugger;
   annotation.comments.splice(commentIndex, 1);
 }
 

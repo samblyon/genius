@@ -61,5 +61,10 @@ module.exports = {
       actionType: SongConstants.SONG_RECEIVED,
       song: song
     });
+    AnnotationActions.fetchAnnotations(
+      song.id,
+      AnnotationActions.receiveAnnotations,
+      ErrorActions.onError
+    );
   }
 };

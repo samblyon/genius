@@ -10,18 +10,17 @@ const CommentForm = React.createClass({
     return {
       body: "",
       editing: false,
-      submitting: false,
       loggedIn: SessionStore.isUserLoggedIn()
     };
   },
 
   componentDidMount(){
     if (this.props.annotation) {
-      this.parentListener = AnnotationStore.addListener(
+      this.annotationListener = AnnotationStore.addListener(
         this._onStoreChange
       );
     } else if (this.props.song) {
-      this.parentlistener = SongStore.addListener(
+      this.songlistener = SongStore.addListener(
         this._onStoreChange
       );
     }
@@ -30,14 +29,18 @@ const CommentForm = React.createClass({
   },
 
   componentWillUnmount(){
-    this.parentListener.remove();
     this.sessionListener.remove();
+
+    if (this.props.annotation) {
+      this.annotationListener.remove();
+    } else if (this.props.song) {
+      this.songlistener.remove();
+    }
   },
 
   _onStoreChange(){
     this.setState({
       body: "",
-      submitting: false,
       editing: false
     });
   },
@@ -71,8 +74,6 @@ const CommentForm = React.createClass({
     }
 
     CommentActions.createComment(comment);
-
-    this.setState({ submitting: true })
   },
 
   handleCancelCreate(e){

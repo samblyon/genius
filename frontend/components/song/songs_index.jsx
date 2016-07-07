@@ -13,7 +13,6 @@ const SongsIndex = React.createClass({
 
   componentWillMount() {
     this.songListener = SongStore.addListener(this._onSongsChange);
-    console.log(this.props.params);
     SongActions.fetchAlphabeticalSongs();
   },
 

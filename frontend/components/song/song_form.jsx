@@ -18,7 +18,7 @@ const SongForm = React.createClass({
       releaseDate: "",
       about: "",
       submitting: false,
-      errors: {}
+      errors: { none: "none" }
     };
   },
 
@@ -34,9 +34,7 @@ const SongForm = React.createClass({
 
   _onSongChange(){
     const song = SongStore.latestAdded();
-    this.props.closeModal();
     hashHistory.push("songs/" + song.id);
-    this.songListener.remove();
   },
 
   _onErrorChange(){
@@ -69,13 +67,18 @@ const SongForm = React.createClass({
     this.setState({ submitting: true });
   },
 
+  goHome(){
+    hashHistory.push("/");
+  },
+
   render() {
+    const errorsPresent = (this.state.errors.none) ? "" : "Hmm.. missing some info. Scroll up!"
     return (
       <div className="song-form-container">
         <h3>add song</h3>
-        <form className="song-form" onSubmit={this.handleSubmit}>
+        <form className="song-form clearfix" >
           <label>
-            By
+            By *
             <p className="form-error">{this.state.errors.artist}</p>
             <input type="text"
                    value={this.state.artist}
@@ -83,7 +86,7 @@ const SongForm = React.createClass({
                    onChange={this.receiveChange}/>
           </label>
           <label>
-            Title
+            Title *
             <p className="form-error">{this.state.errors.title}</p>
             <input type="text"
                    value={this.state.title}
@@ -91,7 +94,7 @@ const SongForm = React.createClass({
                    onChange={this.receiveChange}/>
           </label>
           <label>
-            <p>Lyrics</p>
+            <p>Lyrics *</p>
             <p className="form-error">{this.state.errors.lyrics}</p>
             <textarea onChange={this.receiveChange}
                       name="lyrics"
@@ -147,11 +150,16 @@ const SongForm = React.createClass({
                    className="date"
                    onChange={this.receiveChange}/>
           </label>
-
+          <p className="form-error">{errorsPresent}</p>
           <input type="submit"
                  value="Submit"
                  className="submit"
-                 disabled={this.state.submitting}/>
+                 disabled={this.state.submitting}
+                 onClick={this.handleSubmit}/>
+
+           <button
+             className="cancel-button"
+             onClick={this.goHome}>Nevermind</button>
         </form>
       </div>
     );

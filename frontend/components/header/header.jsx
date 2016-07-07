@@ -14,7 +14,6 @@ const Header = React.createClass({
   getInitialState() {
     return {
       currentUser: SessionStore.currentUser(),
-      modalOpen: false
     };
   },
 
@@ -35,18 +34,6 @@ const Header = React.createClass({
     SessionActions.logout();
   },
 
-  closeModal(e){
-    if (e) {
-      e.preventDefault();
-    }
-    this.setState({ modalOpen: false });
-  },
-
-  openModal(e){
-    e.preventDefault();
-    this.setState({ modalOpen: true });
-  },
-
   render(){
     let authOrProfile;
     if (this.state.currentUser.username) {
@@ -57,38 +44,8 @@ const Header = React.createClass({
       authOrProfile = <HeaderAuth />;
     }
 
-    const modalStyle = {
-      overlay : {
-        position        : 'relative',
-        top             : 0,
-        left            : 0,
-        right           : 0,
-        bottom          : 0,
-        backgroundColor : 'rgba(255, 255, 255, 0)',
-        zIndex          : 10
-      },
-      content : {
-        position        : 'relative',
-        justifyContent  : 'center',
-        top             : '70px',
-        left            : '0%',
-        width           : '100%',
-        height          : '80%',
-        outline         : 'none',
-        padding         : '20px',
-        backgroundColor : '#ff1464',
-        borderRadius    : '0px',
-        zIndex          : 3
-      }
-    };
-
     return(
       <div className="header">
-        <Modal isOpen={this.state.modalOpen}
-          onRequestClose={this.closeModal}
-          style={modalStyle}>
-          <SongForm closeModal={this.closeModal}/>
-        </Modal>
         <header className="header-top">
           <SearchBar />
           <div className="logo-container" onClick={this.goHome}></div>
@@ -96,7 +53,7 @@ const Header = React.createClass({
         </header>
         <nav className="header-nav">
           <Link to="/" className="nav-link">HOME</Link>
-          <a onClick={this.openModal} className="nav-link">ADD SONG</a>
+          <Link to="/song/new" className="nav-link">ADD SONG</Link>
           <Link to="/songs" className="nav-link">ALL SONGS</Link>
         </nav>
       </div>

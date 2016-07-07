@@ -19,6 +19,10 @@ const Lyrics = React.createClass({
     window.addEventListener('resize', this.resize);
   },
 
+  componentWillReceiveProps(){
+    setTimeout(this.resize, 400);
+  },
+
   componentWillUnmount() {
     window.removeEventListener('resize', this.resize);
   },
