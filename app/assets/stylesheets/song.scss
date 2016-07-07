@@ -23,12 +23,13 @@ $pink: #ff1464;
 /* line 20, /Users/appacademy/genius/app/assets/stylesheets/song.scss */
 .splash-content {
   font-family: 'Cairo', serif;
-  font-weight: 400;
-  position: absolute;
-  max-width: 50%;
+  font-weight: 700;
+  position: relative;
+  max-width: 1020;
   line-height: 3em;
-  top: 20%;
-  left: 30px;
+  top: 80px;
+  margin: 0 auto;
+  padding-left: 30px;
 }
 
 /* line 28, /Users/appacademy/genius/app/assets/stylesheets/song.scss */
@@ -36,6 +37,7 @@ $pink: #ff1464;
   font-size: 2.5em;
   color: #ffff64;
   padding: 0;
+  max-width: 50%;
 }
 
 /* line 34, /Users/appacademy/genius/app/assets/stylesheets/song.scss */
@@ -134,6 +136,8 @@ button.annotation-prompt:hover {
     float: left;
     margin-right: 10px;
     margin-top: 10px;
+    border-left: 4px solid $bright-green;
+
   }
 
   input.submit:hover {
@@ -209,7 +213,7 @@ button.save-button, button.annotation-button {
   float: left;
   color: $bright-green;
   background: white;
-  border: 2px solid $bright-green;
+  border-left: 4px solid $bright-green;
 }
 
 button.annotation-button {

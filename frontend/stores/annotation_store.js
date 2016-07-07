@@ -94,7 +94,9 @@ function _addComment(comment){
 function _removeComment(comment){
   const annotationId = comment.commentable_id;
   const annotation = _annotations[annotationId];
-  const commentIndex = annotation.comments.indexOf(comment);
+  const commentIds = annotation.comments.map(comment => comment.id);
+  const commentIndex = commentIds.indexOf(comment.id);
+  debugger;
   annotation.comments.splice(commentIndex, 1);
 }
 

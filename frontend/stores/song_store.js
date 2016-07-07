@@ -69,7 +69,8 @@ function _addComment(comment){
 function _removeComment(comment){
   const songId = comment.commentable_id;
   const song = _songs[songId];
-  const commentIndex = song.comments.indexOf(comment);
+  const commentIds = song.comments.map(comment => comment.id);
+  const commentIndex = commentIds.indexOf(comment.id);
   song.comments.splice(commentIndex, 1);
 }
 

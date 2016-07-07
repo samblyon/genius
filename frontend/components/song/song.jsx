@@ -121,8 +121,7 @@ const Song = React.createClass({
         .some(annotation => {
           return !(
             endIdx < annotation.start_index
-            ||
-            startIdx > annotation.end_index
+              || startIdx > annotation.end_index
           );
         })
     );

@@ -4,7 +4,7 @@ const Lyrics = require('./lyrics');
 const LyricsDisplay = React.createClass({
   populatedLyrics(){
     if (this.props.annotations.length === 0 || !this.props.song.lyrics) {
-      return [];
+      return this.props.song.lyrics;
     }
 
     const lyrics = this.props.song.lyrics;

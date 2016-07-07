@@ -2,30 +2,36 @@ const React = require('react');
 const CommentActions = require('../../actions/comment_actions');
 const AnnotationStore = require('../../stores/annotation_store');
 const SongStore = require('../../stores/song_store');
+const SessionStore = require('../../stores/session_store');
+const CommentPrompt = require('./comment_prompt');
 
 const CommentForm = React.createClass({
   getInitialState() {
     return {
       body: "",
       editing: false,
-      submitting: false
+      submitting: false,
+      loggedIn: SessionStore.isUserLoggedIn()
     };
   },
 
   componentDidMount(){
     if (this.props.annotation) {
-      this.annotationListener = AnnotationStore.addListener(
+      this.parentListener = AnnotationStore.addListener(
         this._onStoreChange
       );
     } else if (this.props.song) {
-      this.listener = SongStore.addListener(
+      this.parentlistener = SongStore.addListener(
         this._onStoreChange
       );
     }
+
+    this.sessionListener = SessionStore.addListener(this._onSessionChange);
   },
 
   componentWillUnmount(){
-    this.annotationListener.remove();
+    this.parentListener.remove();
+    this.sessionListener.remove();
   },
 
   _onStoreChange(){
@@ -33,6 +39,12 @@ const CommentForm = React.createClass({
       body: "",
       submitting: false,
       editing: false
+    });
+  },
+
+  _onSessionChange(){
+    this.setState({
+      loggedIn: SessionStore.isUserLoggedIn()
     });
   },
 
@@ -69,25 +81,42 @@ const CommentForm = React.createClass({
   },
 
   render(){
-    const buttonGroup = (this.state.editing) ? "" : "invisible";
+    const buttonGroupViewClass = (this.state.editing) ? "" : "invisible";
+
+    const buttonGroup = (
+      <div className={buttonGroupViewClass}>
+        <input
+          className="submit"
+          type="submit"
+          value="Submit"
+          onClick={this.handleSubmit} />
+        <button
+          className="cancel-button"
+          onClick={this.handleCancelCreate}>Nevermind</button>
+      </div>
+    );
+
+    const prompt = (
+      <div className={buttonGroupViewClass}>
+        <CommentPrompt />
+      </div>
+    );
+
+    let loginOrButtonGroup;
+    if (this.state.loggedIn) {
+      loginOrButtonGroup = buttonGroup;
+    } else {
+      loginOrButtonGroup = prompt;
+    }
 
     return (
-      <form className="annotation-form comment-form clearfix">
+      <div className="annotation-form comment-form clearfix">
         <textarea
           value={this.state.body}
           placeholder="Add comment..."
           onChange={this.handleChange} />
-        <div className={buttonGroup}>
-          <input
-            className="submit"
-            type="submit"
-            value="Submit"
-            onClick={this.handleSubmit} />
-          <button
-            className="cancel-button"
-            onClick={this.handleCancelCreate}>Nevermind</button>
-        </div>
-      </form>
+        {loginOrButtonGroup}
+      </div>
     );
   }
 });

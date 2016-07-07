@@ -2,10 +2,30 @@ const React = require('react');
 const SessionStore = require('../../stores/session_store');
 
 const CommentsIndexItem = React.createClass({
+  getInitialState() {
+    return {
+      loggedIn: SessionStore.isUserLoggedIn()
+    };
+  },
+
+  componentDidMount(){
+    this.sessionListener = SessionStore.addListener(this._onSessionChange);
+  },
+
+  componentWillUnmount(){
+    this.sessionListener.remove();
+  },
+
+  _onSessionChange(){
+    this.setState({
+      loggedIn: SessionStore.isUserLoggedIn()
+    });
+  },
+
   render(){
     let userButton;
     if (
-      SessionStore.isUserLoggedIn() &&
+      this.state.loggedIn &&
       this.props.comment.author_id === SessionStore.currentUser().id
     ) {
       userButton = (

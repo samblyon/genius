@@ -59,7 +59,7 @@ const Header = React.createClass({
 
     const modalStyle = {
       overlay : {
-        position        : 'fixed',
+        position        : 'relative',
         top             : 0,
         left            : 0,
         right           : 0,
@@ -84,6 +84,11 @@ const Header = React.createClass({
 
     return(
       <div className="header">
+        <Modal isOpen={this.state.modalOpen}
+          onRequestClose={this.closeModal}
+          style={modalStyle}>
+          <SongForm closeModal={this.closeModal}/>
+        </Modal>
         <header className="header-top">
           <SearchBar />
           <div className="logo-container" onClick={this.goHome}></div>
@@ -93,11 +98,6 @@ const Header = React.createClass({
           <Link to="/" className="nav-link">HOME</Link>
           <a onClick={this.openModal} className="nav-link">ADD SONG</a>
           <Link to="/songs" className="nav-link">ALL SONGS</Link>
-          <Modal isOpen={this.state.modalOpen}
-            onRequestClose={this.closeModal}
-            style={modalStyle}>
-            <SongForm closeModal={this.closeModal}/>
-          </Modal>
         </nav>
       </div>
     );
