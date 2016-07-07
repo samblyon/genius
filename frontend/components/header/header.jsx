@@ -7,8 +7,6 @@ const SessionActions = require('../../actions/session_actions');
 const HeaderUserProfile = require('./header_user_profile');
 const HeaderAuth = require('./header_auth');
 const SearchBar = require('./search_bar');
-const SongForm = require('../song/song_form');
-
 
 const Header = React.createClass({
   getInitialState() {

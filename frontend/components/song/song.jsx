@@ -40,6 +40,9 @@ const Song = React.createClass({
   componentWillReceiveProps(newProps) {
     this.songId = parseInt(newProps.routeParams.songId);
     SongActions.fetchSingleSong(this.songId);
+    this.setState({
+      selectedAnnotationId: ""
+    });
   },
 
   _onSongChange(){
