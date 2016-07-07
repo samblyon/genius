@@ -98,49 +98,49 @@ const SongForm = React.createClass({
                       defaultValue={this.state.lyrics} />
           </label>
           <label>
-            <p>About</p>
+            <p>About (optional)</p>
             <p className="form-error">{this.state.errors.about}</p>
             <textarea onChange={this.receiveChange}
                       name="about"
                       defaultValue={this.state.about} />
           </label>
           <label>
-            <p>Featuring</p>
+            <p>Featuring (optional)</p>
             <input type="text"
                    value={this.state.featuring}
                    name="featuring"
                    onChange={this.receiveChange}/>
           </label>
           <label>
-            Produced By
+            Produced By (optional)
             <input type="text"
                    value={this.state.producedBy}
                    name="producedBy"
                    onChange={this.receiveChange}/>
           </label>
           <label>
-            Written By
+            Written By (optional)
             <input type="text"
                    value={this.state.writtenBy}
                    name="writtenBy"
                    onChange={this.receiveChange}/>
           </label>
           <label>
-            Soundcloud URL
+            Soundcloud URL (optional)
             <input type="text"
                    value={this.state.soundcloudUrl}
                    name="soundcloudUrl"
                    onChange={this.receiveChange}/>
           </label>
           <label>
-            YouTube URL
+            YouTube URL (optional)
             <input type="text"
                    value={this.state.youtubeUrl}
                    name="youtubeUrl"
                    onChange={this.receiveChange}/>
           </label>
           <label>
-            Release Date
+            Release Date (optional)
             <input type="date"
                    value={this.state.releaseDate}
                    name="releaseDate"
