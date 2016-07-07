@@ -40,9 +40,7 @@ const Song = React.createClass({
   componentWillReceiveProps(newProps) {
     this.songId = parseInt(newProps.routeParams.songId);
     SongActions.fetchSingleSong(this.songId);
-    this.setState({
-      selectedAnnotationId: ""
-    });
+    this.replaceState( this.getInitialState() );
   },
 
   _onSongChange(){
@@ -55,19 +53,18 @@ const Song = React.createClass({
       annotations: AnnotationStore.all(),
     });
 
-    // if there's a temp, tell the annotation component to use the temp
-    // and set own mode to editing (for click listener)
-    // otherwise, an annotation must have been added, so grab its id
+    // if there's a temp, use temp and go into edit mode
+    // if annotation has just been added, select it
     if ( AnnotationStore.temp() ) {
       this.tempAnnotation = AnnotationStore.temp();
       this.setState({
         selectedAnnotationId: "temp",
         editing: true
       });
-    } else {
+    } else if (AnnotationStore.lastAddedAnnotation()) {
       this.setState({
-        editing: false,
-        selectedAnnotationId: AnnotationStore.lastAddedAnnotation().id
+        selectedAnnotationId: AnnotationStore.lastAddedAnnotation().id,
+        editing: false
       });
     }
   },

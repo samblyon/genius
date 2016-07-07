@@ -24,13 +24,13 @@ module.exports = {
   },
 
   fetchSingleSong (id) {
-    SongApiUtil.fetchSingleSong(
-      id, this.receiveSong, ErrorActions.onError
-    );
     AnnotationActions.fetchAnnotations(
       id,
       AnnotationActions.receiveAnnotations,
       ErrorActions.onError
+    );
+    SongApiUtil.fetchSingleSong(
+      id, this.receiveSong, ErrorActions.onError
     );
   },
 
@@ -61,10 +61,5 @@ module.exports = {
       actionType: SongConstants.SONG_RECEIVED,
       song: song
     });
-    AnnotationActions.fetchAnnotations(
-      song.id,
-      AnnotationActions.receiveAnnotations,
-      ErrorActions.onError
-    );
   }
 };
