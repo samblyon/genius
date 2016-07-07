@@ -11,7 +11,6 @@ $pink: #ff1464;
 
 /* line 10, /Users/appacademy/genius/app/assets/stylesheets/song.scss */
 .song-splash {
-  background-image: url("https://i.ytimg.com/vi/4NJlUribp3c/maxresdefault.jpg");
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -250,17 +249,25 @@ button.save-button:hover, button.annotation-button:hover {
   padding: 10px 40px 10px 30px;
   max-width: 400px;
   height: 400px;
+  white-space: pre-line;
 }
 
-.album-cover {
+.album-cover, .player {
   min-height: 300px;
-  width: 100%;
-  background: wheat;
+  width: 300px;
+  background: #000;
   margin-top: -210px;
   border: 4px solid white;
   box-sizing: border-box;
-  background-image: url(http://i30.photobucket.com/albums/c307/rye415/Jason.png);
-  background-size: cover;
+  background-size: contain;
+}
+
+.player {
+  padding: 50px 0 50px 0;
+}
+
+.song-info {
+  margin-top: -200px;
 }
 
 .song-info-stats {
@@ -271,7 +278,6 @@ button.save-button:hover, button.annotation-button:hover {
 
 .song-about {
   margin-top: 30px;
-  border: 1px solid #000;
   height: 100px;
 }
 

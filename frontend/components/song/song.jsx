@@ -78,7 +78,6 @@ const Song = React.createClass({
       if (!$(event.target).closest('#annotation-prompt').length
         && this.state.selectedAnnotationId === "prompt"
       ){
-        console.log("clicked outside");
         this.setState({
           showInfo: true,
           selectedAnnotationId: "",

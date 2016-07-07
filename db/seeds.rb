@@ -92,6 +92,7 @@ aint_misbehavin = {
   lyrics: LYRICS[:aint_misbehavin],
   title: "Ain't Misbehavin'",
   youtube_url: "https://www.youtube.com/watch?v=yE4itYYRvhg",
+  album_cover: "http://i43.tower.com/images/mm106636073/aint-misbehavin-louis-armstrong-cd-cover-art.jpg",
   about: "Ain't Misbehavin was first performed at the premiere of Connie's Hot Chocolates at Connie's Inn in Harlem as an opening number by Margaret Simms and Paul Bass, and repeated later in the musical by Russell Wooding's Hallelujah Singers. Connie's Hot Chocolates transferred to the Hudson Theatre on Broadway in June 1929, where it was renamed to Hot Chocolates and where Louis Armstrong took over as orchestra director. The script also required Armstrong to play Ain't Misbehavin' in a trumpet solo, and although this was initially slated to only be a reprise of the opening song, Armstrong's performance was so well received that the trumpeter was asked to climb out of the orchestra pit and play the piece on stage."
 }
 

@@ -8,7 +8,10 @@ json.extract! @song,
   :featuring,
   :produced_by,
   :written_by,
-  :release_date
+  :release_date,
+  :album,
+  :album_cover,
+  :about
 
 json.comments @song.comments do |comment|
     json.partial! "/api/comments/comment", comment: comment
