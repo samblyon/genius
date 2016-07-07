@@ -3,4 +3,7 @@ class Comment < ActiveRecord::Base
 
   belongs_to :author, class_name: :User
   belongs_to :commentable
+
+  has_many :votes, as: :upvotable, dependent: :destroy
+
 end
