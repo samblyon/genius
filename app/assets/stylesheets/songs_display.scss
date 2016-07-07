@@ -1,3 +1,9 @@
+$charcoal: #222;
+$yellow: #ffff64;
+$bright-blue: #5ba7c2;
+$pale-blue: #99a7ee;
+$bright-green: #0ecb27;
+$pink: #ff1464;
 
 .song-display-page {
   background: #000;
@@ -43,6 +49,7 @@ h3 {
   font-family: 'DIN Pro Condensed Regular', sans-serif;
   font-size: 2em;
   padding: 10px, 0, 0, 0;
+  margin-top: 10px;
 }
 
 .post-content {
@@ -62,18 +69,35 @@ h3 {
   justify-content: space-around;
 }
 
-.song-display-item.about {
-  background-image: none;
-  font-family: 'Assistant', sans-serif;
-  font-size: 1.1em;
-  display: flex;
+.about {
+  box-sizing: border-box;
+  border: 1px solid #1E1E1E;
+  width: 98%;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  height: auto;
+  padding: 10px;
+  color: #aaa;
+
+  a {
+    display: inline-block;
+    color: $bright-blue;
+    cursor: pointer;
+  }
+
+  a:hover {
+    color: $pink;
+  }
+}
+
+.song-display-item.about:hover {
+  border: 1px solid #1E1E1E;
 }
 
 .about-image-container {
   background-image: image-url("musicGirl.png");
   filter: invert(100%);
-  width: 30px;
-  height: 30px;
   background-image-size: cover;
   display: inline-block;
 }

@@ -39,35 +39,27 @@ const SongDisplay = React.createClass({
             <div className="blog-post-image" />
             <div className="post-title">Post post post Post</div>
             <div className="post-content">
-              Post post post Post post postPost post postPost post post
-              Post post post Post post postPost post postPost post post
-              Post post post Post post postPost post postPost post post
-              Post post post Post post postPost post postPost post post
-              Post post post Post post postPost post postPost post post
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </div>
           </div>
           <div className="blog-post">
             <div className="blog-post-image" />
             <div className="post-title">Post post post Post</div>
             <div className="post-content">
-              Post post post Post post postPost post postPost post post
-              Post post post Post post postPost post postPost post post
-              Post post post Post post postPost post postPost post post
-              Post post post Post post postPost post postPost post post
-              Post post post Post post postPost post postPost post post
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </div>
           </div>
         </div>
         <div className="song-displays">
           <h3>About So-Genius</h3>
           <div className="song-display">
-            <div className="song-display-item about">
-              <div className="about-image-container"></div>
+            <div className="about">
               <p>
-                Rap Genius is dedicated to crowd-sourced
-                (and artist/producer-sourced) annotation of rap
-                lyrics/beats, from “Rapper’s Delight” to To Pimp A
-                Butterfly. Find out all the latest on Twitter and Facebook
+                So-Genius is a lyrics annotation and discussion website
+                based on <a href="http://rap.genius.com">Rap Genius</a>.
+                Rap Genius's signature highlight-to-annotate and login-in-place features
+                are achieved here using React, with data drawn from a Ruby on Rails
+                API. Jump in and annotate.
               </p>
             </div>
           </div>
