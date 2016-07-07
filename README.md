@@ -16,13 +16,13 @@ Genius is a web application inspired by Genius that will be built using Ruby on 
   - [ ] Adequate seed data to demonstrate the site's features
   - [X] Adequate CSS styling
 - [ ] Annotations on Lyrics
-  - [ ] Smooth, bug-free navigation
+  - [X] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
+  - [X] Adequate CSS styling
 - [ ] Comments on Annotations and Songs
-  - [ ] Smooth, bug-free navigation
+  - [X] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
+  - [X] Adequate CSS styling
 - [ ] Upvotes on Songs, Annotations, Comments
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
@@ -115,7 +115,7 @@ one feature at a time. Refer back to your MVP and group the features into logica
 - build out API, Flux loop, and components for:
   - [X] Annotation CRUD
   - [X] triggering annotation suggestion (upgrade Lyrics component)
-  - [ ] associating annotations with positions in lyrics
+  - [X] associating annotations with positions in lyrics
   - [X] activating sections of lyrics as links (upgrade Lyrics component)
   - [X] viewing annotations by section of lyrics
 
@@ -123,11 +123,11 @@ one feature at a time. Refer back to your MVP and group the features into logica
 
 **Objective:** Songs and Annotations can be commented on. Comments can be added, edited and destroyed.
 
-- [ ] create `Comment` model (polymorphic)
-- [ ] create `Commentable` module and integrate with Songs and Annotations
+- [X] create `Comment` model (polymorphic)
+- [X] create `Commentable` module and integrate with Songs and Annotations
 - build out API, Flux loop, and components for:
-  - [ ] fetching comments for songs and annotations
-  - [ ] adding / deleting comments on Songs and Annotations
+  - [X] fetching comments for songs and annotations
+  - [X] adding / deleting comments on Songs and Annotations
   - [ ] editing comments
 
 ### Phase 7: Styling II (1 day, W2 Th 6pm)
@@ -135,8 +135,8 @@ one feature at a time. Refer back to your MVP and group the features into logica
 **objective:** Annotations and Comments appear in correct places, match Genius style;
 
 - Build layout of lyrics, annotations and comments
-  - [ ] Apply style guide to new elements
-  - [ ] Style new elements
+  - [X] Apply style guide to new elements
+  - [X] Style new elements
 
 ### Phase 8: Upvotes (1 day, W2 F 6pm)
 
@@ -160,7 +160,7 @@ one feature at a time. Refer back to your MVP and group the features into logica
 - [ ] Add modals, transitions, and other styling flourishes.
 
 ### Bonus Features (TBD)
-- [ ] Search
+- [X] Search
 - [ ] Pagination / infinite scroll for SongsIndex and CommentsIndex
 - [ ] Tagging
 - [ ] Music Player
