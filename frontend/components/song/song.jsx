@@ -9,6 +9,7 @@ const SongInfo = require('./song_info');
 const LyricsDisplay = require('./lyrics_display');
 const CommentsIndex = require('../comment/comments_index');
 const CommentForm = require('../comment/comment_form');
+const Player = require('./player');
 
 const Song = React.createClass({
   getInitialState: function() {
@@ -185,6 +186,8 @@ const Song = React.createClass({
             </div>
           </div>
           <div className="song-right-col">
+            <Player
+              song={song} />
             <SongInfo
               song={song}
               visible={this.state.showInfo}/>

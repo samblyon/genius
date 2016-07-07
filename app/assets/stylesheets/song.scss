@@ -11,6 +11,7 @@ $pink: #ff1464;
 
 /* line 10, /Users/appacademy/genius/app/assets/stylesheets/song.scss */
 .song-splash {
+  background: #ccc;
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -264,10 +265,7 @@ button.save-button:hover, button.annotation-button:hover {
 
 .player {
   padding: 50px 0 50px 0;
-}
-
-.song-info {
-  margin-top: -200px;
+  margin-top: -210px;
 }
 
 .song-info-stats {
@@ -278,7 +276,8 @@ button.save-button:hover, button.annotation-button:hover {
 
 .song-about {
   margin-top: 30px;
-  height: 100px;
+  font-size: 1.2em;
+  line-height: 1.7em;
 }
 
 .lyrics, .ghost-lyrics {

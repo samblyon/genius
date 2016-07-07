@@ -11,7 +11,6 @@ const SongForm = React.createClass({
       title: "",
       lyrics: "",
       youtubeUrl: "",
-      soundcloudUrl: "",
       featuring: "",
       producedBy: "",
       writtenBy: "",
@@ -56,7 +55,6 @@ const SongForm = React.createClass({
       title: this.state.title,
       lyrics: this.state.lyrics,
       youtube_url: this.state.youtubeUrl,
-      soundcloud_url: this.state.soundcloudUrl,
       featuring: this.state.featuring,
       produced_by: this.state.producedBy,
       written_by: this.state.writtenBy,
@@ -126,13 +124,6 @@ const SongForm = React.createClass({
             <input type="text"
                    value={this.state.writtenBy}
                    name="writtenBy"
-                   onChange={this.receiveChange}/>
-          </label>
-          <label>
-            Soundcloud URL (optional)
-            <input type="text"
-                   value={this.state.soundcloudUrl}
-                   name="soundcloudUrl"
                    onChange={this.receiveChange}/>
           </label>
           <label>
