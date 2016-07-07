@@ -26,7 +26,6 @@ AnnotationStore.__onDispatch = function (payload) {
       this.__emitChange();
       break;
     case AnnotationConstants.ANNOTATIONS_RECEIVED:
-      debugger;
       _resetAnnotations(payload.annotations);
       _tempAnnotation = null;
       _lastAddedAnnotation = null;

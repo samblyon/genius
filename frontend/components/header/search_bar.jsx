@@ -2,6 +2,7 @@ const React = require('react');
 const SongActions = require('../../actions/song_actions');
 const SongsIndexItem = require('../song/songs_index_item');
 const SongStore = require('../../stores/song_store');
+const hashHistory = require('react-router').hashHistory;
 
 const SearchBar = React.createClass({
   getInitialState() {
@@ -51,8 +52,8 @@ const SearchBar = React.createClass({
   render(){
     let results = [];
     let className = "search-bar";
-
-    if (this.state.searching) {
+    const onIndex = (location.hash.split(/#|\?/)[1] === "/songs");
+    if (this.state.searching && !onIndex) {
       results = this.state.results.map(result => {
         return <SongsIndexItem key={result.id} song={result} />;
       });
@@ -60,9 +61,10 @@ const SearchBar = React.createClass({
       className = "search-bar-selected";
     }
 
-    if (this.state.searching && results.length === 0) {
+    if (this.state.searching && results.length === 0 && !onIndex) {
       results = <SongsIndexItem
-        key="none" song={{
+        key="none"
+        song={{
           title: "Couldn't find a song with that title or artist",
           id: "",
           disabled: "true"

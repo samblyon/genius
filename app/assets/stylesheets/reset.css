@@ -14,7 +14,7 @@ h3, a, p, button, input, textarea {
   text-decoration: none;
 }
 
-body {
+#content {
   min-height: 600px;
   background: #fafafa;
 }

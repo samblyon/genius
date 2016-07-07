@@ -33,11 +33,21 @@ const SongsIndex = React.createClass({
 
 
   render () {
-    const items = this.state.songs.map(song => {
+    let items = this.state.songs.map(song => {
       return(
         <SongsIndexItem song={song} key={"index_" + song.id} />
       );
     });
+
+    if (items.length === 0) {
+      items = <SongsIndexItem
+        key="none"
+        song={{
+          title: "Couldn't find a song with that title or artist",
+          id: "",
+          disabled: "true"
+        }} />;
+    }
 
     return (
       <div className="song-index">
