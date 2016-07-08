@@ -5,7 +5,6 @@ const SongsIndexItem = React.createClass({
   goToSong(e){
     e.preventDefault();
     hashHistory.push("/songs/" + this.props.song.id);
-    e.stopPropagation();
   },
 
   render () {
