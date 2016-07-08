@@ -9,6 +9,7 @@ const SongInfo = require('./song_info');
 const LyricsDisplay = require('./lyrics_display');
 const CommentsIndex = require('../comment/comments_index');
 const CommentForm = require('../comment/comment_form');
+const Player = require('./player');
 
 const Song = React.createClass({
   getInitialState: function() {
@@ -78,7 +79,6 @@ const Song = React.createClass({
       if (!$(event.target).closest('#annotation-prompt').length
         && this.state.selectedAnnotationId === "prompt"
       ){
-        console.log("clicked outside");
         this.setState({
           showInfo: true,
           selectedAnnotationId: "",
@@ -105,11 +105,11 @@ const Song = React.createClass({
 
   handleCancelCreate(){
     this.setState({
+      selectedAnnotationId: "",
       editing: false,
       selectedStart: "",
       selectedEnd: "",
-      showInfo: true,
-      selectedAnnotationId: ""
+      showInfo: true
     });
     AnnotationActions.clearTemp();
   },
@@ -139,7 +139,7 @@ const Song = React.createClass({
       return;
     } else if (
       selection.isCollapsed
-      || this.selectionOverlapping(...sortedIndices)
+        || this.selectionOverlapping(...sortedIndices)
     ) {
       this.setState({
         showInfo: true,
@@ -157,9 +157,6 @@ const Song = React.createClass({
     const style = {};
     const relative = document.body.parentNode.getBoundingClientRect();
     const r = element.getBoundingClientRect();
-    // this will get top of the selection (300 is custom adjustment,
-    // due to the popup that uses this location sitting inside another
-    // div)
     style.top = (r.top - relative.top - 310) + 'px';
     return style;
   },
@@ -186,6 +183,9 @@ const Song = React.createClass({
             </div>
           </div>
           <div className="song-right-col">
+            <Player
+              albumCover={song.album_cover}
+              youtubeUrl={song.youtube_url} />
             <SongInfo
               song={song}
               visible={this.state.showInfo}/>

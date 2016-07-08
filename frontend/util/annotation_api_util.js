@@ -45,7 +45,7 @@ module.exports =  {
   },
 
   updateAnnotation(annotation, onSuccess, onError) {
-    $.ajax({
+    $.post({
       url: "api/annotations/" + annotation.id,
       dataType: "JSON",
       method: 'PATCH',

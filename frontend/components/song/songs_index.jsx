@@ -31,7 +31,6 @@ const SongsIndex = React.createClass({
     }
   },
 
-
   render () {
     let items = this.state.songs.map(song => {
       return(
@@ -40,25 +39,24 @@ const SongsIndex = React.createClass({
     });
 
     if (items.length === 0) {
-      items = <SongsIndexItem
-        key="none"
-        song={{
-          title: "Couldn't find a song with that title or artist",
-          id: "",
-          disabled: "true"
-        }} />;
+      items = (
+        <div>
+          <SongsIndexItem nullResult="true" />;
+        </div>
+      );
     }
 
     return (
-      <div className="song-index">
-        <div className="index-title">
-          <h3>
-            Everything in <span className="bright">so-genius</span>
-          </h3>
-
+        <div className="backdrop">
+          <div className="song-index">
+            <div className="index-title">
+              <h3>
+                Everything in <span className="bright">so-genius</span>
+              </h3>
+            </div>
+            {items}
+          </div>
         </div>
-        {items}
-      </div>
     );
   }
 });

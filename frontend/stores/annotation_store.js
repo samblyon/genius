@@ -22,7 +22,6 @@ AnnotationStore.__onDispatch = function (payload) {
     case AnnotationConstants.UPDATED_ANNOTATION_RECEIVED:
       _annotations[payload.annotation.id].body = payload.annotation.body;
       _clearTempAnnotation();
-      // _lastAddedAnnotation = payload.annotation;
       this.__emitChange();
       break;
     case AnnotationConstants.ANNOTATIONS_RECEIVED:
@@ -42,6 +41,7 @@ AnnotationStore.__onDispatch = function (payload) {
       break;
     case AnnotationConstants.CLEAR_TEMP_ANNOTATION:
       _clearTempAnnotation();
+      _clearLastAdded();
       this.__emitChange();
       break;
     case CommentConstants.ANNOTATION_COMMENT_RECEIVED:
@@ -85,6 +85,10 @@ function _resetAnnotations(annotations){
 function _clearTempAnnotation () {
   _tempAnnotation = null;
   delete _annotations["temp"];
+}
+
+function _clearLastAdded () {
+  _lastAddedAnnotation = null;
 }
 
 function _addComment(comment){

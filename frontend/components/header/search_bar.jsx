@@ -1,5 +1,5 @@
 const React = require('react');
-const SongActions = require('../../actions/song_actions');
+const SongActions = window.SongActs = require('../../actions/song_actions');
 const SongsIndexItem = require('../song/songs_index_item');
 const SongStore = require('../../stores/song_store');
 const hashHistory = require('react-router').hashHistory;
@@ -32,6 +32,7 @@ const SearchBar = React.createClass({
       this.setState({ searching: true });
     } else {
       this.setState({ searching: false });
+      SongActions.fetchSongsByQuery("alphabetical");
     }
     this.setState({ query: e.target.value });
   },
@@ -62,17 +63,11 @@ const SearchBar = React.createClass({
     }
 
     if (this.state.searching && results.length === 0 && !onIndex) {
-      results = <SongsIndexItem
-        key="none"
-        song={{
-          title: "Couldn't find a song with that title or artist",
-          id: "",
-          disabled: "true"
-        }} />;
+      results = <SongsIndexItem nullResult="true" />;
     }
 
     return(
-      <div className={className} onClick={this.handleSelect}>
+      <div className={className}>
         <input type="text"
                placeholder="Search songs and artists"
                onFocus={ function(e) { e.target.placeholder = ""; } }
@@ -83,7 +78,7 @@ const SearchBar = React.createClass({
                }
                value={this.state.query}
                onChange={this.handleChange}/>
-        <div className="search-results">
+        <div className="search-results" onClick={this.handleSelect}>
           <ul>
             {results}
           </ul>

@@ -33,7 +33,6 @@ function _login (user){
 
 function _logout(){
   _currentUser = {};
-  // window.location.replace("http://localhost:3000/");
   window.location.reload(true);
 }
 

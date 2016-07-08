@@ -16,11 +16,19 @@
 .songs-index-item {
   color: #9a9a9a;
   padding: 3px;
-  border-top: 1px solid #1E1E1E;
+  border-bottom: 1px solid #1E1E1E;
   padding-top: 8px;
   padding-bottom: 8px;
   -webkit-transition: .15s all;
   transition: .15s all;
+}
+
+.search-results .songs-index-item {
+  padding-left: 10px;
+}
+
+.search-results .songs-index-item:hover {
+  padding-left: 14px;
 }
 
 .songs-index-item .song-title {
@@ -38,9 +46,29 @@
 }
 
 .songs-index-item:hover {
+  background: #222;
   border-left: 3px solid #ffff64;
   padding-left: 9px;
   border-bottom: 0;
   cursor: pointer;
   color: #EDE8E9;
+}
+
+.null-result:hover {
+  cursor: default;
+  color: #9a9a9a;
+  padding: 3px;
+  border-top: 1px solid #1E1E1E;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-left: inherit;
+}
+
+.backdrop {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  background: #000;
 }
