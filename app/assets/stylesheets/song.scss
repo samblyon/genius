@@ -9,7 +9,6 @@ $pink: #ff1464;
   display: none;
 }
 
-/* line 10, /Users/appacademy/genius/app/assets/stylesheets/song.scss */
 .song-splash {
   background: #ccc;
   background-size: cover;
@@ -20,7 +19,6 @@ $pink: #ff1464;
   position: relative;
 }
 
-/* line 20, /Users/appacademy/genius/app/assets/stylesheets/song.scss */
 .splash-content {
   font-family: 'Cairo', serif;
   font-weight: 700;
@@ -32,7 +30,6 @@ $pink: #ff1464;
   padding-left: 30px;
 }
 
-/* line 28, /Users/appacademy/genius/app/assets/stylesheets/song.scss */
 .splash-title {
   font-size: 2.5em;
   color: #ffff64;
@@ -40,7 +37,6 @@ $pink: #ff1464;
   max-width: 50%;
 }
 
-/* line 34, /Users/appacademy/genius/app/assets/stylesheets/song.scss */
 .splash-artist {
   font-weight: 400;
   font-size: 1.5em;
@@ -186,6 +182,7 @@ span.dividing-text {
 
 .annotation-view {
   padding: 10px;
+  background: white;
 }
 
 .annotation-author {
@@ -230,6 +227,7 @@ button.save-button:hover, button.annotation-button:hover {
 
 .annotation-form {
   padding: 10px;
+  background: #E6E6E6;
 
   textarea {
     padding: 5px;
@@ -253,19 +251,69 @@ button.save-button:hover, button.annotation-button:hover {
   white-space: pre-line;
 }
 
-.album-cover, .player {
+.album-cover:after {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 30%;
+  background-image: url("http://simonduflo.com/klynt/cinov/Medias/Photos/play-logo.png");
+  background-size: 25%;
+  filter: invert(90%);
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 300px;
+  width: 300px;
+}
+
+.album-cover, .player, .player-box {
+  position: relative;
   min-height: 300px;
   width: 300px;
-  background: #000;
   margin-top: -210px;
   border: 4px solid white;
   box-sizing: border-box;
   background-size: contain;
 }
+.album-cover, .player-box {
+  background: #000;
+}
 
 .player {
   padding: 50px 0 50px 0;
-  margin-top: -210px;
+  margin: -244px 0 0 -4px;
+}
+
+.spinner {
+  height: 40px;
+  width: 40px;
+  margin: 100px auto;
+  background-color: white;
+
+  border-radius: 100%;
+  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% { -webkit-transform: scale(0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 100% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+    opacity: 0;
+  }
 }
 
 .song-info-stats {
