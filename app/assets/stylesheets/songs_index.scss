@@ -64,7 +64,11 @@
   border-left: inherit;
 }
 
-.index-bottom-placeholder {
-  height: 600px;
+.backdrop {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 20;
   background: #000;
 }

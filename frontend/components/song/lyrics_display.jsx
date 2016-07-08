@@ -37,6 +37,7 @@ const LyricsDisplay = React.createClass({
   render() {
     return (
       <div className="lyrics-display">
+        <h3>{this.props.song.title} Lyrics</h3>
         <Lyrics populatedLyrics={this.populatedLyrics()}
           lyrics={this.props.song.lyrics}
           onHighlight={this.props.onHighlight}/>

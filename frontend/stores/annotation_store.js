@@ -42,6 +42,7 @@ AnnotationStore.__onDispatch = function (payload) {
       break;
     case AnnotationConstants.CLEAR_TEMP_ANNOTATION:
       _clearTempAnnotation();
+      _clearLastAdded();
       this.__emitChange();
       break;
     case CommentConstants.ANNOTATION_COMMENT_RECEIVED:
@@ -85,6 +86,10 @@ function _resetAnnotations(annotations){
 function _clearTempAnnotation () {
   _tempAnnotation = null;
   delete _annotations["temp"];
+}
+
+function _clearLastAdded () {
+  _lastAddedAnnotation = null;
 }
 
 function _addComment(comment){

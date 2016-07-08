@@ -38,28 +38,25 @@ const SongsIndex = React.createClass({
       );
     });
 
-    let placeholder;
     if (items.length === 0) {
       items = (
         <div>
           <SongsIndexItem nullResult="true" />;
         </div>
       );
-      placeholder = <div className="index-bottom-placeholder" />;
     }
 
     return (
-      <div>
-        <div className="song-index">
-          <div className="index-title">
-            <h3>
-              Everything in <span className="bright">so-genius</span>
-            </h3>
+        <div className="backdrop">
+          <div className="song-index">
+            <div className="index-title">
+              <h3>
+                Everything in <span className="bright">so-genius</span>
+              </h3>
+            </div>
+            {items}
           </div>
-          {items}
         </div>
-        {placeholder}
-      </div>
     );
   }
 });

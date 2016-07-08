@@ -40,6 +40,7 @@ const Song = React.createClass({
 
   componentWillReceiveProps(newProps) {
     this.songId = parseInt(newProps.routeParams.songId);
+    debugger;
     SongActions.fetchSingleSong(this.songId);
     this.replaceState( this.getInitialState() );
   },
@@ -105,11 +106,11 @@ const Song = React.createClass({
 
   handleCancelCreate(){
     this.setState({
+      selectedAnnotationId: "",
       editing: false,
       selectedStart: "",
       selectedEnd: "",
-      showInfo: true,
-      selectedAnnotationId: ""
+      showInfo: true
     });
     AnnotationActions.clearTemp();
   },

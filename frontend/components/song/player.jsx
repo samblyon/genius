@@ -9,7 +9,9 @@ const Player = React.createClass({
   },
 
   activatePlayer(){
-    this.setState({ player: true });
+    if (this.props.youtubeUrl) {
+      this.setState({ player: true });
+    }
   },
 
   componentWillReceiveProps(newProps) {
