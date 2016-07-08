@@ -52,6 +52,7 @@ $pink: #ff1464;
 
 .song-left-col {
   width: 60%;
+  position: relative;
   padding: 20px;
   padding-left: 30px;
   white-space: pre-line;
@@ -333,7 +334,7 @@ button.save-button:hover, button.annotation-button:hover {
 
 .lyrics, .ghost-lyrics {
   position: absolute;
-  max-width: 45%;
+  max-width: 100%;
   padding-bottom: 10px;
 
   a {
