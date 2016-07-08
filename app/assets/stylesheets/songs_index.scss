@@ -16,7 +16,7 @@
 .songs-index-item {
   color: #9a9a9a;
   padding: 3px;
-  border-top: 1px solid #1E1E1E;
+  border-bottom: 1px solid #1E1E1E;
   padding-top: 8px;
   padding-bottom: 8px;
   -webkit-transition: .15s all;
@@ -28,11 +28,8 @@
 }
 
 .search-results .songs-index-item:hover {
-  background: #222;
   padding-left: 14px;
-  // border-top: 0;
 }
-
 
 .songs-index-item .song-title {
   font-family: 'Assistant', sans-serif;
@@ -49,6 +46,7 @@
 }
 
 .songs-index-item:hover {
+  background: #222;
   border-left: 3px solid #ffff64;
   padding-left: 9px;
   border-bottom: 0;

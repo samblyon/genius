@@ -38,7 +38,7 @@ yellow_submarine = {
   produced_by: "George Martin",
   album: "Revolver",
   about: "Though its imagery seems to be a perfect description of an acid trip, “Yellow Submarine” was written exclusively as a children’s song. Telling the story of a mariner showing his world to a group of children, the story takes you from reality to dreams while sailing the seas of dreams.",
-  youtube_url: "https://www.youtube.com/watch?v=e_cwWP5Qf1k",
+  youtube_url: "https://www.youtube.com/watch?v=krIus0i9xn8",
   soundcloud_url: "https://soundcloud.com/thebeatlesrevisited/yellow-submarine",
   lyrics: LYRICS[:yellow_submarine]
 }
