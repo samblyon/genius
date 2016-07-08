@@ -38,7 +38,7 @@ const App = React.createClass({
 });
 
 const AppRouter = (
-  <Router history={hashHistory}>
+  <Router history={hashHistory} onUpdate={() => window.scrollTo(0, 0)}>
     <Route path="/" component={App}>
       <IndexRoute component={SongDisplay} />
       <Route path="songs" component={SongsIndex} />
