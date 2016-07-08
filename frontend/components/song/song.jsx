@@ -40,7 +40,6 @@ const Song = React.createClass({
 
   componentWillReceiveProps(newProps) {
     this.songId = parseInt(newProps.routeParams.songId);
-    debugger;
     SongActions.fetchSingleSong(this.songId);
     this.replaceState( this.getInitialState() );
   },

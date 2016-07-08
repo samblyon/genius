@@ -8,10 +8,10 @@ const SongAbout = React.createClass({
       about = this.props.song.about;
     }
     return (
-        <div className="song-about">
-          <h3>About {this.props.song.title}</h3>
-          {about}
-        </div>
+      <div className="song-about">
+        <h3>About {this.props.song.title}</h3>
+        {about}
+      </div>
     );
   }
 
