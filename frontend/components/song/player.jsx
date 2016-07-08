@@ -5,31 +5,43 @@ const Player = React.createClass({
   getInitialState() {
     return {
       player: false
+      // youtubeUrl: this.props.youtubeUrl,
+      // albumCover: this.props.albumCover
     };
   },
+  //
+  // componentWillMount(){
+  //   this.setState({
+  //     youtubeUrl: this.props.youtubeUrl,
+  //     albumCover: this.props.albumCover
+  //   });
+  // },
 
   activatePlayer(){
     this.setState({ player: true });
   },
 
   componentWillReceiveProps(newProps) {
-    this.setState({ player: false });
+    if (this.props.albumCover !== newProps.albumCover) {
+      this.setState({
+        player: false
+      });
+    }
   },
 
   render () {
     const albumStyle = {
-      backgroundImage: 'url(' + this.props.song.album_cover + ')',
+      backgroundImage: 'url(' + this.props.albumCover + ')',
     };
-
     let coverOrPlayer;
-    if (this.state.player && this.props.song.youtube_url) {
-      const videoId = this.props.song.youtube_url.split("v=")[1];
+    if (this.state.player && this.props.youtubeUrl) {
+      const videoId = this.props.youtubeUrl.split("v=")[1];
       coverOrPlayer = (
         <div className="player">
           <YoutubePlayer
             key={videoId}
             videoId={videoId}
-            playbackState='unstarted'
+            playbackState='playing'
             configuration={
               {
                 showinfo: 0,
