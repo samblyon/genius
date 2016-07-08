@@ -7,6 +7,16 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <link href="https://fonts.googleapis.com/css?family=Assistant:400,700|Cairo:400,700" rel="stylesheet">
+  <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    window.CLOUDINARY_OPTIONS = {
+      cloud_name: "<%=ENV['CLOUD_NAME']%>",
+      upload_preset: "<%= ENV['UPLOAD_PRESET'] %>",
+      url: "<%= ENV['CLOUDINARY_URL'] %>",
+      api_key: "<%= ENV['CLOUDINARY_API_KEY'] %>",
+      api_secret: "<%= ENV['CLOUDINARY_API_SECRET'] %>"
+    };
+  </script>
 </head>
 <body>
   <p class="notice"><%= notice %></p>

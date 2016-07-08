@@ -52,11 +52,13 @@ panda = {
   youtube_url: "https://www.youtube.com/watch?v=E5ONTXHS2mM",
   lyrics: LYRICS[:panda],
   about: '“Panda” is inspired by the white BMW X6—Desiigner notes the luxury car’s resemblance to the endangered animal.
+  
 The Brooklyn-based rapper had the vision for this breakout track while playing the video game Grand Theft Auto V.
 Desiigner uploaded the song to Soundcloud during December 2015—it quickly amassed more than a million plays. In February 2016, Kanye West incorporated two verses of this track into “Father Stretch My Hands Pt. 2,” for his album The Life of Pablo. He’d announce Desiigner’s signing to G.O.O.D. Music at the February 11th TLOP listening session at Madison Square Garden.
 On April 25th, 2016, Billboard released their Hot 100 chart information regarding the week of May 7th’s top 10, with Panda becoming No. 1. By doing so, Desiigner broke the 41 week streak of non-Americans holding the No. 1 spot in the Hot 100.
 Manchester producer Menace says he sold the “Panda” beat to Desiigner for $200. He was inspired by DC Comics character the Joker when creating this instrumental:
 “He’s dark and gritty and my production is dark, gritty, taking-over-the-world type of production.”
+
 A music video directed by Paul Geusebroek was released on May 10th 2016. In the video, Desiigner gets involved in a high speed car chase and a street fight. It features a cameo from Kanye amidst heavy uses of bodycam shots.
 Vogue magazine also came out with their own version of the “Panda” video featuring model Andreea Diaconu romping around in a swimsuit in New York City.
 After the tracks release many people started comparing Desiigner’s flow and sound to the one of Future. When Future was asked about the up and coming Brooklyn rapper he responded with, “I never worried about anyone else.“'
@@ -131,7 +133,7 @@ escape_pina_colada = {
   lyrics: LYRICS[:escape_pina_colada],
   artist: "Rupert Holmes",
   album: "Partners in Crime",
-  about: "Escape (The Piña Colada Song) is a song written and recorded by British-born American singer Rupert Holmes for his album Partners in Crime. As the lead single for the album, the pop song was recommended by Billboard for radio broadcasters on September 29, 1979,[1] then added to prominent US radio playlists in October–November.[2] Rising in popularity, the song peaked at the end of December to become the last U.S. number one song of the 1970s.",
+  about: "Escape (The Piña Colada Song) is a song written and recorded by British-born American singer Rupert Holmes for his album Partners in Crime. As the lead single for the album, the pop song was recommended by Billboard for radio broadcasters on September 29, 1979, then added to prominent US radio playlists in October–November.\n\n Rising in popularity, the song peaked at the end of December to become the last U.S. number one song of the 1970s.",
   album_cover: "https://i.scdn.co/image/8349f2a346df71b7be558aa3c5f4aca3979a3bbc",
   youtube_url: "https://www.youtube.com/watch?v=TazHNpt6OTo"
 }

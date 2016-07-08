@@ -1,11 +1,13 @@
 import React, { PropTypes } from 'react'
 import YoutubePlayer from 'react-youtube-player';
+const Uploader = require('../../util/uploader');
 
 const Player = React.createClass({
   getInitialState() {
     return {
-      player: false,
-      playbackState: 'paused'
+      player: !this.props.albumCover,
+      playbackState: 'paused',
+      uploader: !(this.props.albumCover || this.props.youtubeUrl)
     };
   },
 
@@ -59,13 +61,17 @@ const Player = React.createClass({
           </div>
         </div>
       );
-    } else {
+    } else if (this.props.album_cover ){
       coverOrPlayer = (
         <div className="album-cover"
           style={albumStyle}
           onClick={this.activatePlayer}>
           <div className="album-cover-overlay" onClick={this.togglePlayback}/>
         </div>
+      );
+    } else {
+      coverOrPlayer = (
+        <Uploader />
       );
     }
 

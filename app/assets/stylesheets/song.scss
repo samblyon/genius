@@ -309,6 +309,19 @@ button.save-button:hover, button.annotation-button:hover {
   }
 }
 
+.uploader {
+  top: 50%;
+  color: #ccc;
+  align-content: center;
+}
+
+.uploader-text {
+  text-align: center;
+  position: absolute;
+  top: 30%;
+  padding: 20px;
+}
+
 @keyframes sk-scaleout {
   0% {
     -webkit-transform: scale(0);
