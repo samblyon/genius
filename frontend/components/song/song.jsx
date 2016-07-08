@@ -184,6 +184,7 @@ const Song = React.createClass({
           </div>
           <div className="song-right-col">
             <Player
+              songId={song.id}
               albumCover={song.album_cover}
               youtubeUrl={song.youtube_url} />
             <SongInfo

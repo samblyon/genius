@@ -66,5 +66,21 @@ module.exports =  {
         onError(res);
       }
     });
+  },
+
+  updateSong(song, onSuccess, onError) {
+    $.post({
+      url: "api/songs/" + song.id,
+      data: {
+        song: song
+      },
+      method: "PATCH",
+      success(res){
+        onSuccess(res);
+      },
+      error(res){
+        onError(res);
+      }
+    });
   }
 };

@@ -23,6 +23,12 @@ module.exports = {
     );
   },
 
+  updateSong(song) {
+    SongApiUtil.updateSong(
+      song, this.receiveSong, ErrorActions.onError
+    );
+  },
+
   fetchSingleSong (id) {
     AnnotationActions.fetchAnnotations(
       id,

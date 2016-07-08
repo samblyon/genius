@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import YoutubePlayer from 'react-youtube-player';
 const Uploader = require('../../util/uploader');
+const SongActions = require('../../actions/song_actions');
 
 const Player = React.createClass({
   getInitialState() {
@@ -35,6 +36,14 @@ const Player = React.createClass({
     }
   },
 
+  postAlbumCover(image){
+    const song = {
+      album_cover: image.secure_url,
+      id: this.props.songId
+    }
+    SongActions.updateSong(song);
+  },
+
   render () {
     const albumStyle = {
       backgroundImage: 'url(' + this.props.albumCover + ')',
@@ -61,17 +70,29 @@ const Player = React.createClass({
           </div>
         </div>
       );
-    } else if (this.props.album_cover ){
+    } else if (this.props.albumCover){
+      let playButtonOverlay;
+      let coverClass = "album-cover no-play-symbol";
+
+      if (this.props.youtubeUrl) {
+        playButtonOverlay = (
+          <div className="album-cover-overlay" onClick={this.togglePlayback}/>
+        )
+        coverClass = "album-cover"
+      }
+
       coverOrPlayer = (
-        <div className="album-cover"
+        <div className={coverClass}
           style={albumStyle}
           onClick={this.activatePlayer}>
-          <div className="album-cover-overlay" onClick={this.togglePlayback}/>
+          {playButtonOverlay}
         </div>
       );
     } else {
       coverOrPlayer = (
-        <Uploader />
+        <div className="player-box">
+          <Uploader post={this.postAlbumCover}/>
+        </div>
       );
     }
 

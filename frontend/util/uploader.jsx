@@ -19,36 +19,18 @@ const Uploader = React.createClass({
       e.preventDefault();
       cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function(error, results){
         if(!error){
-          console.log(results[0]);
-          // this.postImage(results[0]);
+          this.props.post(results[0]);
         }
       }.bind(this));
     },
 
-    postImage(image){
-      const song = {
-        id: this.props.songId,
-        album_cover: image.secure_url
-      }
-      SongActions.updateSong(song);
-    },
-
     render() {
       return (
-        <div className="player-box uploader" onClick={this.handleClick}>
-          <div className="uploader-text">
-            Upload an album cover
-          </div>
-        </div>
+        <button className="upload-button" onClick={this.handleClick}>
+          Upload an album cover
+        </button>
       );
     }
 });
 
 module.exports = Uploader;
-
-
-// <Dropzone
-//   onDrop={this.onDrop}
-//   className="player-box uploader"
-//   multiple={false}>
-// </Dropzone>

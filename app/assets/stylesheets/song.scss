@@ -226,6 +226,16 @@ button.save-button:hover, button.annotation-button:hover {
   color: white;
 }
 
+button.upload-button {
+  width: 50%;
+  border: 1px dashed #1E1E1E;
+  display: block;
+  margin: 0 auto;
+  margin-top: 90px;
+  background: transparent;
+  padding: 30px;
+}
+
 .annotation-form {
   padding: 10px;
   background: #E6E6E6;
@@ -285,6 +295,9 @@ button.save-button:hover, button.annotation-button:hover {
   background-repeat: no-repeat;
 }
 
+.no-play-symbol:after {
+  background-image: none;
+}
 .player {
   padding: 50px 0 50px 0;
   margin: -244px 0 0 -4px;

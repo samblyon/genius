@@ -24,6 +24,16 @@ class Api::SongsController < ApplicationController
     end
   end
 
+  def update
+    @song = Song.find(params[:id])
+    @song.update(song_params)
+    if @song.save
+      render :show
+    else
+      render json: {"message": "unable to update"}, status: 422
+    end
+  end
+
   def show
     @song = Song.includes(:comments, comments: [:author]).find(params[:id])
   end
@@ -40,7 +50,8 @@ class Api::SongsController < ApplicationController
       :produced_by,
       :written_by,
       :release_date,
-      :about
+      :about,
+      :album_cover
     )
   end
 end
