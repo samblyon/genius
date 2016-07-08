@@ -320,6 +320,15 @@ button.save-button:hover, button.annotation-button:hover {
   }
 }
 
+.player-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+}
+
 .song-info-stats {
   margin-top: 30px;
   border: 1px solid #000;

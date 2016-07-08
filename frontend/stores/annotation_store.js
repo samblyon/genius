@@ -22,7 +22,6 @@ AnnotationStore.__onDispatch = function (payload) {
     case AnnotationConstants.UPDATED_ANNOTATION_RECEIVED:
       _annotations[payload.annotation.id].body = payload.annotation.body;
       _clearTempAnnotation();
-      // _lastAddedAnnotation = payload.annotation;
       this.__emitChange();
       break;
     case AnnotationConstants.ANNOTATIONS_RECEIVED:

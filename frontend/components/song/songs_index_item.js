@@ -2,8 +2,10 @@ const React = require('react');
 const hashHistory = require('react-router').hashHistory;
 
 const SongsIndexItem = React.createClass({
-  goToSong(){
+  goToSong(e){
+    e.preventDefault();
     hashHistory.push("/songs/" + this.props.song.id);
+    e.stopPropagation();
   },
 
   render () {

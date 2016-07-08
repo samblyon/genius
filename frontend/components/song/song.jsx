@@ -139,7 +139,7 @@ const Song = React.createClass({
       return;
     } else if (
       selection.isCollapsed
-      || this.selectionOverlapping(...sortedIndices)
+        || this.selectionOverlapping(...sortedIndices)
     ) {
       this.setState({
         showInfo: true,
@@ -157,9 +157,6 @@ const Song = React.createClass({
     const style = {};
     const relative = document.body.parentNode.getBoundingClientRect();
     const r = element.getBoundingClientRect();
-    // this will get top of the selection (300 is custom adjustment,
-    // due to the popup that uses this location sitting inside another
-    // div)
     style.top = (r.top - relative.top - 310) + 'px';
     return style;
   },

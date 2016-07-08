@@ -1,5 +1,3 @@
-const Functions = require('./Functions');
-
 module.exports = {
   signUp(user, onSuccess, onError){
     $.post({

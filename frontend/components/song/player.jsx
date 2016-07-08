@@ -4,18 +4,29 @@ import YoutubePlayer from 'react-youtube-player';
 const Player = React.createClass({
   getInitialState() {
     return {
-      player: false
+      player: false,
+      playbackState: 'paused'
     };
   },
 
   activatePlayer(){
     if (this.props.youtubeUrl) {
-      this.setState({ player: true });
+      this.setState({
+        player: true,
+        playbackState: 'playing'
+      });
     }
   },
 
+  togglePlayback(){
+    this.setState({
+      playbackState: (this.state.playbackState === 'paused') ? 'playing' : 'paused'
+    });
+  },
+
   componentWillReceiveProps(newProps) {
-    if (this.props.albumCover !== newProps.albumCover) {
+    if ((this.props.albumCover !== newProps.albumCover)
+          || (this.props.youtubeUrl !== newProps.youtubeUrl)) {
       this.setState({
         player: false
       });
@@ -35,9 +46,8 @@ const Player = React.createClass({
           <div className="player">
             <YoutubePlayer
               key={videoId}
-              className="spinner"
               videoId={videoId}
-              playbackState='playing'
+              playbackState={this.state.playbackState}
               configuration={
                 {
                   showinfo: 0,
@@ -45,6 +55,7 @@ const Player = React.createClass({
                 }
               }
               />
+            <div className="player-overlay" onClick={this.togglePlayback}/>
           </div>
         </div>
       );
@@ -53,7 +64,7 @@ const Player = React.createClass({
         <div className="album-cover"
           style={albumStyle}
           onClick={this.activatePlayer}>
-          <div className="album-cover-overlay"/>
+          <div className="album-cover-overlay" onClick={this.togglePlayback}/>
         </div>
       );
     }

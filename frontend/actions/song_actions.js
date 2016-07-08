@@ -63,14 +63,3 @@ module.exports = {
     });
   }
 };
-
-// For fetching album covers from spotify
-// function getCover(query) {
-//   $.ajax({
-//     url: "https://api.spotify.com/v1/search",
-//     dataType: "JSON",
-//     data: { q: query, type: "track" },
-//     success(res){return(res.tracks.items[0].album.images[1].url);},
-//     error(res){console.log(res)}})
-// }
-//
