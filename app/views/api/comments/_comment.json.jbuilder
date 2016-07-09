@@ -6,4 +6,10 @@ json.extract! comment,
   :commentable_type,
   :commentable_id
 
+json.set! :votes do
+  comment.votes.each do |vote|
+    json.set! vote.user_id, vote
+  end
+end
+
 json.author comment.author.username

@@ -9,6 +9,10 @@ json.extract! @annotation,
 
 json.author @annotation.author.username
 
+json.votes @annotation.votes do |vote|
+  json.set! vote.user_id, vote
+end
+
 json.comments @annotation.comments do |comment|
   json.partial! "/api/comments/comment", comment: comment
 end

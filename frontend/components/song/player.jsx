@@ -7,7 +7,7 @@ const Player = React.createClass({
   getInitialState() {
     return {
       player: !this.props.albumCover,
-      playbackState: 'paused',
+      playbackState: 'playing',
       uploader: !(this.props.albumCover || this.props.youtubeUrl)
     };
   },

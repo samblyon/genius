@@ -19,4 +19,5 @@
  *= require songs_index.scss
  *= require song.scss
  *= require song_form.scss
+ *= require votes.scss
  */

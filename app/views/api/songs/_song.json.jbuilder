@@ -12,3 +12,5 @@ json.extract! song,
   :album,
   :album_cover,
   :about
+
+json.score song.votes.inject(0) {|accum, vote| accum += vote.vote }

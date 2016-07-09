@@ -1,0 +1,76 @@
+// Place all the styles related to the Votes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$charcoal: #222;
+$yellow: #ffff64;
+$bright-blue: #5ba7c2;
+$pale-blue: #99a7ee;
+$bright-green: #0ecb27;
+$pink: #ff1464;
+
+button.vote-button {
+  width: 25px;
+  height: 25px;
+  border: 0;
+  background: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+}
+
+button.vote-button:hover {
+  width: 25px;
+  height: 25px;
+  border: 0;
+  background: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+button.vote-button.upvote {
+  background-image: image-url(thumbs_up_ccc);
+}
+
+button.vote-button.upvote:hover {
+  background-image: image-url(thumbs_up_ccc);
+}
+
+button.vote-button.downvote {
+  background-image: image-url(thumbs_up_ccc);
+  -moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: FlipV;
+    -ms-filter: "FlipV";
+}
+
+button.vote-button.downvote:hover {
+  background-image: image-url(thumbs_up_ccc);
+  -moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: FlipV;
+    -ms-filter: "FlipV";
+}
+
+
+.vote-form {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tally {
+  color: #ccc;
+  font-family: 'Assistant', sans-serif;
+  font-weight: 700;
+}
+
+.positive {
+  color: $bright-green;
+}

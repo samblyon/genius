@@ -10,8 +10,12 @@ class Api::AnnotationsController < ApplicationController
 
   def show
     @annotation = Annotation
-        .includes(:author, :comments, comments: [:author])
-        .find(params[:id])
+        .includes(
+          :author,
+          :comments,
+          :votes,
+          comments: [:author]
+        ).find(params[:id])
   end
 
   def create
