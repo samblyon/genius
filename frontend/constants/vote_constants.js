@@ -1,0 +1,4 @@
+module.exports = {
+  VOTE_RECEIVED: "VOTE_RECEIVED",
+  VOTE_REMOVED: "VOTE_REMOVED"
+}

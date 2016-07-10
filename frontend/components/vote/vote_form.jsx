@@ -25,6 +25,7 @@ const VoteForm = React.createClass({
   },
 
   userVoteIfPresentOrZero(){
+    debugger;
     const votes = this.props.votes;
     const currentUser = SessionStore.currentUser();
     if (currentUser && votes) {
@@ -34,12 +35,13 @@ const VoteForm = React.createClass({
     }
   },
 
-  vote(e, voteValue){
+  vote(voteValue, e){
+    debugger;
     e.preventDefault();
     const vote = {
       vote: voteValue,
-      upvotable_type: this.props.contentType,
-      upvotable_id: this.props.parentId
+      upvotable_type: this.props.upvotableType,
+      upvotable_id: this.props.upvotableId
     };
     VoteActions.registerVote(vote);
   },
@@ -66,7 +68,7 @@ const VoteForm = React.createClass({
         score + (voteValue) ? voteValue : 0;
       });
 
-      sign = (score > 0) ? " + " : " - ";
+      sign = (score >= 0) ? " + " : " - ";
     }
 
     const tallyClass = (score < 0) ? "tally negative" : "tally positive";

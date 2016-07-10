@@ -1,25 +1,30 @@
 class Api::VotesController < ApplicationController
   def register
-    vote = Vote.find_or_create_by(
+    full_vote_conditions = {
       upvotable_id: vote_params[:upvotable_id],
-      upvotable_type: vote_params[:upvotable_type]
-    )
+      upvotable_type: vote_params[:upvotable_type],
+      vote: vote_params[:vote],
+      user_id: current_api_user.id
+    }
 
-    # test if vote the same
-    # if same delete vote
-    # if different update vote
+    partial_vote_conditions = {
+      upvotable_id: vote_params[:upvotable_id],
+      upvotable_type: vote_params[:upvotable_type],
+      user_id: current_api_user.id
+    }
 
-    # return vote if valid
-    if vote.save
-      render json: vote
+    # Destroy vote if already voted this way (ie user is unvoting)
+    existing_same_vote = Vote.where(full_vote_conditions).destroy_all
+
+    # if new vote value, destroy any existing user vote on post and create vote
+    if existing_same_vote.empty?
+      Vote.where(partial_vote_conditions).destroy_all
+      @vote = Vote.create!(full_vote_conditions)
     else
-      render json: vote.errors, status: 422
+      # return vote data minus vote value if unvote has occurred
+      @vote = existing_same_vote.first.attributes.except("vote")
     end
-  end
 
-  def destroy
-    @vote = Vote.find(params: id)
-    @vote.destroy
     render json: @vote
   end
 

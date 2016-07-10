@@ -9,8 +9,10 @@ json.extract! @annotation,
 
 json.author @annotation.author.username
 
-json.votes @annotation.votes do |vote|
-  json.set! vote.user_id, vote
+json.set! :votes do
+  @annotation.votes.each do |vote|
+    json.set! vote.user_id, vote
+  end
 end
 
 json.comments @annotation.comments do |comment|

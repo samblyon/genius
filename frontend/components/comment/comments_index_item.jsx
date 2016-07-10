@@ -1,6 +1,6 @@
 const React = require('react');
 const SessionStore = require('../../stores/session_store');
-const VoteForm = require('../vote/vote_form');
+// const VoteForm = require('../vote/vote_form');
 
 const CommentsIndexItem = React.createClass({
   getInitialState() {
@@ -46,7 +46,6 @@ const CommentsIndexItem = React.createClass({
           </div>
           {userButton}
         </div>
-        <VoteForm subject={this.props.comment} votes={this.props.comment.votes} />
       </div>
     );
   }

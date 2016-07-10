@@ -6,6 +6,8 @@ const AnnotationPrompt = require("./annotation_prompt");
 const SessionStore = require("../../stores/session_store");
 const CommentForm = require("../comment/comment_form");
 const CommentsIndex = require("../comment/comments_index");
+const VoteForm = require("../vote/vote_form");
+
 
 const Annotation = React.createClass({
   getInitialState(){
@@ -137,6 +139,9 @@ const Annotation = React.createClass({
       annotationSegment = (
         <div className="annotation">
           {formOrView}
+          <VoteForm upvotableId={this.state.annotation.id}
+                    upvotableType="Annotation"
+                    votes={this.state.annotation.votes} />
           <div className="comments clearfix">
             <CommentForm annotation={this.state.annotation} />
             <CommentsIndex comments={this.state.annotation.comments} />

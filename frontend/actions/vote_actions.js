@@ -1,6 +1,7 @@
 const AppDispatcher = require('../dispatcher/dispatcher');
 const VoteConstants = require('../constants/vote_constants');
 const VoteApiUtil = require('../util/vote_api_util');
+const ErrorActions = require('../actions/error_actions');
 
 module.exports = {
   registerVote(vote){
@@ -12,8 +13,13 @@ module.exports = {
   },
 
   receiveVote(vote){
+    let actionType = VoteConstants.VOTE_RECEIVED;
+    if (!vote.vote) {
+      actionType = VoteConstants.VOTE_REMOVED;
+    }
+
     AppDispatcher.dispatch({
-      actionType: VoteConstants.VOTE_RECEIVED,
+      actionType: actionType,
       vote: vote
     });
   }

@@ -2,6 +2,7 @@ const Store = require('flux/utils').Store;
 const AppDispatcher = require('../dispatcher/dispatcher');
 const SongConstants = require('../constants/song_constants');
 const CommentConstants = require('../constants/comment_constants');
+const VoteConstants = require('../constants/vote_constants');
 
 let _songs = {};
 let _searchResults = {};
@@ -31,6 +32,20 @@ SongStore.__onDispatch = function (payload) {
     case CommentConstants.SONG_COMMENT_REMOVED:
       _removeComment(payload.comment);
       this.__emitChange();
+      break;
+    case VoteConstants.VOTE_RECEIVED:
+    debugger;
+      if (payload.vote.upvotable_type === "Song") {
+        _addVote(payload.vote);
+        this.__emitChange();
+      }
+      break;
+    case VoteConstants.VOTE_REMOVED:
+    debugger;
+      if (payload.vote.upvotable_type === "Song") {
+        _removeVote(payload.vote);
+        this.__emitChange();
+      }
       break;
   }
 };
@@ -72,6 +87,21 @@ function _removeComment(comment){
   const commentIds = song.comments.map(comment => comment.id);
   const commentIndex = commentIds.indexOf(comment.id);
   song.comments.splice(commentIndex, 1);
+}
+
+function _addVote(vote){
+  const targetItemVotes = _songs[vote.upvotable_id]["votes"];
+  if (targetItemVotes) {
+    targetItemVotes[vote.user_id] = vote;
+  } else {
+    _songs[vote.upvotable_id]["votes"] = {
+      [vote.user_id]: vote
+    }
+  }
+}
+
+function _removeVote(vote){
+  delete _songs[vote.upvotable_id]["votes"][vote.user_id];
 }
 
 module.exports = SongStore;
