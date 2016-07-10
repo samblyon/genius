@@ -1,5 +1,4 @@
 const React = require('react');
-const SongInfoStats = require('./song_info_stats');
 const SongAbout = require('./song_about');
 
 const SongInfo = React.createClass({
@@ -9,7 +8,6 @@ const SongInfo = React.createClass({
     return (
       <div className="song-info">
         <div className={infoClass}>
-          <SongInfoStats song={this.props.song} />
           <SongAbout song={this.props.song} />
         </div>
       </div>
