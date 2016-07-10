@@ -1,6 +1,7 @@
 const React = require('react');
 const SessionStore = require('../../stores/session_store');
 const VoteActions = require('../../actions/vote_actions');
+const AuthPrompt = require('../comment/comment_prompt');
 
 const VoteForm = React.createClass({
   getInitialState: function() {
@@ -8,7 +9,8 @@ const VoteForm = React.createClass({
 
     return {
       currentUser: SessionStore.currentUser(),
-      userVote: this.userVoteIfPresentOrZero()
+      userVote: this.userVoteIfPresentOrZero(),
+      showPrompt: false
     };
   },
 
@@ -40,15 +42,24 @@ const VoteForm = React.createClass({
 
   vote(voteValue, e){
     e.preventDefault();
-    const vote = {
-      vote: voteValue,
-      upvotable_type: this.props.upvotableType,
-      upvotable_id: this.props.upvotableId
-    };
-    VoteActions.registerVote(vote);
+    if (this.state.currentUser.id) {
+      const vote = {
+        vote: voteValue,
+        upvotable_type: this.props.upvotableType,
+        upvotable_id: this.props.upvotableId
+      };
+      VoteActions.registerVote(vote);
+    } else {
+      this.setState({ showPrompt: true });
+    }
   },
 
   render(){
+    let prompt;
+    if (this.state.showPrompt) {
+      prompt = <AuthPrompt />;
+    }
+
     const votes = this.props.votes;
     let score = 0;
     let sign;
@@ -86,6 +97,7 @@ const VoteForm = React.createClass({
         <button
           onClick={this.vote.bind(null, -1)}
           className={downvoteClass}></button>
+        {prompt}
       </div>
     );
   },
