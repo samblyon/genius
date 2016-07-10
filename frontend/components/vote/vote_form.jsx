@@ -25,7 +25,6 @@ const VoteForm = React.createClass({
   },
 
   userVoteIfPresentOrZero(){
-    debugger;
     const votes = this.props.votes;
     const currentUser = SessionStore.currentUser();
     if (currentUser && votes) {
@@ -36,7 +35,6 @@ const VoteForm = React.createClass({
   },
 
   vote(voteValue, e){
-    debugger;
     e.preventDefault();
     const vote = {
       vote: voteValue,
@@ -48,7 +46,7 @@ const VoteForm = React.createClass({
 
   render(){
     const votes = this.props.votes;
-    const score = 0;
+    let score = 0;
     let sign;
 
     let upvoteClass = "vote-button upvoted upvote";
@@ -65,10 +63,12 @@ const VoteForm = React.createClass({
     if (votes) {
       Object.keys(votes).forEach(key => {
         const voteValue = votes[key].vote;
-        score + (voteValue) ? voteValue : 0;
+        if (voteValue) {
+          score += voteValue;
+        }
       });
 
-      sign = (score >= 0) ? " + " : " - ";
+      sign = (score >= 0) ? "+" : " ";
     }
 
     const tallyClass = (score < 0) ? "tally negative" : "tally positive";
@@ -78,7 +78,7 @@ const VoteForm = React.createClass({
         <button
           onClick={this.vote.bind(null, 1)}
           className={upvoteClass}></button>
-        <div className={tallyClass}>{sign} {(votes) ? score : 0}</div>
+        <div className={tallyClass}>{sign}{(votes) ? score : 0}</div>
         <button
           onClick={this.vote.bind(null, -1)}
           className={downvoteClass}></button>

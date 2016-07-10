@@ -34,14 +34,12 @@ SongStore.__onDispatch = function (payload) {
       this.__emitChange();
       break;
     case VoteConstants.VOTE_RECEIVED:
-    debugger;
       if (payload.vote.upvotable_type === "Song") {
         _addVote(payload.vote);
         this.__emitChange();
       }
       break;
     case VoteConstants.VOTE_REMOVED:
-    debugger;
       if (payload.vote.upvotable_type === "Song") {
         _removeVote(payload.vote);
         this.__emitChange();

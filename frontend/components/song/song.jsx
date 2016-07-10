@@ -10,6 +10,7 @@ const LyricsDisplay = require('./lyrics_display');
 const CommentsIndex = require('../comment/comments_index');
 const CommentForm = require('../comment/comment_form');
 const Player = require('./player');
+const VoteForm = require('../vote/vote_form');
 
 const Song = React.createClass({
   getInitialState: function() {
@@ -177,6 +178,10 @@ const Song = React.createClass({
                 selected={selection}
                 onHighlight={this.handleHighlight}
                 handleHighlightClick={this.handleHighlightClick} />
+            <VoteForm
+              upvotableId={song.id}
+              upvotableType="Song"
+              votes={song.votes} />
             <div className="annotation comments clearfix">
               <CommentForm song={song} />
               <CommentsIndex comments={song.comments} />
