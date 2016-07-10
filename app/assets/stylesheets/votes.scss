@@ -18,28 +18,29 @@ button.vote-button {
   border-radius: 50%;
   margin: 0;
 }
+button.vote-button:focus {
+  outline: none;
+}
 
 button.vote-button:hover {
   width: 25px;
   height: 25px;
   border: 0;
-  background: $pink;
-  background-repeat: no-repeat;
   background-size: cover;
+  background-repeat: no-repeat;
   border-radius: 50%;
+  margin: 0;
 }
+
 
 button.vote-button.upvote {
   background-image: image-url(thumbs_up_ccc);
 }
 
-button.vote-button.upvote:hover {
-  background-image: image-url(thumbs_up_ccc);
+button.vote-button.upvote:hover,
+button.vote-button.upvoted {
+  background-image: image-url(thumbs_up_green);
 }
-
-// button.vote-button.downvoted {
-//   background: $pink;
-// }
 
 button.vote-button.downvote {
   background-image: image-url(thumbs_up_ccc);
@@ -51,8 +52,10 @@ button.vote-button.downvote {
     -ms-filter: "FlipV";
 }
 
-button.vote-button.downvote:hover {
-  background-image: image-url(thumbs_up_ccc);
+button.vote-button.downvote:hover,
+button.vote-button.downvoted,
+button.vote-button.downvoted:hover {
+  background-image: image-url(thumbs_up_charcoal);
   -moz-transform: scaleY(-1);
     -o-transform: scaleY(-1);
     -webkit-transform: scaleY(-1);
