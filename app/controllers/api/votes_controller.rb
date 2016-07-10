@@ -25,7 +25,15 @@ class Api::VotesController < ApplicationController
       @vote = existing_same_vote.first.attributes.except("vote")
     end
 
-    render json: @vote
+    # return vote itself, unless we're dealing with a comment
+    # if dealing with a comment vote return the comment
+    if vote_params[:upvotable_type] == "Comment"
+      @comment = Comment.includes(:votes, :author)
+                        .find(vote_params[:upvotable_id])
+      render 'api/comments/show'
+    else
+      render json: @vote
+    end
   end
 
   private

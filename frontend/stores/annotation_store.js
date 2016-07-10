@@ -104,8 +104,17 @@ function _clearLastAdded () {
 }
 
 function _addComment(comment){
-  const annotationId = comment.commentable_id;
-  _annotations[annotationId].comments.push(comment);
+  const annotation = _annotations[comment.commentable_id];
+  const comments = annotation.comments;
+  const existing_index = comments.findIndex((old_comment) => {
+                            return old_comment.id === comment.id;
+                          });
+  if (existing_index > -1) {
+    annotation.comments.splice(existing_index, 1, comment);
+  } else {
+    annotation.comments.push(comment);
+  }
+
 }
 
 function _removeComment(comment){

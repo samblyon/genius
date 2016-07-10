@@ -1,6 +1,6 @@
 const React = require('react');
 const SessionStore = require('../../stores/session_store');
-// const VoteForm = require('../vote/vote_form');
+const VoteForm = require('../vote/vote_form');
 
 const CommentsIndexItem = React.createClass({
   getInitialState() {
@@ -44,6 +44,10 @@ const CommentsIndexItem = React.createClass({
             <div className="comment-author">{this.props.comment.author}</div>
             <div className="comment-body">{this.props.comment.body}</div>
           </div>
+          <VoteForm
+            upvotableId={this.props.comment.id}
+            upvotableType="Comment"
+            votes={this.props.comment.votes} />
           {userButton}
         </div>
       </div>
