@@ -16,13 +16,14 @@ button.vote-button {
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 50%;
+  margin: 0;
 }
 
 button.vote-button:hover {
   width: 25px;
   height: 25px;
   border: 0;
-  background: white;
+  background: $pink;
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 50%;
@@ -35,6 +36,10 @@ button.vote-button.upvote {
 button.vote-button.upvote:hover {
   background-image: image-url(thumbs_up_ccc);
 }
+
+// button.vote-button.downvoted {
+//   background: $pink;
+// }
 
 button.vote-button.downvote {
   background-image: image-url(thumbs_up_ccc);
@@ -63,12 +68,14 @@ button.vote-button.downvote:hover {
   width: 40%;
   align-items: center;
   flex-wrap: wrap;
+  padding: 0px 5px 15px 10px;
 }
 
 .tally {
   color: #ccc;
   font-family: 'Assistant', sans-serif;
   font-weight: 700;
+  letter-spacing: .3em;
 }
 
 .positive {

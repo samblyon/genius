@@ -28,7 +28,11 @@ const VoteForm = React.createClass({
     const votes = this.props.votes;
     const currentUser = SessionStore.currentUser();
     if (currentUser && votes) {
-      return votes[currentUser.id];
+      if (votes[currentUser.id]) {
+        return votes[currentUser.id].vote;
+      } else {
+        return 0;
+      }
     } else {
       return 0;
     }
