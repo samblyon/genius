@@ -38,18 +38,21 @@ const CommentsIndexItem = React.createClass({
     }
 
     return(
-      <div className="comment clearfix">
-        <div className="comment-container clearfix">
-          <div className="comment-content">
-            <div className="comment-author">{this.props.comment.author}</div>
-            <div className="comment-body">{this.props.comment.body}</div>
+      <div>
+        <div className="comment clearfix">
+          <div className="comment-container clearfix">
+            <div className="comment-content">
+              <div className="comment-author">{this.props.comment.author}</div>
+              <div className="comment-body">{this.props.comment.body}</div>
+            </div>
+            {userButton}
           </div>
-          <VoteForm
-            upvotableId={this.props.comment.id}
-            upvotableType="Comment"
-            votes={this.props.comment.votes} />
-          {userButton}
         </div>
+        <VoteForm
+          key={"commentVote" + this.props.comment.id}
+          upvotableId={this.props.comment.id}
+          upvotableType="Comment"
+          votes={this.props.comment.votes} />
       </div>
     );
   }

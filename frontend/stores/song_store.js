@@ -75,8 +75,17 @@ function _resetSongs(songs){
 }
 
 function _addComment(comment){
-  const songId = comment.commentable_id;
-  _songs[songId].comments.push(comment);
+  const song = _songs[comment.commentable_id];
+  const comments = song.comments;
+  const existing_index = comments.findIndex((old_comment) => {
+                            return old_comment.id === comment.id;
+                          });
+  if (existing_index > -1) {
+    song.comments.splice(existing_index, 1, comment);
+  } else {
+    song.comments.push(comment);
+  }
+
 }
 
 function _removeComment(comment){

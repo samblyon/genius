@@ -179,6 +179,7 @@ const Song = React.createClass({
                 onHighlight={this.handleHighlight}
                 handleHighlightClick={this.handleHighlightClick} />
             <VoteForm
+              key={"songVote" + song.id}
               upvotableId={song.id}
               upvotableType="Song"
               votes={song.votes} />

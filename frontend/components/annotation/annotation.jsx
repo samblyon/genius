@@ -140,6 +140,7 @@ const Annotation = React.createClass({
         <div className="annotation">
           {formOrView}
           <VoteForm upvotableId={this.state.annotation.id}
+                    key={"VoteOnAnnotation" + this.state.annotation.id}
                     upvotableType="Annotation"
                     votes={this.state.annotation.votes} />
           <div className="comments clearfix">
