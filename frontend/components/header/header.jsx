@@ -46,7 +46,9 @@ const Header = React.createClass({
       <div className="header">
         <header className="header-top">
           <SearchBar />
-          <div className="logo-container" onClick={this.goHome}></div>
+          <div className="logo-container" onClick={this.goHome}>
+            so-genius
+          </div>
           {authOrProfile}
         </header>
         <nav className="header-nav">

@@ -104,11 +104,17 @@ button.demo-login {
 }
 
 .logo-container {
-  background-image: url(/geniuslogo.png);
   width: 150px;
   height: 40px;
-  background-size: contain;
   margin: 0 auto;
+  line-height: 1.4em;
+  font-size: 1.7em;
+  font-weight: 700;
+  font-family: 'Cairo', sans-serif;
+  color: white;
+  text-shadow: -2px 2px #222;
+  letter-spacing: .07em;
+  cursor: pointer;
 }
 
 .auth-nav {
