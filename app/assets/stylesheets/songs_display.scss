@@ -32,6 +32,18 @@ h3 {
   width: 100%;
   display: block;
   margin-bottom: -20px;
+  position: relative;
+}
+
+.song-display-splash-text {
+  position: absolute;
+  bottom: 40%;
+  left: 20%;
+  right: 20%;
+  color: white;
+  font-size: 2em;
+  text-align: center;
+  padding: 0px 10px 0px 10px;
 }
 
 .song-display {
@@ -46,7 +58,7 @@ h3 {
   width: 100%;
   margin-top: 10px;
   margin-bottom: 5px;
-  margin-right: 10px;
+  margin-right: 5px;
   height: auto;
   padding: 10px;
   color: #aaa;
@@ -66,24 +78,16 @@ h3 {
   border: 1px solid #1E1E1E;
 }
 
-.about-image-container {
-  filter: invert(100%);
-  background-image-size: cover;
-  display: inline-block;
-}
-
-
 .song-display-item {
   box-sizing: border-box;
   border: 1px solid #1E1E1E;
   width: 100%;
   margin-top: 10px;
   margin-bottom: 5px;
-  margin-right: 10px;
-  height: 125px;
+  margin-right: 5px;
+  height: 140px;
   padding: 10px;
   color: #aaa;
-  background-image: linear-gradient(rgba(40, 40, 40, 0.6), rgba(40, 40, 40, 0.6));
   background-size: cover;
 }
 
