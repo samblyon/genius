@@ -7,11 +7,12 @@ $pink: #ff1464;
 
 .footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0px 10px;
   align-items: center;
   flex-direction: row;
   background: #000;
-  color: #E6E6E6;
+  color: #ccc;
 }
 
 .footer li {
