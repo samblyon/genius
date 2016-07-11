@@ -1,0 +1,24 @@
+$charcoal: #222;
+$yellow: #ffff64;
+$bright-blue: #5ba7c2;
+$pale-blue: #99a7ee;
+$bright-green: #0ecb27;
+$pink: #ff1464;
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background: #000;
+  color: #E6E6E6;
+}
+
+.footer li {
+  float: left;
+  padding: 10px;
+}
+
+.footer li:hover {
+  color: $pink;
+}

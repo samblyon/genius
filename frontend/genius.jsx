@@ -10,21 +10,13 @@ const IndexRoute = ReactRouter.IndexRoute;
 const hashHistory = ReactRouter.hashHistory;
 
 const Header = require('./components/header/header');
-const LoginForm = require('./components/auth/login_form');
-const SignupForm = require('./components/auth/signup_form');
 const SessionActions = require('./actions/session_actions');
 const SessionStore = require('./stores/session_store');
-const AnnotationStore = window.annotStore = require('./stores/annotation_store');
-const AnnotationActions = window.annotActs = require('./actions/annotation_actions');
-const SongActions = require('./actions/song_actions');
-const SongStore = window.songStore = require('./stores/song_store');
 const SongDisplay = require('./components/song/song_display');
 const SongsIndex = require('./components/song/songs_index');
 const Song = require('./components/song/song');
 const SongForm = require('./components/song/song_form');
-const CommentActions = window.comActs = require('./actions/comment_actions');
-const CommentApiUtil = window.comUtil = require('./util/comment_api_util');
-
+const Footer = require('./components/footer/footer')
 
 const App = React.createClass({
   render() {
@@ -32,6 +24,7 @@ const App = React.createClass({
       <div>
         <Header />
         {this.props.children}
+        <Footer />
       </div>
     );
   }
