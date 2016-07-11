@@ -5,8 +5,8 @@ Rails.application.configure do
   config.cache_classes = true
 
   # serve static assets
-  config.serve_static_assets = true
-  
+  config.serve_static_files = true
+
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
