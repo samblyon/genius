@@ -37,13 +37,15 @@ h3 {
 
 .song-display-splash-text {
   position: absolute;
+  top: 20%;
   bottom: 40%;
-  left: 20%;
-  right: 20%;
+  left: 5%;
+  right: 5%;
   color: white;
   font-size: 2em;
   text-align: center;
   padding: 0px 10px 0px 10px;
+  font-family: 'Galada', serif;
 }
 
 .song-display {
@@ -99,31 +101,36 @@ h3 {
 }
 
 .song-display-item {
-  font-family: 'DIN Pro Condensed Regular', sans-serif;
+  font-family: 'Cairo', sans-serif;
   font-size: 1.5em;
+  font-weight: 300;
 }
 
 .song-display-item .song-artist {
   background: #000;
-  box-shadow: 0px -1px #000;
   padding-right: 8px;
+  display: inline-block;
+  line-height: 1.9em;
+  padding-left: 8px;
 }
 
 .song-display-item .song-title {
-  font-family: 'DIN Pro Condensed Bold', sans-serif;
+  font-family: 'Cairo', sans-serif;
   background: #000;
+  font-size: 1em;
   box-shadow: -10px 0px #000;
+  font-weight: 700;
 }
-
-@font-face {
-  font-family: 'DIN Pro Condensed Regular';
-  font-style: normal;
-  font-weight: normal;
-  src:font-url("/assets/din-pro-cond/DINPro-Cond.woff") format("woff");
-}
-@font-face {
-  font-family: 'DIN Pro Condensed Bold';
-  font-style: normal;
-  font-weight: normal;
-  src:font-url("/assets/din-pro-cond/DINPro-CondBold.woff") format("woff");
-}
+//
+// @font-face {
+//   font-family: 'DIN Pro Condensed Regular';
+//   font-style: normal;
+//   font-weight: normal;
+//   src:font-url("/assets/din-pro-cond/DINPro-Cond.woff") format("woff");
+// }
+// @font-face {
+//   font-family: 'DIN Pro Condensed Bold';
+//   font-style: normal;
+//   font-weight: normal;
+//   src:font-url("/assets/din-pro-cond/DINPro-CondBold.woff") format("woff");
+// }

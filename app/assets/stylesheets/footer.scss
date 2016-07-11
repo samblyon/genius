@@ -8,7 +8,7 @@ $pink: #ff1464;
 .footer {
   display: flex;
   justify-content: space-between;
-  padding: 0px 10px;
+  padding: 0px 15px;
   align-items: center;
   flex-direction: row;
   background: #000;
@@ -17,9 +17,13 @@ $pink: #ff1464;
 
 .footer li {
   float: left;
-  padding: 10px;
+  padding: 10px 0px 10px 10px;
 }
 
-.footer li:hover {
+.contact {
+  color: $bright-blue;
+}
+
+.contact:hover {
   color: $pink;
 }

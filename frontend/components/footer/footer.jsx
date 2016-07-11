@@ -7,8 +7,8 @@ const Footer = React.createClass({
         <div>so-genius</div>
         <ul>
           <li>Developer contact:</li>
-          <li><a href="https://www.linkedin.com/in/samuellyon">LinkedIn</a></li>
-          <li><a href="https://github.com/samblyon">github</a></li>
+          <li className="contact"><a href="https://www.linkedin.com/in/samuellyon">LinkedIn</a></li>
+          <li className="contact"><a href="https://github.com/samblyon">github</a></li>
         </ul>
       </div>
     )

@@ -47,8 +47,11 @@ panda = {
   about: '“Panda” is inspired by the white BMW X6—Desiigner notes the luxury car’s resemblance to the endangered animal.
 
 The Brooklyn-based rapper had the vision for this breakout track while playing the video game Grand Theft Auto V.
+
 Desiigner uploaded the song to Soundcloud during December 2015—it quickly amassed more than a million plays. In February 2016, Kanye West incorporated two verses of this track into “Father Stretch My Hands Pt. 2,” for his album The Life of Pablo. He’d announce Desiigner’s signing to G.O.O.D. Music at the February 11th TLOP listening session at Madison Square Garden.
+
 On April 25th, 2016, Billboard released their Hot 100 chart information regarding the week of May 7th’s top 10, with Panda becoming No. 1. By doing so, Desiigner broke the 41 week streak of non-Americans holding the No. 1 spot in the Hot 100.
+
 Manchester producer Menace says he sold the “Panda” beat to Desiigner for $200. He was inspired by DC Comics character the Joker when creating this instrumental:
 “He’s dark and gritty and my production is dark, gritty, taking-over-the-world type of production.”
 

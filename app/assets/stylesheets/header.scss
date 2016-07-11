@@ -23,11 +23,12 @@ a:hover {
 }
 
 .search-bar {
+  font-family: 'Galada', serif;
   position: absolute;
   top: 5px;
   height: auto;
   left: 5px;
-  padding: 3px;
+  padding: 7px 3px 3px 3px;
   width: 220px;
   color: #000;
   font-size: .875em;
@@ -107,6 +108,7 @@ button.demo-login {
   width: 150px;
   height: 40px;
   margin: 0 auto;
+  padding-bottom: 5px;
   line-height: 1.4em;
   font-size: 1.7em;
   font-weight: 700;
@@ -125,6 +127,7 @@ button.demo-login {
   color: #222;
   -webkit-transition: .15s all;
   transition: .15s all;
+  font-family: 'Galada', serif;
 }
 
 .auth-nav li {
@@ -222,11 +225,4 @@ input {
 .user-dropdown li:hover{
   background: white;
   color: $pink;
-}
-
-@font-face {
-  font-family: 'DIN Pro Condensed Regular';
-  font-style: normal;
-  font-weight: normal;
-  src: local("DIN Pro Condensed Regular"), url("/assets/din-pro-cond/DINPro-Cond.woff") format("woff");
 }

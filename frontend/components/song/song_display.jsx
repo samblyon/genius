@@ -35,8 +35,8 @@ const SongDisplay = React.createClass({
       <div>
         <div className="song-display-splash">
           <div className="song-display-splash-text">
-            The premier location for lyrics annotation & discussion
-            inspired by rapGenius
+            Where the world comes to
+            <p>annotate & discuss lyrics</p>
           </div>
         </div>
         <div className="song-display-page">
@@ -51,11 +51,9 @@ const SongDisplay = React.createClass({
               <p>
                 <span className="bright">So-Genius</span> is a <span className="bright">lyrics annotation and discussion website </span>
                 admiringly based on <a href="http://rap.genius.com">Rap Genius</a>.
-                Pick a song and jump in: beyond signature Genius features like highlight-to-annotate
+                Beyond signature Genius features like highlight-to-annotate
                 and login-in-place, So-Genius delivers snappy front-end authentication,
-                eager-loading, and as-you-type search using React and Rails. Check out the developer,
-                Samuel Lyon, on <a href="http://github.com/samblyon">github</a> or
-                <a href="https://www.linkedin.com/in/samuellyon"> LinkedIn</a>.
+                eager-loading, and as-you-type search using React and Rails. Pick a song and jump in.
                 </p>
               </div>
             </div>

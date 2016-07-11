@@ -211,6 +211,7 @@ So we sailed up to the sun
 Till we found the sea of green
 And we lived beneath the waves
 In our yellow submarine
+
 [Chorus]
 We all live in a yellow submarine
 Yellow submarine, yellow submarine
