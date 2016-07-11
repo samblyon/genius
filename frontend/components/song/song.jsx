@@ -153,12 +153,18 @@ const Song = React.createClass({
     }
   },
 
-  //returns object with top set to top of selection
+  // returns object with top set to top of selection
+  // sets a ceiling equal to the bottom of the video player box
   heightOfElement(element){
     const style = {};
     const relative = document.body.parentNode.getBoundingClientRect();
     const r = element.getBoundingClientRect();
-    style.top = (r.top - relative.top - 310) + 'px';
+    const relHeight = r.top - relative.top - 305;
+    if (relHeight < 125 ) {
+      style.top = '120px';
+    } else {
+      style.top = (relHeight) + 'px';
+    }
     return style;
   },
 
