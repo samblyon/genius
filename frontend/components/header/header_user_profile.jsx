@@ -6,14 +6,11 @@ const HeaderUserProfile = React.createClass({
       <ul className="auth-nav">
 
         <li className="auth">
-          Hi, {this.props.currentUser.username}!
+          welcome, {this.props.currentUser.username}!
 
           <div className="user-dropdown">
             <ul>
-              <li>
-                Welcome to So-Genius
-              </li>
-              <li onClick={this.props.handleLogout} className="auth">
+              <li onClick={this.props.handleLogout}>
                 Log Out
               </li>
             </ul>
