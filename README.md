@@ -1,172 +1,91 @@
-# Genius
+# So-Genius
+A full-stack web application inspired by RapGenius.
 
-[Production link][production]
+![splash](./docs/splash.png)
+
+So-Genius delivers RapGenius' signature highlight-based annotation and in-place login features. The snappy UI and entirely single-page architecture are achieved using React.js, Ruby on Rails and a Postgres database. Full site developed in two weeks.
+
+Check out So-Genius [live here][production].
 
 [production]: https://so-genius.com
 
-## Minimum Viable Product
+## Features and Implementation
 
-Genius is a web application inspired by Genius that will be built using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
 
-- [x] Hosting on Heroku
-- [x] New account creation, login, and guest/demo login
-- [ ] A production README, replacing this README
-- [ ] Songs with Lyrics
-  - [X] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [X] Adequate CSS styling
-- [ ] Annotations on Lyrics
-  - [X] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [X] Adequate CSS styling
-- [ ] Comments on Annotations and Songs
-  - [X] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [X] Adequate CSS styling
-- [ ] Upvotes on Songs, Annotations, Comments
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
+### Authentication: Fast, Secure, Ubiquitous
+- Employs front-end authentication for faster login and signup
+- Utilizes Devise for industry standard security in authentication/session management
+- Users seamlessly sign up/login where they create content, rather than in a pesky popup or signin page
 
-## Design Docs
-* [View Wireframes][views]
-* [React Components][components]
-* [Flux Cycles][flux-cycles]
-* [API endpoints][api-endpoints]
-* [DB schema][schema]
+![login-dropdown](./docs/login_in_comment.png)
 
-[views]: docs/views.md
-[components]: docs/components.md
-[flux-cycles]: docs/flux-cycles.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
+![login-dropdown](./docs/login_in_comment2.png)
 
-## Implementation Timeline
-one feature at a time. Refer back to your MVP and group the features into logical phases. You should have a working app at the end of each phase (even if not all of your features are in yet). For each phase, write a brief game plan and list out any third-party APIs, front-end and back-end components you will need to implement.
+### Annotations: Keeping Track of Indices
 
-### Phase 1: Backend setup and Front End User Authentication (.5 day, W1 Tu 2pm)
+![annotation](./docs/annotation.png)
+- `Annotation` highlights are created and stored according to their start and end indices within lyrics text.
+- At display time, highlights are populated as `<a>` tags within the lyrics display.
+- To ensure future user selections are captured according to their indices in the original lyrics, rather than the mutated lyrics, a second, **transparent ghost layer** of lyrics collects user selections while highlights are displayed in the layer below.
 
-**Objective:** Functioning rails project with Authentication
+Lyrics render method:
+```
+render() {
+  return (
+    <div>
+      <div className="ghost-lyrics"
+           id="ghost-lyrics"
+           onMouseUp={this.props.onHighlight}
+           onClick={this.handleClick}>
+        {this.props.lyrics}
+      </div>
+      <div className="lyrics" id="lyrics">
+        {this.props.populatedLyrics}
+      </div>
+    </div>
+  );
+}
+```
 
-- [x] create new project
-- [x] host on Heroku
-- [x] create `User` model
-- [x] authentication
-- [x] user signup/signin pages
-- [x] blank landing page after signin
+### Popup Ballet: Orchestrating The Annotation Interface
+When a user selects lyrics, a complicated popup ballet is initiated allowing the user to create and edit an annotation. The logic looks like this:
 
-### Phase 2: Songs Model, API, and basic APIUtil (.5 day, W1 Tu 6pm)
+![popup-logic]
 
-**Objective:** Songs can be created and read through the API.
+To simplify the complexity of the sequence, which involves 10+ components, I *centralize* user input and current selection information in a `Song` parent component, and *decentralize* display decisions to subcomponents that can intelligently render based on relevant context (login status, selected annotation id, etc.).
 
-- [x] create `Song` model
-- [x] seed the database with a small amount of test data
-- [x] CR API for songs (`SongsController`)
-- [x] jBuilder views for songs
-- [x] setup Webpack & Flux scaffold
-- [x] setup `APIUtil` to interact with the API
-- [x] test out API interaction in the console.
+By delegating display logic among subcomponents, no single component needs to hold a large amount of state or concern itself with the display logic for other components.
 
-### Phase 3: Flux Architecture and Router (1.5 day, W1 Th 6pm)
+For example:  
+When a user selects an unannotated portion of the lyrics, the `Song` component renders an `Annotation` component with a `prop` `selectedAnnotationId` set to `null`. In the absence of a selected annotation, `Annotation` renders `AnnotationPrompt`.  
 
-**Objective:** Songs and their lyrics can be browsed with the user interface.
+`AnnotationPrompt` listens to the `SessionStore`, which tells it the user is not logged in. It knows in this case to render `AuthPrompt`. `AuthPrompt` in turn handles the logic of displaying `Login` or `Signup` forms, which handle user signup.
 
-- [x] setup the flux loop with skeleton files
-- [x] setup React Router
-- implement each song component, building out the flux loop as needed.
-  - [x] `SongDisplay`
-  - [x] `SongDisplayItem`
-  - [x] `SongsIndex`
-  - [x] `SongsIndexItem`
-  - [x] `SongForm`
-  - [x] `Song`
-  - [x] `LyricsDisplay`
-  - [x] `Lyrics`
-  - [x] `SongInfo`
-  - [x] `SongInfoStats`
-  - [x] `SongAbout`
+The `AnnotationPrompt` however does not concern itself with this logic: all it cares is, as soon as there is a logged in user, unmount the `AuthPrompt` and render an `AnnotationForm`.  
 
-### Phase 4: Start Styling (0.5 days, W1 F 12pm)
+### Eager Loading Comments and Upvotes
+Almost all the content on ```So-Genius``` can be commented upon and upvoted (or downvoted). To achieve this, I used ```polymorphic``` associations between annotations/songs and their respective comments/votes. To reduce the number of queries and thus the database load, comments and upvotes are eager loaded when their parent is to be displayed.
 
-**Objective:** Existing pages (including signup/signin) will look good.
+Song `show` method:
+```ruby
+# songs_controller.rb
 
-- [x] create a basic style guide
-- [X] position elements on the page
-  - [x] Home page (Songs Display)
-  - [x] Songs Index
-  - [X] Song
-  - [X] SongForm
-  - [X] Login Dropdown
-  - [X] Profile Dropdown
+def show
+  @song = Song.includes(
+      :comments,
+      :votes,
+      comments: [:author, :votes])
+    .find(params[:id])
+end
+```
 
-- [X] add basic colors & styles
-  - [x] Home page (Songs Display)
-  - [x] Songs Index
-  - [X] Song
-  - [X] SongForm
-  - [X] Login Dropdown
-  - [X] Profile Dropdown
 
-### Phase 5: Annotations (2 days, W2 Tu 12pm)
+## Ongoing Improvements
 
-**Objective:** Annotations belong to Songs, and can be viewed by portion of site lyrics.
+### Indexed Search
+For full scale production, a more robust search infrastructure is needed that uses pre-indexed data to yield faster search results. I intend to implement `Elastic Search` indexing to replace current `SearchBar` behavior, to reduce server load during live search
 
-- [X] create `Annotation` model
-- build out API, Flux loop, and components for:
-  - [X] Annotation CRUD
-  - [X] triggering annotation suggestion (upgrade Lyrics component)
-  - [X] associating annotations with positions in lyrics
-  - [X] activating sections of lyrics as links (upgrade Lyrics component)
-  - [X] viewing annotations by section of lyrics
+### Refactor to Markdown-Based Lyrics
+Index based annotations, while effective, result in less flexibility to edit lyrics and require extra song and dance during annotation. Storing lyrics in markdown allows annotations to be directly linked in the source lyrics text using `[selection](annotationId)` notation. This would allow lyrics to be edited without misaligning existing annotations.
 
-### Phase 6: Comments (1 days, W2 W 12pm)
-
-**Objective:** Songs and Annotations can be commented on. Comments can be added, edited and destroyed.
-
-- [X] create `Comment` model (polymorphic)
-- [X] create `Commentable` module and integrate with Songs and Annotations
-- build out API, Flux loop, and components for:
-  - [X] fetching comments for songs and annotations
-  - [X] adding / deleting comments on Songs and Annotations
-  - [ ] editing comments
-
-### Phase 7: Styling II (1 day, W2 Th 6pm)
-
-**objective:** Annotations and Comments appear in correct places, match Genius style;
-
-- Build layout of lyrics, annotations and comments
-  - [X] Apply style guide to new elements
-  - [X] Style new elements
-
-### Phase 8: Upvotes (1 day, W2 F 6pm)
-
-**objective:** Users can up and downvote songs, annotations and comments. Comments appear in order of upvote count.
-
-- [ ] create `Vote` model (polymorphic)
-- [ ] create `Votable` module and integrate with Songs, Annotations and Comments
-- build out API, Flux loop, and components for:
-  - [ ] fetching vote count and voted status for songs, annotations and comments
-  - [ ] voting and unvoting on songs, annotations and comments
-  - [ ] ordering comments and top songs by votes (using Rails model)
-- [ ] Style the new voter elements.
-
-### Phase 9: Styling Cleanup and Seeding (1 day, W2 Sa 6pm)
-
-**objective:** Make the site feel more cohesive and awesome.
-
-- [ ] Get a large volume of song data, clean and import to database
-- [ ] Get feedback on my UI from others
-- [ ] Refactor HTML classes & CSS rules
-- [ ] Add modals, transitions, and other styling flourishes.
-
-### Bonus Features (TBD)
-- [X] Search
-- [ ] Pagination / infinite scroll for SongsIndex and CommentsIndex
-- [ ] Tagging
-- [ ] Music Player
-
-[phase-one]: docs/phases/phase1.md
-[phase-two]: docs/phases/phase2.md
-[phase-three]: docs/phases/phase3.md
-[phase-four]: docs/phases/phase4.md
-[phase-five]: docs/phases/phase5.md
+[popup-logic]: ./docs/popup_logic.png
