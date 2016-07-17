@@ -6,8 +6,10 @@ $bright-green: #0ecb27;
 $pink: #ff1464;
 
 .song-display-page {
-  background: #000;
+  background: #fff;
   padding: 0px 10px;
+  max-width: 1100px;
+  margin: 0 auto;
 
   h3 {
     margin-top: 1.3em;
@@ -82,15 +84,19 @@ h3 {
 
 .song-display-item {
   box-sizing: border-box;
-  border: 1px solid #1E1E1E;
-  width: 100%;
+  width: 31.5%;
+  min-width: 250px;
+  max-width: 400px;
   margin-top: 10px;
   margin-bottom: 5px;
-  margin-right: 5px;
-  height: 140px;
+  margin-right: 10px;
+  height: 600px;
   padding: 10px;
-  color: #aaa;
+  color: #ccc;
   background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
 
@@ -106,20 +112,34 @@ h3 {
   font-weight: 300;
 }
 
+.song-display-item-info-container {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  font-size: 1.3em;
+  height: 70%;
+  background: linear-gradient(0deg, #000, 75%, rgba(0,0,0,0));
+}
+
+.song-display-item-info {
+  position: absolute;
+  bottom: 10px;
+  padding: 10px;
+}
+
 .song-display-item .song-artist {
-  background: #000;
-  padding-right: 8px;
-  display: inline-block;
-  line-height: 1.9em;
-  padding-left: 8px;
+    bottom: 0;
+    display: block;
+    line-height: 1.9em;
+    font-size: .7em;
 }
 
 .song-display-item .song-title {
-  font-family: 'Cairo', sans-serif;
-  background: #000;
-  font-size: 1em;
-  box-shadow: -10px 0px #000;
-  font-weight: 700;
+//   font-family: 'Cairo', sans-serif;
+//   background: #000;
+    font-weight: 700;
+    line-height: normal;
 }
 //
 // @font-face {

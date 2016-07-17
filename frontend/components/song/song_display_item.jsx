@@ -17,8 +17,12 @@ const SongDisplayItem = React.createClass({
           id={this.props.song.id}
           className="song-display-item"
           style={itemStyle}>
-        <span className="song-title">{this.props.song.title}</span>
-        <span className="song-artist">{" by " + this.props.song.artist}</span>
+        <div className="song-display-item-info-container">
+          <div className="song-display-item-info">
+            <span className="song-title">{this.props.song.title}</span>
+            <span className="song-artist">{" by " + this.props.song.artist}</span>
+          </div>
+        </div>
       </li>
     );
   }
