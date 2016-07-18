@@ -57,7 +57,7 @@ const VoteForm = React.createClass({
   render(){
     let prompt;
     if (this.state.showPrompt) {
-      prompt = <AuthPrompt />;
+      prompt = <div className="annotation"><AuthPrompt /></div>;
     }
 
     const votes = this.props.votes;
@@ -97,7 +97,7 @@ const VoteForm = React.createClass({
         <button
           onClick={this.vote.bind(null, -1)}
           className={downvoteClass}></button>
-        {prompt}
+        <div className="annotation">{prompt}</div>
       </div>
     );
   },
