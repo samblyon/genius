@@ -11,7 +11,14 @@ class Api::SongsController < ApplicationController
                   ).order(:title, :artist)
     else
       # Upgrade this to select top 10 songs by upvotes
-      @songs = Song.all.limit(10)
+      @songs = Song
+                .select('
+                    songs.*,
+                    sum(votes.vote) as score')
+                .joins(:votes)
+                .group("songs.id")
+                .order("score DESC")
+                .limit(9)
     end
   end
 

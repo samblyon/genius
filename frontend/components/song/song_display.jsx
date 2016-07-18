@@ -25,9 +25,9 @@ const SongDisplay = React.createClass({
 
 
   render () {
-    const tiles = this.state.songs.map(song => {
+    const tiles = this.state.songs.map((song, index) => {
       return(
-        <SongDisplayItem song={song} key={song.id} />
+        <SongDisplayItem song={song} order={index + 1} key={song.id} />
       );
     });
 
@@ -49,7 +49,7 @@ const SongDisplay = React.createClass({
           <div className="song-display">
             <div className="about">
               <p>
-                <span className="bright">So-Genius</span> is a <span className="bright">lyrics annotation and discussion website </span>
+                So-Genius is a lyrics annotation and discussion website
                 admiringly based on <a href="http://rap.genius.com">Rap Genius</a>.
                 Beyond signature Genius features like highlight-to-annotate
                 and login-in-place, So-Genius delivers snappy front-end authentication,
